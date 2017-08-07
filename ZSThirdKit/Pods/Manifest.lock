@@ -1,0 +1,17 @@
+PODS:
+  - HTestVC (1.2.0)
+  - TencentOpenApiSDK (2.9.5):
+    - TencentOpenApiSDK/Basic (= 2.9.5)
+  - TencentOpenApiSDK/Basic (2.9.5)
+
+DEPENDENCIES:
+  - HTestVC
+  - TencentOpenApiSDK
+
+SPEC CHECKSUMS:
+  HTestVC: 5fb9bded467adaf0c58d40fa2eee366881949fc9
+  TencentOpenApiSDK: a0d7716edd6eb438d65828168e8e5137301b436d
+
+PODFILE CHECKSUM: facb7c4d2f21f6c12862b8efd2bc805f5335ada1
+
+COCOAPODS: 1.2.1
