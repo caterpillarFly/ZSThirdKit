@@ -11,3 +11,24 @@
 @implementation ZShareInfo
 
 @end
+
+
+@implementation ZShareWebPage
+
+@end
+
+
+@implementation ZShareText
+
+
+@end
+
+@implementation ZShareImage
+
+@end
+
+
+@implementation ZSAuthInfo
+
+@end
+

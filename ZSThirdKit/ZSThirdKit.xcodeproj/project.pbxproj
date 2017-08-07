@@ -17,6 +17,7 @@
 		BE7B587C1F384B6300BFF4AA /* ZSChannelQQ.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58761F384B6300BFF4AA /* ZSChannelQQ.m */; };
 		BE7B587D1F384B6300BFF4AA /* ZSChannelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58781F384B6300BFF4AA /* ZSChannelBase.m */; };
 		BE7B587E1F384B6300BFF4AA /* ZShareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B587B1F384B6300BFF4AA /* ZShareInfo.m */; };
+		BE7B58851F38540300BFF4AA /* ZSThirdKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58841F38540300BFF4AA /* ZSThirdKitManager.m */; };
 		CD54CAAFD49F02669726266E /* libPods-ZSThirdKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6298BDE90435CD783F8912F7 /* libPods-ZSThirdKitTests.a */; };
 		D84A25DCBC57D7C114CE20BB /* libPods-ZSThirdKitUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C881AEF6D33327C029CBE6 /* libPods-ZSThirdKitUITests.a */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,9 @@
 		BE7B58781F384B6300BFF4AA /* ZSChannelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelBase.m; sourceTree = "<group>"; };
 		BE7B587A1F384B6300BFF4AA /* ZShareInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShareInfo.h; sourceTree = "<group>"; };
 		BE7B587B1F384B6300BFF4AA /* ZShareInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShareInfo.m; sourceTree = "<group>"; };
+		BE7B58801F384DD100BFF4AA /* ZSThirdHeaderFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZSThirdHeaderFile.h; sourceTree = "<group>"; };
+		BE7B58831F38540300BFF4AA /* ZSThirdKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSThirdKitManager.h; sourceTree = "<group>"; };
+		BE7B58841F38540300BFF4AA /* ZSThirdKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSThirdKitManager.m; sourceTree = "<group>"; };
 		DFDE120174E6ACFBCF827D03 /* Pods-ZSThirdKitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKitUITests/Pods-ZSThirdKitUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +149,8 @@
 				BE7B58731F384B6300BFF4AA /* ShareChannel */,
 				BE7B58791F384B6300BFF4AA /* ShareInfo */,
 				BE7B58401F38492A00BFF4AA /* Supporting Files */,
+				BE7B58831F38540300BFF4AA /* ZSThirdKitManager.h */,
+				BE7B58841F38540300BFF4AA /* ZSThirdKitManager.m */,
 			);
 			path = ZSThirdKit;
 			sourceTree = "<group>";
@@ -153,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				BE7B58411F38492A00BFF4AA /* main.m */,
+				BE7B58801F384DD100BFF4AA /* ZSThirdHeaderFile.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -289,6 +296,7 @@
 				TargetAttributes = {
 					BE7B583C1F38492A00BFF4AA = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 328H572F92;
 						ProvisioningStyle = Manual;
 					};
 					BE7B58551F38492A00BFF4AA = {
@@ -496,6 +504,7 @@
 				BE7B58481F38492A00BFF4AA /* ViewController.m in Sources */,
 				BE7B58451F38492A00BFF4AA /* AppDelegate.m in Sources */,
 				BE7B587D1F384B6300BFF4AA /* ZSChannelBase.m in Sources */,
+				BE7B58851F38540300BFF4AA /* ZSThirdKitManager.m in Sources */,
 				BE7B58421F38492A00BFF4AA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,13 +636,34 @@
 			baseConfigurationReference = B45E596665E3D25A47FA588D /* Pods-ZSThirdKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 328H572F92;
 				INFOPLIST_FILE = ZSThirdKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ThirdChannel.test.ZSThirdKit;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"HTestVC\"",
+					"-l\"c++\"",
+					"-l\"iconv\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TencentOpenAPI\"",
+					"-fobjc-arc",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.migu.mobilemusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "a83b2eb8-3c0d-4e39-87db-a8fbde2d554f";
+				PROVISIONING_PROFILE_SPECIFIER = migu_mobile_music_development;
 			};
 			name = Debug;
 		};
@@ -642,13 +672,34 @@
 			baseConfigurationReference = 66F6DB26405D6F02E0FB6800 /* Pods-ZSThirdKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 328H572F92;
 				INFOPLIST_FILE = ZSThirdKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ThirdChannel.test.ZSThirdKit;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"HTestVC\"",
+					"-l\"c++\"",
+					"-l\"iconv\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TencentOpenAPI\"",
+					"-fobjc-arc",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.migu.mobilemusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "a83b2eb8-3c0d-4e39-87db-a8fbde2d554f";
+				PROVISIONING_PROFILE_SPECIFIER = migu_mobile_music_development;
 			};
 			name = Release;
 		};

@@ -20,6 +20,11 @@
 @property (nonatomic, copy) NSString *desc;
 @property (nonatomic, copy) NSString *url;
 
+//内容缩略图
+@property (nonatomic) NSData *thumbnailData;
+//内容原图
+@property (nonatomic) NSData *originalImageData;
+
 @end
 
 

@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "ZSChannelQQ.h"
+#import "ZSThirdHeaderFile.h"
 
 @interface ViewController ()
 
@@ -18,8 +20,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    @weakify(self)
     [self addMenu:@"分享到QQ好友" callback:^(id sender, id data) {
-        NSLog(@"功能正在开发中......");
+        @strongify(self)
+        [self qqlogin];
     }];
 }
 
@@ -27,6 +31,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)qqlogin
+{
+    ZSChannelQQ *qq = [ZSChannelQQ new];
+    qq.appKey = @"1105787459";
+    [qq login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
+        NSLog(@"登录成功了吗？？");
+    }];
 }
 
 
