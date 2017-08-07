@@ -14,6 +14,9 @@
 		BE7B584D1F38492A00BFF4AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7B584C1F38492A00BFF4AA /* Assets.xcassets */; };
 		BE7B585B1F38492A00BFF4AA /* ZSThirdKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B585A1F38492A00BFF4AA /* ZSThirdKitTests.m */; };
 		BE7B58661F38492A00BFF4AA /* ZSThirdKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58651F38492A00BFF4AA /* ZSThirdKitUITests.m */; };
+		BE7B587C1F384B6300BFF4AA /* ZSChannelQQ.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58761F384B6300BFF4AA /* ZSChannelQQ.m */; };
+		BE7B587D1F384B6300BFF4AA /* ZSChannelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58781F384B6300BFF4AA /* ZSChannelBase.m */; };
+		BE7B587E1F384B6300BFF4AA /* ZShareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B587B1F384B6300BFF4AA /* ZShareInfo.m */; };
 		CD54CAAFD49F02669726266E /* libPods-ZSThirdKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6298BDE90435CD783F8912F7 /* libPods-ZSThirdKitTests.a */; };
 		D84A25DCBC57D7C114CE20BB /* libPods-ZSThirdKitUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C881AEF6D33327C029CBE6 /* libPods-ZSThirdKitUITests.a */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,12 @@
 		BE7B58611F38492A00BFF4AA /* ZSThirdKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZSThirdKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7B58651F38492A00BFF4AA /* ZSThirdKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSThirdKitUITests.m; sourceTree = "<group>"; };
 		BE7B58671F38492A00BFF4AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE7B58751F384B6300BFF4AA /* ZSChannelQQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelQQ.h; sourceTree = "<group>"; };
+		BE7B58761F384B6300BFF4AA /* ZSChannelQQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelQQ.m; sourceTree = "<group>"; };
+		BE7B58771F384B6300BFF4AA /* ZSChannelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelBase.h; sourceTree = "<group>"; };
+		BE7B58781F384B6300BFF4AA /* ZSChannelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelBase.m; sourceTree = "<group>"; };
+		BE7B587A1F384B6300BFF4AA /* ZShareInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShareInfo.h; sourceTree = "<group>"; };
+		BE7B587B1F384B6300BFF4AA /* ZShareInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShareInfo.m; sourceTree = "<group>"; };
 		DFDE120174E6ACFBCF827D03 /* Pods-ZSThirdKitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKitUITests/Pods-ZSThirdKitUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +142,8 @@
 				BE7B58471F38492A00BFF4AA /* ViewController.m */,
 				BE7B584C1F38492A00BFF4AA /* Assets.xcassets */,
 				BE7B58511F38492A00BFF4AA /* Info.plist */,
+				BE7B58731F384B6300BFF4AA /* ShareChannel */,
+				BE7B58791F384B6300BFF4AA /* ShareInfo */,
 				BE7B58401F38492A00BFF4AA /* Supporting Files */,
 			);
 			path = ZSThirdKit;
@@ -162,6 +173,34 @@
 				BE7B58671F38492A00BFF4AA /* Info.plist */,
 			);
 			path = ZSThirdKitUITests;
+			sourceTree = "<group>";
+		};
+		BE7B58731F384B6300BFF4AA /* ShareChannel */ = {
+			isa = PBXGroup;
+			children = (
+				BE7B58741F384B6300BFF4AA /* QQChannel */,
+				BE7B58771F384B6300BFF4AA /* ZSChannelBase.h */,
+				BE7B58781F384B6300BFF4AA /* ZSChannelBase.m */,
+			);
+			path = ShareChannel;
+			sourceTree = "<group>";
+		};
+		BE7B58741F384B6300BFF4AA /* QQChannel */ = {
+			isa = PBXGroup;
+			children = (
+				BE7B58751F384B6300BFF4AA /* ZSChannelQQ.h */,
+				BE7B58761F384B6300BFF4AA /* ZSChannelQQ.m */,
+			);
+			path = QQChannel;
+			sourceTree = "<group>";
+		};
+		BE7B58791F384B6300BFF4AA /* ShareInfo */ = {
+			isa = PBXGroup;
+			children = (
+				BE7B587A1F384B6300BFF4AA /* ZShareInfo.h */,
+				BE7B587B1F384B6300BFF4AA /* ZShareInfo.m */,
+			);
+			path = ShareInfo;
 			sourceTree = "<group>";
 		};
 		FEC47639E895D5BC3914CB50 /* Frameworks */ = {
@@ -452,8 +491,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7B587E1F384B6300BFF4AA /* ZShareInfo.m in Sources */,
+				BE7B587C1F384B6300BFF4AA /* ZSChannelQQ.m in Sources */,
 				BE7B58481F38492A00BFF4AA /* ViewController.m in Sources */,
 				BE7B58451F38492A00BFF4AA /* AppDelegate.m in Sources */,
+				BE7B587D1F384B6300BFF4AA /* ZSChannelBase.m in Sources */,
 				BE7B58421F38492A00BFF4AA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
