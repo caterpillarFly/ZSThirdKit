@@ -38,7 +38,7 @@
 @interface ZShareImage : ZShareInfo
 
 @property (nonatomic) UIImage *image;
-@property (nonatomic) NSURL *imageFileURL;
+@property (nonatomic) NSString *title;
 
 @end
 

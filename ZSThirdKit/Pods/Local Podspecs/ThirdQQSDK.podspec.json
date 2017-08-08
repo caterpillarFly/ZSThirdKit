@@ -1,0 +1,35 @@
+{
+  "name": "ThirdQQSDK",
+  "version": "0.0.1",
+  "summary": "CocoaPods for qqsdk.",
+  "description": "manage qq sdk by pods",
+  "homepage": "https://github.com/caterpillarFly/ThirdQQSDK.git",
+  "license": "MIT",
+  "authors": {
+    "caterpillarFly": "zhaosheng_yy@migu.cn"
+  },
+  "source": {
+    "git": "https://github.com/caterpillarFly/ThirdQQSDK.git",
+    "tag": "0.0.1"
+  },
+  "frameworks": [
+    "CoreTelephony",
+    "CoreGraphics",
+    "SystemConfiguration",
+    "Security"
+  ],
+  "libraries": [
+    "iconv",
+    "sqlite3",
+    "stdc++",
+    "z"
+  ],
+  "vendored_frameworks": "sdk/**/*.{framework}",
+  "requires_arc": true,
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}

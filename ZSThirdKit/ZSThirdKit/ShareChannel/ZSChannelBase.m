@@ -47,8 +47,8 @@
         [self login];
     }
     else{
-        if (self.notInstallBlock) {
-            self.notInstallBlock(self);
+        if (self.notSupportBlock) {
+            self.notSupportBlock(self);
         }
         [self clear];
     }
@@ -75,8 +75,8 @@
         [ZSThirdKitManager sharedManager].currentChannel = self;
     }
     else{
-        if (self.notInstallBlock) {
-            self.notInstallBlock(self);
+        if (self.notSupportBlock) {
+            self.notSupportBlock(self);
         }
         [self clear];
     }
@@ -112,6 +112,7 @@
     self.failBlock = nil;
     self.cancelBlock = nil;
     self.authBlock = nil;
+    self.notSupportBlock = nil;
     
     [ZSThirdKitManager sharedManager].currentChannel = nil;
 }

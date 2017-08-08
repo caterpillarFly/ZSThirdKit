@@ -9,6 +9,7 @@
 #import "ZSChannelQQ.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/QQApiInterfaceObject.h>
 
 
 @interface ZSChannelQQ ()<TencentSessionDelegate, QQApiInterfaceDelegate>
@@ -37,6 +38,7 @@
 
 - (void)shareInfo:(ZShareInfo *)shareInfo
 {
+    self.auth;
     QQApiObject *obj = [self sendObjWithShareInfo:shareInfo];
     if (obj) {
         SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:obj];
@@ -46,7 +48,16 @@
         }
         else{
             QQApiSendResultCode shareRes;
-            
+            if (self.qqType == ZSChannelQQTypeQQ){
+                shareRes = [QQApiInterface sendReq:req];
+            }
+            else{
+                shareRes = [QQApiInterface SendReqToQZone:req];
+            }
+            if (shareRes != EQQAPISENDSUCESS) {
+                NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"分享失败");
+                [self didFail:error];
+            }
         }
     }
     else{
@@ -164,10 +175,16 @@
     }
     else if ([info isKindOfClass:[ZShareImage class]]){
         ZShareImage *imageInfo = (ZShareImage *)info;
-        obj = [QQApiImageObject objectWithData:UIImageJPEGRepresentation(imageInfo.image, 0.9)
-                              previewImageData:nil
-                                         title:nil
-                                   description:nil];
+        if (self.qqType == ZSChannelQQTypeQQ) {
+            obj = [QQApiImageObject objectWithData:UIImageJPEGRepresentation(imageInfo.image, 0.9)
+                                  previewImageData:nil
+                                             title:imageInfo.title
+                                       description:nil];
+        }
+        else{
+            obj =[QQApiImageArrayForQZoneObject objectWithimageDataArray:@[UIImageJPEGRepresentation(imageInfo.image, 0.9)] title:imageInfo.title extMap:nil];
+        }
+        
     }
     else if ([info isKindOfClass:[ZShareWebPage class]]){
         ZShareWebPage *webPageInfo = (ZShareWebPage *)info;

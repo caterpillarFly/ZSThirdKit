@@ -1,17 +1,28 @@
 PODS:
   - HTestVC (1.2.0)
-  - TencentOpenApiSDK (2.9.5):
-    - TencentOpenApiSDK/Basic (= 2.9.5)
-  - TencentOpenApiSDK/Basic (2.9.5)
+  - ThirdQQSDK (0.0.1)
+  - WechatOpenSDK (1.7.9)
 
 DEPENDENCIES:
   - HTestVC
-  - TencentOpenApiSDK
+  - ThirdQQSDK (from `https://github.com/caterpillarFly/ThirdQQSDK.git`, tag `0.0.1`)
+  - WechatOpenSDK
+
+EXTERNAL SOURCES:
+  ThirdQQSDK:
+    :git: https://github.com/caterpillarFly/ThirdQQSDK.git
+    :tag: 0.0.1
+
+CHECKOUT OPTIONS:
+  ThirdQQSDK:
+    :git: https://github.com/caterpillarFly/ThirdQQSDK.git
+    :tag: 0.0.1
 
 SPEC CHECKSUMS:
   HTestVC: 5fb9bded467adaf0c58d40fa2eee366881949fc9
-  TencentOpenApiSDK: a0d7716edd6eb438d65828168e8e5137301b436d
+  ThirdQQSDK: 7f4b0661a80addef881a680b9ed2c48d4a4bd8af
+  WechatOpenSDK: 1fe7e3b07db860d6a936c3ff4a5aba6b890958d9
 
-PODFILE CHECKSUM: facb7c4d2f21f6c12862b8efd2bc805f5335ada1
+PODFILE CHECKSUM: a678d05dfd7f8f9c674d3d39c405a2b776218812
 
 COCOAPODS: 1.2.1

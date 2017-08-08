@@ -16,15 +16,13 @@
 @property (nonatomic) ZSOpSuccessBlock successBlock;
 @property (nonatomic) ZSOpCancelBlock cancelBlock;
 @property (nonatomic) ZSOpFailBlock failBlock;
-@property (nonatomic) ZSNotInstallBlock notInstallBlock;
+@property (nonatomic) ZSNotSupportBlock notSupportBlock;
 @property (nonatomic) ZSAuthBlock authBlock;
 
 //APP ID
 @property (nonatomic, copy) NSString *appKey;
 //渠道名称
 @property (nonatomic, copy) NSString *channelName;
-//渠道icon
-@property (nonatomic) UIImage *channelIcon;
 
 
 //是否支持分享该类型的信息

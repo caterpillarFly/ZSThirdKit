@@ -12,7 +12,7 @@
 @class ZSChannelBase;
 @class ZSAuthInfo;
 
-typedef void (^ZSNotInstallBlock)(ZSChannelBase *channel);
+typedef void (^ZSNotSupportBlock)(ZSChannelBase *channel);
 typedef void (^ZSOpSuccessBlock)(ZSChannelBase *channel, id data);
 typedef void (^ZSOpFailBlock)(ZSChannelBase *channel, NSError *error);
 typedef void (^ZSOpCancelBlock)(ZSChannelBase *channel);
