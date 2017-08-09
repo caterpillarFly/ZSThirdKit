@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A532629CED2112066E4FDFE /* libPods-ZSThirdKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB068902BE2E101D15EE88D /* libPods-ZSThirdKit.a */; };
+		BE44E64B1F39F1CE00AC094A /* thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE44E64A1F39F1CE00AC094A /* thumbnail.jpg */; };
 		BE7B58421F38492A00BFF4AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58411F38492A00BFF4AA /* main.m */; };
 		BE7B58451F38492A00BFF4AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58441F38492A00BFF4AA /* AppDelegate.m */; };
 		BE7B58481F38492A00BFF4AA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58471F38492A00BFF4AA /* ViewController.m */; };
@@ -19,6 +20,7 @@
 		BE7B587E1F384B6300BFF4AA /* ZShareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B587B1F384B6300BFF4AA /* ZShareInfo.m */; };
 		BE7B58851F38540300BFF4AA /* ZSThirdKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58841F38540300BFF4AA /* ZSThirdKitManager.m */; };
 		BEA6D5801F39BCFF003017CB /* img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEA6D57F1F39BCFF003017CB /* img.jpg */; };
+		BEC551CA1F39F901000406C5 /* ZSChannelWX.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC551C91F39F901000406C5 /* ZSChannelWX.m */; };
 		CD54CAAFD49F02669726266E /* libPods-ZSThirdKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6298BDE90435CD783F8912F7 /* libPods-ZSThirdKitTests.a */; };
 		D84A25DCBC57D7C114CE20BB /* libPods-ZSThirdKitUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C881AEF6D33327C029CBE6 /* libPods-ZSThirdKitUITests.a */; };
 /* End PBXBuildFile section */
@@ -49,6 +51,7 @@
 		7A41E9D90C3A0C2A44FC12CA /* Pods-ZSThirdKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKitTests/Pods-ZSThirdKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B45E596665E3D25A47FA588D /* Pods-ZSThirdKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKit/Pods-ZSThirdKit.debug.xcconfig"; sourceTree = "<group>"; };
 		BB84EE2113738DB7B0390107 /* Pods-ZSThirdKitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKitUITests/Pods-ZSThirdKitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE44E64A1F39F1CE00AC094A /* thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail.jpg; sourceTree = "<group>"; };
 		BE7B583D1F38492A00BFF4AA /* ZSThirdKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZSThirdKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7B58411F38492A00BFF4AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE7B58431F38492A00BFF4AA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 		BE7B58831F38540300BFF4AA /* ZSThirdKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSThirdKitManager.h; sourceTree = "<group>"; };
 		BE7B58841F38540300BFF4AA /* ZSThirdKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSThirdKitManager.m; sourceTree = "<group>"; };
 		BEA6D57F1F39BCFF003017CB /* img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpg; sourceTree = "<group>"; };
+		BEC551C81F39F901000406C5 /* ZSChannelWX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelWX.h; sourceTree = "<group>"; };
+		BEC551C91F39F901000406C5 /* ZSChannelWX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelWX.m; sourceTree = "<group>"; };
 		DFDE120174E6ACFBCF827D03 /* Pods-ZSThirdKitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKitUITests/Pods-ZSThirdKitUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +147,7 @@
 		BE7B583F1F38492A00BFF4AA /* ZSThirdKit */ = {
 			isa = PBXGroup;
 			children = (
+				BE44E64A1F39F1CE00AC094A /* thumbnail.jpg */,
 				BEA6D57F1F39BCFF003017CB /* img.jpg */,
 				BE7B58431F38492A00BFF4AA /* AppDelegate.h */,
 				BE7B58441F38492A00BFF4AA /* AppDelegate.m */,
@@ -188,6 +194,7 @@
 		BE7B58731F384B6300BFF4AA /* ShareChannel */ = {
 			isa = PBXGroup;
 			children = (
+				BEC551C71F39F8D6000406C5 /* WeChatChannel */,
 				BE7B58741F384B6300BFF4AA /* QQChannel */,
 				BE7B58771F384B6300BFF4AA /* ZSChannelBase.h */,
 				BE7B58781F384B6300BFF4AA /* ZSChannelBase.m */,
@@ -211,6 +218,15 @@
 				BE7B587B1F384B6300BFF4AA /* ZShareInfo.m */,
 			);
 			path = ShareInfo;
+			sourceTree = "<group>";
+		};
+		BEC551C71F39F8D6000406C5 /* WeChatChannel */ = {
+			isa = PBXGroup;
+			children = (
+				BEC551C81F39F901000406C5 /* ZSChannelWX.h */,
+				BEC551C91F39F901000406C5 /* ZSChannelWX.m */,
+			);
+			path = WeChatChannel;
 			sourceTree = "<group>";
 		};
 		FEC47639E895D5BC3914CB50 /* Frameworks */ = {
@@ -341,6 +357,7 @@
 			files = (
 				BE7B584D1F38492A00BFF4AA /* Assets.xcassets in Resources */,
 				BEA6D5801F39BCFF003017CB /* img.jpg in Resources */,
+				BE44E64B1F39F1CE00AC094A /* thumbnail.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +525,7 @@
 				BE7B58481F38492A00BFF4AA /* ViewController.m in Sources */,
 				BE7B58451F38492A00BFF4AA /* AppDelegate.m in Sources */,
 				BE7B587D1F384B6300BFF4AA /* ZSChannelBase.m in Sources */,
+				BEC551CA1F39F901000406C5 /* ZSChannelWX.m in Sources */,
 				BE7B58851F38540300BFF4AA /* ZSThirdKitManager.m in Sources */,
 				BE7B58421F38492A00BFF4AA /* main.m in Sources */,
 			);

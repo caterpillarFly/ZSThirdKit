@@ -10,6 +10,7 @@
 
 @interface ZSChannelBase ()
 
+//子类需要覆写的方法
 - (void)login;
 - (void)shareInfo:(ZShareInfo *)shareInfo;
 
@@ -64,6 +65,11 @@
     //子类实现
 }
 
+- (void)setupWithInfo:(NSDictionary *)info
+{
+    //子类实现
+}
+
 - (void)shareInfo:(ZShareInfo *)shareInfo success:(ZSOpSuccessBlock)success fail:(ZSOpFailBlock)fail cancel:(ZSOpCancelBlock)cancel
 {
     self.successBlock = success;
@@ -102,6 +108,14 @@
 {
     if (self.authBlock) {
         self.authBlock(self, authInfo);
+    }
+    [self clear];
+}
+
+- (void)didSuccess:(id)data
+{
+    if (self.successBlock) {
+        self.successBlock(self, data);
     }
     [self clear];
 }

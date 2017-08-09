@@ -12,6 +12,9 @@
 
 @end
 
+@implementation ZShareMedia
+
+@end
 
 @implementation ZShareWebPage
 

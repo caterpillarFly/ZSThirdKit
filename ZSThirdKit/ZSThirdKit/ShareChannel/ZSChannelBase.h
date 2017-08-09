@@ -19,11 +19,11 @@
 @property (nonatomic) ZSNotSupportBlock notSupportBlock;
 @property (nonatomic) ZSAuthBlock authBlock;
 
-//APP ID
-@property (nonatomic, copy) NSString *appKey;
 //渠道名称
 @property (nonatomic, copy) NSString *channelName;
 
+//设置渠道相关的信息，比如appKey（必须），appSecret（微信必须）等信息；
+- (void)setupWithInfo:(NSDictionary *)info;
 
 //是否支持分享该类型的信息
 - (BOOL)isSupportShareInfo:(ZShareInfo *)shareInfo;
@@ -46,6 +46,10 @@
 
 //失败只有调用
 - (void)didFail:(NSError *)error;
+
+
+//成功之后调用
+- (void)didSuccess:(id)data;
 
 
 //发起分享请求

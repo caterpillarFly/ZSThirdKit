@@ -13,12 +13,16 @@
 
 @end
 
+@interface ZShareText : ZShareInfo
 
-@interface ZShareWebPage : ZShareInfo
+@property (nonatomic, copy) NSString *text;
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *desc;
-@property (nonatomic, copy) NSString *url;
+@end
+
+@interface ZShareMedia : ZShareInfo
+
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *desc;
 
 //内容缩略图
 @property (nonatomic) NSData *thumbnailData;
@@ -28,17 +32,16 @@
 @end
 
 
-@interface ZShareText : ZShareInfo
+@interface ZShareWebPage : ZShareMedia
 
-@property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSString *url;
 
 @end
 
 
-@interface ZShareImage : ZShareInfo
+@interface ZShareImage : ZShareMedia
 
 @property (nonatomic) UIImage *image;
-@property (nonatomic) NSString *title;
 
 @end
 
@@ -47,7 +50,7 @@
 @interface ZSAuthInfo : NSObject
 
 @property (nonatomic, copy) NSString *channelKey;
-@property (nonatomic, copy) NSString *userId;
+@property (nonatomic, copy) NSString *openId;
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic) long long expire;
 @property (nonatomic) NSDictionary *otherInfo;

@@ -14,6 +14,7 @@
 
 @interface ZSChannelQQ ()<TencentSessionDelegate, QQApiInterfaceDelegate>
 
+@property (nonatomic, copy) NSString *appKey;
 @property (nonatomic) TencentOAuth *auth;
 
 @end
@@ -36,12 +37,17 @@
         return [QQApiInterface handleOpenURL:url delegate:self];
 }
 
+- (void)setupWithInfo:(NSDictionary *)info
+{
+    NSString *appKey = info[@"appKey"];
+    self.appKey = appKey;
+}
+
+//分享
 - (void)shareInfo:(ZShareInfo *)shareInfo
 {
-    self.auth;
-    QQApiObject *obj = [self sendObjWithShareInfo:shareInfo];
-    if (obj) {
-        SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:obj];
+    __unused TencentOAuth *auth = self.auth;
+    [self reqWithInfo:shareInfo finish:^(SendMessageToQQReq *req) {
         if (!req) {
             NSError *error = ZSThirdError(ZSThirdErrorCodeUnsupport, @"不支持分享该类型数据");
             [self didFail:error];
@@ -59,11 +65,7 @@
                 [self didFail:error];
             }
         }
-    }
-    else{
-        NSError *error = ZSThirdError(ZSThirdErrorCodeUnsupport, @"不支持分享该类型数据");
-        [self didFail:error];
-    }
+    }];
 }
 
 //登录
@@ -88,6 +90,7 @@
     }
 }
 
+//是否支持登录
 - (BOOL)couldLogin
 {
     return ([QQApiInterface isQQInstalled] && [QQApiInterface isQQSupportApi]);
@@ -103,7 +106,7 @@
         ZSAuthInfo *authInfo = [ZSAuthInfo new];
         authInfo.token = self.auth.accessToken;
         authInfo.expire = [self.auth.expirationDate timeIntervalSince1970];
-        authInfo.userId = self.auth.openId;
+        authInfo.openId = self.auth.openId;
         
         [self didLogin:authInfo];
     }
@@ -150,6 +153,24 @@
 - (void)onResp:(QQBaseResp *)resp
 {
     NSLog(@"处理来至QQ的响应");
+    if (!resp.errorDescription){
+        [self didSuccess:nil];
+    }
+    else if ([resp.errorDescription isEqualToString:@"the user give up the current operation"]){
+        [self didCancel];
+    }
+    else{
+        NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, resp.errorDescription);
+        [self didFail:error];
+    }
+}
+
+/**
+ 处理QQ在线状态的回调
+ */
+- (void)isOnlineResponse:(NSDictionary *)response
+{
+    NSLog(@"处理QQ在线状态的回调");
 }
 
 
@@ -166,7 +187,7 @@
     return _auth;
 }
 
-- (QQApiObject *)sendObjWithShareInfo:(ZShareInfo *)info
+- (QQApiObject *)sendMessageWithShareInfo:(ZShareInfo *)info
 {
     QQApiObject *obj;
     if ([info isKindOfClass:[ZShareText class]]) {
@@ -194,6 +215,42 @@
                             previewImageData:webPageInfo.thumbnailData];
     }
     return obj;
+}
+
+- (void)reqWithInfo:(ZShareInfo *)info finish:(ZSSimpleCallBack)finish
+{
+    QQApiObject *obj;
+    if ([info isKindOfClass:[ZShareText class]]) {
+        ZShareText *textInfo = (ZShareText *)info;
+        obj = [QQApiTextObject objectWithText:textInfo.text];
+    }
+    else if ([info isKindOfClass:[ZShareImage class]]){
+        ZShareImage *imageInfo = (ZShareImage *)info;
+        if (self.qqType == ZSChannelQQTypeQQ) {
+            obj = [QQApiImageObject objectWithData:UIImageJPEGRepresentation(imageInfo.image, 0.9)
+                                  previewImageData:nil
+                                             title:imageInfo.title
+                                       description:nil];
+        }
+        else{
+            obj =[QQApiImageArrayForQZoneObject objectWithimageDataArray:@[UIImageJPEGRepresentation(imageInfo.image, 0.9)] title:imageInfo.title extMap:nil];
+        }
+        
+    }
+    else if ([info isKindOfClass:[ZShareWebPage class]]){
+        ZShareWebPage *webPageInfo = (ZShareWebPage *)info;
+        obj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:webPageInfo.url]
+                                       title:webPageInfo.title
+                                 description:webPageInfo.desc
+                            previewImageData:webPageInfo.thumbnailData];
+    }
+    SendMessageToQQReq *req;
+    if (obj) {
+        req = [SendMessageToQQReq reqWithContent:obj];
+    }
+    if (finish) {
+        finish(req);
+    }
 }
 
 @end
