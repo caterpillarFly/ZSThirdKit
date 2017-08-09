@@ -2,11 +2,13 @@ PODS:
   - HTestVC (1.2.0)
   - ThirdQQSDK (0.0.1)
   - WechatOpenSDK (1.7.9)
+  - WeiboSDK (3.1.3)
 
 DEPENDENCIES:
   - HTestVC
   - ThirdQQSDK (from `https://github.com/caterpillarFly/ThirdQQSDK.git`, tag `0.0.1`)
   - WechatOpenSDK
+  - WeiboSDK
 
 EXTERNAL SOURCES:
   ThirdQQSDK:
@@ -22,7 +24,8 @@ SPEC CHECKSUMS:
   HTestVC: 5fb9bded467adaf0c58d40fa2eee366881949fc9
   ThirdQQSDK: 7f4b0661a80addef881a680b9ed2c48d4a4bd8af
   WechatOpenSDK: 1fe7e3b07db860d6a936c3ff4a5aba6b890958d9
+  WeiboSDK: acb067053668102cf07d01aa7604350162c2e466
 
-PODFILE CHECKSUM: a678d05dfd7f8f9c674d3d39c405a2b776218812
+PODFILE CHECKSUM: 07a6ad124bfb5d4576c91204475aee3d94a6cea0
 
 COCOAPODS: 1.2.1

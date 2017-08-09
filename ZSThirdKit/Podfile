@@ -11,6 +11,7 @@ target 'ZSThirdKit' do
   
   pod 'ThirdQQSDK', :git => 'https://github.com/caterpillarFly/ThirdQQSDK.git', :tag => '0.0.1'
   pod 'WechatOpenSDK'
+  pod 'WeiboSDK'
 
   target 'ZSThirdKitTests' do
     inherit! :search_paths
