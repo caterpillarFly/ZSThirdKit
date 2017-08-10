@@ -70,4 +70,9 @@
     return [[ZSThirdKitManager sharedManager] handleOpenURL:url];
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation
+{
+    return [[ZSThirdKitManager sharedManager] handleOpenURL:url];
+}
+
 @end

@@ -24,7 +24,7 @@
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *desc;
 
-//内容缩略图
+//内容缩略图，一般<32k，如果超过，会导致接口调用失败
 @property (nonatomic) NSData *thumbnailData;
 //内容原图
 @property (nonatomic) NSData *originalImageData;

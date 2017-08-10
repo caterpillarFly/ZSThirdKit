@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ZSChannelQQ.h"
 #import "ZSChannelWX.h"
+#import "ZSChannelSinaWB.h"
 #import "ZSThirdHeaderFile.h"
 
 @interface ViewController ()
@@ -60,6 +61,23 @@
     [self addMenu:@"微信分享网页" callback:^(id sender, id data) {
         @strongify(self)
         [self wxShareWebPage];
+    }];
+    
+    [self addMenu:@"新浪微博登录" callback:^(id sender, id data) {
+        @strongify(self)
+        [self wbLogin];
+    }];
+    [self addMenu:@"新浪微博分享文字" callback:^(id sender, id data) {
+        @strongify(self)
+        [self wbShareText];
+    }];
+    [self addMenu:@"新浪微博分享图片" callback:^(id sender, id data) {
+        @strongify(self)
+        [self wbShareImage];
+    }];
+    [self addMenu:@"新浪微博分享网页" callback:^(id sender, id data) {
+        @strongify(self)
+        [self wbShareWebPage];
     }];
 }
 
@@ -170,6 +188,55 @@
     }];
 }
 
+- (void)wbLogin
+{
+    ZSChannelSinaWB *wb = [self channelWB];
+    [wb login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
+        NSLog(@"新浪微博登录成功......");
+    }];
+}
+
+- (void)wbShareText
+{
+    ZSChannelSinaWB *wb = [self channelWB];
+    ZShareText *shareInfo = [self shareText];
+    [wb shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
+- (void)wbShareImage
+{
+    ZSChannelSinaWB *wb = [self channelWB];
+    ZShareImage *shareInfo = [self shareImage];
+    
+    [wb shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
+- (void)wbShareWebPage
+{
+    ZSChannelSinaWB *wb = [self channelWB];
+    ZShareWebPage *shareInfo = [self shareWebpage];
+    
+    [wb shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
 - (ZSChannelQQ *)channelQQ
 {
     ZSChannelQQ *qq = [ZSChannelQQ new];
@@ -184,6 +251,13 @@
     return wx;
 }
 
+- (ZSChannelSinaWB *)channelWB
+{
+    ZSChannelSinaWB *wb = [ZSChannelSinaWB new];
+    [wb setupWithInfo:@{@"appKey":@"1843267010", @"appSecert":@"b2f5b2b661babaa3c01b57312decffd7", @"redirectURI":@"http://music.10086.cn"}];
+    return wb;
+}
+
 - (ZShareText *)shareText
 {
     ZShareText *shareInfo = [ZShareText new];
@@ -194,10 +268,10 @@
 - (ZShareWebPage *)shareWebpage
 {
     ZShareWebPage *shareInfo = [ZShareWebPage new];
-    shareInfo.desc = @"今天晚上点了一份小炒肉，一共花了29元钱，感觉好肉疼，太贵了，以后要节约，尽量不要在外面吃饭";
-    shareInfo.title = @"晚上吃的啥";
+    shareInfo.desc = @"分享一首好听的音乐，真的很好听，试一试你就知道了";
+    shareInfo.title = @"音乐";
     shareInfo.url = @"http://i.y.qq.com/v8/playsong.html?hostuin=0&songid=&songmid=002x5Jje3eUkXT&_wv=1&source=qq&appshare=iphone&media_mid=002x5Jje3eUkXT";
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"img.jpg"];
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thumbnail.jpg"];
     shareInfo.thumbnailData = [NSData dataWithContentsOfFile:path];
     
     return shareInfo;
@@ -209,6 +283,7 @@
     NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"img.jpg"];
     imageInfo.image = [UIImage imageWithContentsOfFile:path];
     imageInfo.title = @"美女";
+    imageInfo.desc = @"这是一个不知名的美女，我也不知道是谁";
     return imageInfo;
 }
 
