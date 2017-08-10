@@ -9,13 +9,13 @@
 #import "ZSChannelBase.h"
 #import "ZSThirdKitManager.h"
 
-typedef NS_ENUM(NSInteger, ZSChannelQQType){
-    ZSChannelQQTypeQQ = 0,
-    ZSChannelQQTypeQQZone = 1
+typedef NS_ENUM(NSInteger, ZSChannelQQScene){
+    ZSChannelQQSceneChat = 0,       //qq聊天界面
+    ZSChannelQQSceneQQZone = 1      //qq空间
 };
 
 @interface ZSChannelQQ : ZSChannelBase
 
-@property (nonatomic) ZSChannelQQType qqType;
+@property (nonatomic, readonly) ZSChannelQQScene scene;
 
 @end

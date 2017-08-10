@@ -7,9 +7,10 @@
 //
 
 #import "ZSChannelBase.h"
+#import <WXApiObject.h>
 
 @interface ZSChannelWX : ZSChannelBase
 
-//@property (nonatomic)
+@property (nonatomic, readonly) enum WXScene scene;  //场景
 
 @end

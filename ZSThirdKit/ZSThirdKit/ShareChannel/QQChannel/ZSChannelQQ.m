@@ -24,7 +24,7 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.channelName = @"QQ";
+        self.channelName = @"QQ好友";
     }
     return self;
 }
@@ -54,7 +54,7 @@
         }
         else{
             QQApiSendResultCode shareRes;
-            if (self.qqType == ZSChannelQQTypeQQ){
+            if (self.scene == ZSChannelQQSceneChat){
                 shareRes = [QQApiInterface sendReq:req];
             }
             else{
@@ -187,6 +187,11 @@
     return _auth;
 }
 
+- (ZSChannelQQScene)scene
+{
+    return ZSChannelQQSceneChat;
+}
+
 - (QQApiObject *)sendMessageWithShareInfo:(ZShareInfo *)info
 {
     QQApiObject *obj;
@@ -196,7 +201,7 @@
     }
     else if ([info isKindOfClass:[ZShareImage class]]){
         ZShareImage *imageInfo = (ZShareImage *)info;
-        if (self.qqType == ZSChannelQQTypeQQ) {
+        if (self.scene == ZSChannelQQSceneChat) {
             obj = [QQApiImageObject objectWithData:UIImageJPEGRepresentation(imageInfo.image, 0.9)
                                   previewImageData:nil
                                              title:imageInfo.title
@@ -226,7 +231,7 @@
     }
     else if ([info isKindOfClass:[ZShareImage class]]){
         ZShareImage *imageInfo = (ZShareImage *)info;
-        if (self.qqType == ZSChannelQQTypeQQ) {
+        if (self.scene == ZSChannelQQSceneChat) {
             obj = [QQApiImageObject objectWithData:UIImageJPEGRepresentation(imageInfo.image, 0.9)
                                   previewImageData:nil
                                              title:imageInfo.title

@@ -25,9 +25,14 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.channelName = @"WeChat";
+        self.channelName = @"微信好友";
     }
     return self;
+}
+
+- (enum WXScene)scene
+{
+    return WXSceneSession;
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url
@@ -138,6 +143,7 @@
 - (void)reqWithInfo:(ZShareInfo *)info finish:(ZSSimpleCallBack)finish
 {
     SendMessageToWXReq *req = [SendMessageToWXReq new];
+    req.scene = self.scene;
     if ([info isKindOfClass:[ZShareText class]]) {
         ZShareText *textInfo = (ZShareText *)info;
         req.bText = YES;
