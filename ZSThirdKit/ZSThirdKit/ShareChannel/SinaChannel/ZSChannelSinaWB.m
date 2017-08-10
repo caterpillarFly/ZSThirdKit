@@ -151,11 +151,24 @@
         
         WBWebpageObject *webPageObj = [WBWebpageObject object];
         webPageObj.webpageUrl = webPageInfo.url;
-        //webPageObj.title = webPageInfo.title;
+        webPageObj.title = webPageInfo.desc;
         webPageObj.description = webPageInfo.desc;
         webPageObj.thumbnailData = webPageInfo.thumbnailData;
         webPageObj.objectID = @"ZSThirdKit";        //一定得设置这个字段，不然无法调起微博客户端
         messageObj.mediaObject = webPageObj;
+    }
+    else if ([info isKindOfClass:[ZShareMusic class]]){
+        ZShareMusic *musicInfo = (ZShareMusic *)info;
+        WBMusicObject *musicObj = [WBMusicObject object];
+        musicObj.musicUrl = musicInfo.musicUrl;
+        musicObj.musicStreamUrl = musicInfo.musicDataUrl;
+        musicObj.musicLowBandUrl = musicInfo.musicLowBandUrl;
+        musicObj.musicLowBandStreamUrl = musicInfo.musicLowBandDataUrl;
+        musicObj.title = musicInfo.desc;
+        musicObj.description = musicInfo.desc;
+        musicObj.thumbnailData = musicInfo.thumbnailData;
+        musicObj.objectID = @"ZSThirdKit";
+        messageObj.mediaObject = musicObj;
     }
     else{
         messageObj = nil;

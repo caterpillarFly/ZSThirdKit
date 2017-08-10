@@ -21,8 +21,8 @@
 
 @interface ZShareMedia : ZShareInfo
 
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *desc;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *desc;
 
 //内容缩略图，一般<32k，如果超过，会导致接口调用失败
 @property (nonatomic) NSData *thumbnailData;
@@ -31,6 +31,11 @@
 
 @end
 
+@interface ZShareImage : ZShareMedia
+
+@property (nonatomic) UIImage *image;
+
+@end
 
 @interface ZShareWebPage : ZShareMedia
 
@@ -38,10 +43,12 @@
 
 @end
 
+@interface ZShareMusic : ZShareMedia
 
-@interface ZShareImage : ZShareMedia
-
-@property (nonatomic) UIImage *image;
+@property (nonatomic, copy) NSString *musicUrl;
+@property (nonatomic, copy) NSString *musicLowBandUrl;
+@property (nonatomic, copy) NSString *musicDataUrl;
+@property (nonatomic, copy) NSString *musicLowBandDataUrl;
 
 @end
 

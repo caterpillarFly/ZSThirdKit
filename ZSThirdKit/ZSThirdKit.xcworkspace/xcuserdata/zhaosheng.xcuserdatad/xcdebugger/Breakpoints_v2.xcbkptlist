@@ -26,7 +26,7 @@
                   moduleName = "ZSThirdKit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhaosheng/Documents/Demo/ZSThirdKit/ZSThirdKit/ZSThirdKit/ShareChannel/QQChannel/ZSChannelQQ.m"
-                  timestampString = "524042619.050876"
+                  timestampString = "524050202.756278"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -41,7 +41,7 @@
                   moduleName = "ZSThirdKit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhaosheng/Documents/Demo/ZSThirdKit/ZSThirdKit/ZSThirdKit/ShareChannel/QQChannel/ZSChannelQQ.m"
-                  timestampString = "524042619.052648"
+                  timestampString = "524050202.758199"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZSThirdKit/ViewController.m"
-            timestampString = "524038240.459509"
+            timestampString = "524047676.52337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "-qqShareImage"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZSThirdKit/ViewController.m"
-            timestampString = "524038240.459509"
+            timestampString = "524047676.52337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-qqShareImage"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZSThirdKit/ViewController.m"
-            timestampString = "524038240.459509"
+            timestampString = "524047676.52337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "-qqShareImage"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZSThirdKit/ViewController.m"
-            timestampString = "524038240.459509"
+            timestampString = "524047676.52337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-qqShareText"
             landmarkType = "7">
             <Locations>
@@ -154,11 +154,11 @@
                   moduleName = "ZSThirdKit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhaosheng/Documents/Demo/ZSThirdKit/ZSThirdKit/ZSThirdKit/ViewController.m"
-                  timestampString = "524042619.068716"
+                  timestampString = "524050202.774063"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "118"
-                  endingLineNumber = "118"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
                   offsetFromSymbolStart = "116">
                </Location>
                <Location
@@ -169,11 +169,11 @@
                   moduleName = "ZSThirdKit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhaosheng/Documents/Demo/ZSThirdKit/ZSThirdKit/ZSThirdKit/ViewController.m"
-                  timestampString = "524042619.070213"
+                  timestampString = "524050202.775588"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
                   offsetFromSymbolStart = "72">
                </Location>
             </Locations>
@@ -214,22 +214,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ShareChannel/WeChatChannel/ZSChannelWX.m"
-            timestampString = "523959824.769235"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-onResp:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -262,54 +246,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ViewController.m"
-            timestampString = "524039782.945947"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "-wbShareText"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ViewController.m"
-            timestampString = "524039783.897935"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "-wbShareText"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ViewController.m"
-            timestampString = "524039784.505858"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "-wbShareText"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -326,33 +262,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ShareChannel/SinaChannel/ZSChannelSinaWB.m"
-            timestampString = "524041115.529192"
+            filePath = "ZSThirdKit/ViewController.m"
+            timestampString = "524047706.82856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "-reqWithInfo:finish:"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "-wbShareMusic"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ShareChannel/SinaChannel/ZSChannelSinaWB.m"
-            timestampString = "524041150.209676"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-didReceiveWeiboResponse:"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController wbShareMusic]"
+                  moduleName = "ZSThirdKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaosheng/Documents/Demo/ZSThirdKit/ZSThirdKit/ZSThirdKit/ViewController.m"
+                  timestampString = "524047707.043387"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "269"
+                  endingLineNumber = "269"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__30-[ViewController wbShareMusic]_block_invoke"
+                  moduleName = "ZSThirdKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaosheng/Documents/Demo/ZSThirdKit/ZSThirdKit/ZSThirdKit/ViewController.m"
+                  timestampString = "524047707.04578"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

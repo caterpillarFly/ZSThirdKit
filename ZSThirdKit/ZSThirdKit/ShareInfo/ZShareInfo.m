@@ -30,6 +30,10 @@
 
 @end
 
+@implementation ZShareMusic
+
+@end
+
 
 @implementation ZSAuthInfo
 

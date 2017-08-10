@@ -146,7 +146,6 @@
     else if ([info isKindOfClass:[ZShareImage class]]){
         ZShareImage *imageInfo = (ZShareImage *)info;
         WXMediaMessage *mediaMessage = [self messageWithInfo:imageInfo];
-        //[mediaMessage setThumbImage:[imageObj.image thumbnail]];
         WXImageObject *ext = [WXImageObject object];
         ext.imageData = UIImageJPEGRepresentation(imageInfo.image,0.9);
         mediaMessage.mediaObject = ext;
@@ -159,6 +158,17 @@
         WXWebpageObject *ext = [WXWebpageObject object];
         ext.webpageUrl = webPageInfo.url;
         mediaMessage.mediaObject = ext;
+        req.message = mediaMessage;
+    }
+    else if ([info isKindOfClass:[ZShareMusic class]]){
+        ZShareMusic *musicInfo = (ZShareMusic *)info;
+        WXMediaMessage *mediaMessage = [self messageWithInfo:musicInfo];
+        WXMusicObject *obj = [WXMusicObject object];
+        obj.musicUrl = musicInfo.musicUrl;
+        obj.musicDataUrl = musicInfo.musicDataUrl;
+        obj.musicLowBandUrl = musicInfo.musicLowBandUrl;
+        obj.musicLowBandDataUrl = musicInfo.musicLowBandDataUrl;
+        mediaMessage.mediaObject = obj;
         req.message = mediaMessage;
     }
     else{

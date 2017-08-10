@@ -63,6 +63,11 @@
         [self wxShareWebPage];
     }];
     
+    [self addMenu:@"微信分享音乐" callback:^(id sender, id data) {
+        @strongify(self)
+        [self wxShareMusic];
+    }];
+    
     [self addMenu:@"新浪微博登录" callback:^(id sender, id data) {
         @strongify(self)
         [self wbLogin];
@@ -79,6 +84,11 @@
         @strongify(self)
         [self wbShareWebPage];
     }];
+    [self addMenu:@"新浪微博分享音乐" callback:^(id sender, id data) {
+        @strongify(self)
+        [self wbShareMusic];
+    }];
+    
 }
 
 
@@ -188,6 +198,20 @@
     }];
 }
 
+- (void)wxShareMusic
+{
+    ZSChannelWX *wx = [self channelWX];
+    ZShareMusic *shareInfo = [self shareMusic];
+    
+    [wx shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
 - (void)wbLogin
 {
     ZSChannelSinaWB *wb = [self channelWB];
@@ -237,6 +261,20 @@
     }];
 }
 
+- (void)wbShareMusic
+{
+    ZSChannelSinaWB *wb = [self channelWB];
+    ZShareMusic *shareInfo = [self shareMusic];
+    
+    [wb shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
 - (ZSChannelQQ *)channelQQ
 {
     ZSChannelQQ *qq = [ZSChannelQQ new];
@@ -247,7 +285,7 @@
 - (ZSChannelWX *)channelWX
 {
     ZSChannelWX *wx = [ZSChannelWX new];
-    [wx setupWithInfo:@{@"appKey":@"wx85e936963626b26b", @"appSecert":@"775b59a988524bafbc45097238383ac0"}];
+    [wx setupWithInfo:@{@"appKey":@"wxf6d4fc0792ef3783", @"appSecert":@"3a9523bcc8a35d664fac915796ce84ec"}];
     return wx;
 }
 
@@ -280,11 +318,24 @@
 - (ZShareImage *)shareImage
 {
     ZShareImage *imageInfo = [ZShareImage new];
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"img.jpg"];
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"xxx.jpeg"];
     imageInfo.image = [UIImage imageWithContentsOfFile:path];
     imageInfo.title = @"美女";
     imageInfo.desc = @"这是一个不知名的美女，我也不知道是谁";
+    imageInfo.thumbnailData = [NSData dataWithContentsOfFile:path];
     return imageInfo;
+}
+
+- (ZShareMusic *)shareMusic
+{
+    ZShareMusic *shareInfo = [ZShareMusic new];
+    shareInfo.desc = @"分享一首好听的音乐，真的很好听，试一试你就知道了";
+    shareInfo.title = @"音乐";
+    shareInfo.musicUrl = @"http://218.200.227.207:8080/app/v2/controller/share/ringtone.shtml?id=600908000003312837";
+    shareInfo.musicDataUrl = @"http://c.musicapp.migu.cn/MIGUM2.0/v1.0/content/sub/listenSong.do?contentId=600908000003312837&ua=Ios_migu&version=5.0.7&netType=01&toneFlag=PQ&copyrightId=6990539Z039&resourceType=0&t=1502356007554&channel=0140070&k=b5c5969d9234228e";
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thumbnail.jpg"];
+    shareInfo.thumbnailData = [NSData dataWithContentsOfFile:path];
+    return shareInfo;
 }
 
 @end
