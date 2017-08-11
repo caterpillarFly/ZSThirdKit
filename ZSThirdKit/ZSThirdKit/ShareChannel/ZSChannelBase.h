@@ -14,6 +14,8 @@
 
 @protocol ZSOpProcessProtocol <NSObject>
 
+@optional
+
 //登录成功之后调用
 - (void)didLogin:(ZSAuthInfo *)authInfo;
 

@@ -43,6 +43,11 @@
         [self qqShareWebPage];
     }];
     
+    [self addMenu:@"QQ分享音乐" callback:^(id sender, id data) {
+        @strongify(self)
+        [self qqShareMusic];
+    }];
+    
     [self addMenu:@"微信登录" callback:^(id sender, id data) {
         @strongify(self)
         [self wxLogin];
@@ -138,6 +143,20 @@
 {
     ZSChannelQQ *qq = [self channelQQ];
     ZShareWebPage *shareInfo = [self shareWebpage];
+    
+    [qq shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
+- (void)qqShareMusic
+{
+    ZSChannelQQ *qq = [self channelQQ];
+    ZShareMusic *shareInfo = [self shareMusic];
     
     [qq shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
         NSLog(@"分享成功..........");
@@ -307,7 +326,7 @@
 {
     ZShareWebPage *shareInfo = [ZShareWebPage new];
     shareInfo.desc = @"分享一首好听的音乐，真的很好听，试一试你就知道了";
-    shareInfo.title = @"音乐";
+    shareInfo.title = @"网页分享测试";
     shareInfo.url = @"http://i.y.qq.com/v8/playsong.html?hostuin=0&songid=&songmid=002x5Jje3eUkXT&_wv=1&source=qq&appshare=iphone&media_mid=002x5Jje3eUkXT";
     NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thumbnail.jpg"];
     shareInfo.thumbnailData = [NSData dataWithContentsOfFile:path];
@@ -320,7 +339,7 @@
     ZShareImage *imageInfo = [ZShareImage new];
     NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"xxx.jpeg"];
     imageInfo.image = [UIImage imageWithContentsOfFile:path];
-    imageInfo.title = @"美女";
+    imageInfo.title = @"图片分享测试";
     imageInfo.desc = @"这是一个不知名的美女，我也不知道是谁";
     imageInfo.thumbnailData = [NSData dataWithContentsOfFile:path];
     return imageInfo;
@@ -330,7 +349,7 @@
 {
     ZShareMusic *shareInfo = [ZShareMusic new];
     shareInfo.desc = @"分享一首好听的音乐，真的很好听，试一试你就知道了";
-    shareInfo.title = @"音乐";
+    shareInfo.title = @"音乐分享测试";
     shareInfo.musicUrl = @"http://218.200.227.207:8080/app/v2/controller/share/ringtone.shtml?id=600908000003312837";
     shareInfo.musicDataUrl = @"http://c.musicapp.migu.cn/MIGUM2.0/v1.0/content/sub/listenSong.do?contentId=600908000003312837&ua=Ios_migu&version=5.0.7&netType=01&toneFlag=PQ&copyrightId=6990539Z039&resourceType=0&t=1502356007554&channel=0140070&k=b5c5969d9234228e";
     NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thumbnail.jpg"];

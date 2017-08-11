@@ -145,11 +145,13 @@
     SendMessageToWXReq *req = [SendMessageToWXReq new];
     req.scene = self.scene;
     if ([info isKindOfClass:[ZShareText class]]) {
+        //文本
         ZShareText *textInfo = (ZShareText *)info;
         req.bText = YES;
         req.text = textInfo.text;
     }
     else if ([info isKindOfClass:[ZShareImage class]]){
+        //图片
         ZShareImage *imageInfo = (ZShareImage *)info;
         WXMediaMessage *mediaMessage = [self messageWithInfo:imageInfo];
         WXImageObject *ext = [WXImageObject object];
@@ -159,6 +161,7 @@
         req.message = mediaMessage;
     }
     else if ([info isKindOfClass:[ZShareWebPage class]]){
+        //网页
         ZShareWebPage *webPageInfo = (ZShareWebPage *)info;
         WXMediaMessage *mediaMessage = [self messageWithInfo:webPageInfo];
         WXWebpageObject *ext = [WXWebpageObject object];
@@ -167,6 +170,7 @@
         req.message = mediaMessage;
     }
     else if ([info isKindOfClass:[ZShareMusic class]]){
+        //音频
         ZShareMusic *musicInfo = (ZShareMusic *)info;
         WXMediaMessage *mediaMessage = [self messageWithInfo:musicInfo];
         WXMusicObject *obj = [WXMusicObject object];

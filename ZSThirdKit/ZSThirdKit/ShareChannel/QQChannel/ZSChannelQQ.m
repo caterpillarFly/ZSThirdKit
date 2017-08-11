@@ -192,44 +192,16 @@
     return ZSChannelQQSceneChat;
 }
 
-- (QQApiObject *)sendMessageWithShareInfo:(ZShareInfo *)info
-{
-    QQApiObject *obj;
-    if ([info isKindOfClass:[ZShareText class]]) {
-        ZShareText *textInfo = (ZShareText *)info;
-        obj = [QQApiTextObject objectWithText:textInfo.text];
-    }
-    else if ([info isKindOfClass:[ZShareImage class]]){
-        ZShareImage *imageInfo = (ZShareImage *)info;
-        if (self.scene == ZSChannelQQSceneChat) {
-            obj = [QQApiImageObject objectWithData:UIImageJPEGRepresentation(imageInfo.image, 0.9)
-                                  previewImageData:nil
-                                             title:imageInfo.title
-                                       description:nil];
-        }
-        else{
-            obj =[QQApiImageArrayForQZoneObject objectWithimageDataArray:@[UIImageJPEGRepresentation(imageInfo.image, 0.9)] title:imageInfo.title extMap:nil];
-        }
-        
-    }
-    else if ([info isKindOfClass:[ZShareWebPage class]]){
-        ZShareWebPage *webPageInfo = (ZShareWebPage *)info;
-        obj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:webPageInfo.url]
-                                       title:webPageInfo.title
-                                 description:webPageInfo.desc
-                            previewImageData:webPageInfo.thumbnailData];
-    }
-    return obj;
-}
-
 - (void)reqWithInfo:(ZShareInfo *)info finish:(ZSSimpleCallBack)finish
 {
     QQApiObject *obj;
     if ([info isKindOfClass:[ZShareText class]]) {
+        //文本
         ZShareText *textInfo = (ZShareText *)info;
         obj = [QQApiTextObject objectWithText:textInfo.text];
     }
     else if ([info isKindOfClass:[ZShareImage class]]){
+        //图片
         ZShareImage *imageInfo = (ZShareImage *)info;
         if (self.scene == ZSChannelQQSceneChat) {
             obj = [QQApiImageObject objectWithData:UIImageJPEGRepresentation(imageInfo.image, 0.9)
@@ -243,11 +215,23 @@
         
     }
     else if ([info isKindOfClass:[ZShareWebPage class]]){
+        //网页
         ZShareWebPage *webPageInfo = (ZShareWebPage *)info;
         obj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:webPageInfo.url]
                                        title:webPageInfo.title
                                  description:webPageInfo.desc
                             previewImageData:webPageInfo.thumbnailData];
+    }
+    else if ([info isKindOfClass:[ZShareMusic class]]){
+        //音频
+        ZShareMusic *musicInfo = (ZShareMusic *)info;
+        NSURL *url = [NSURL URLWithString:musicInfo.musicUrl];
+        QQApiAudioObject *audioObj = [QQApiAudioObject objectWithURL:url
+                                                               title:musicInfo.title
+                                                         description:musicInfo.description
+                                                    previewImageData:musicInfo.thumbnailData];
+        audioObj.flashURL = [NSURL URLWithString:musicInfo.musicDataUrl];
+        obj = audioObj;
     }
     SendMessageToQQReq *req;
     if (obj) {
