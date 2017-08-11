@@ -46,6 +46,12 @@
     return [WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi];
 }
 
+- (BOOL)couldShare
+{
+    [self registerApp];
+    return [WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi];
+}
+
 - (void)registerApp
 {
     if (!self.hasRegistered) {

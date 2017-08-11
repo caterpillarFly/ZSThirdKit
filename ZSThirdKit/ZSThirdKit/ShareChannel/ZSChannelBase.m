@@ -10,9 +10,19 @@
 
 @interface ZSChannelBase ()<ZSOpProcessProtocol>
 
-//子类需要覆写的方法
+/*
+ * 以下是子类需要覆写的方法
+ */
+
+//channel是否支持登录
+- (BOOL)couldLogin;
+
+//每个子类的登录操作
 - (void)login;
+
+//每个子类的分享操作
 - (void)shareInfo:(ZShareInfo *)shareInfo;
+
 
 @end
 
@@ -31,12 +41,12 @@
     NSLog(@"channel dealloc:%@_%@", self, self.channelName);
 }
 
-//- (BOOL)isSupportShareInfo:(ZShareInfo *)shareInfo
-//{
-//    return NO;
-//}
-
 - (BOOL)couldLogin
+{
+    return NO;
+}
+
+- (BOOL)couldShare
 {
     return NO;
 }

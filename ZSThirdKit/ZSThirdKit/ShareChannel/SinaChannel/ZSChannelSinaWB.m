@@ -21,9 +21,23 @@
 
 @implementation ZSChannelSinaWB
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.channelName = @"新浪微博";
+    }
+    return self;
+}
+
 - (BOOL)couldLogin
 {
     return YES;
+}
+
+- (BOOL)couldShare
+{
+    [self registerApp];
+    return [WeiboSDK isWeiboAppInstalled] && [WeiboSDK isCanShareInWeiboAPP];
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url

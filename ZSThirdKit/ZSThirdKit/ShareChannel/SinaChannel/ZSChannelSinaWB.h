@@ -10,6 +10,4 @@
 
 @interface ZSChannelSinaWB : ZSChannelBase
 
-
-
 @end

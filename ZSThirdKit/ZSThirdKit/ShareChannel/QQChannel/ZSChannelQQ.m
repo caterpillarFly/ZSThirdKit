@@ -90,8 +90,13 @@
     }
 }
 
-//是否支持登录
 - (BOOL)couldLogin
+{
+    //就算没装客户端，QQ也支持网页登录
+    return YES;
+}
+
+- (BOOL)couldShare
 {
     return ([QQApiInterface isQQInstalled] && [QQApiInterface isQQSupportApi]);
 }

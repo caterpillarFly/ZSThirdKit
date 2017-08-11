@@ -11,8 +11,11 @@
 #import "ZSChannelWX.h"
 #import "ZSChannelSinaWB.h"
 #import "ZSThirdHeaderFile.h"
+#import "ZSThirdConfigSample.h"
 
 @interface ViewController ()
+
+@property (nonatomic) ZSThirdConfigSample *config;
 
 @end
 
@@ -21,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.config = [ZSThirdConfigSample new];
+    [ZSThirdKitManager sharedManager].delegate = self.config;
     
     @weakify(self)
     [self addMenu:@"qq登录" callback:^(id sender, id data) {
@@ -104,8 +109,7 @@
 
 - (void)qqlogin
 {
-    ZSChannelQQ *qq = [ZSChannelQQ new];
-    [qq setupWithInfo:@{@"appKey":@"1105787459"}];
+    ZSChannelBase *qq = [self channelQQ];
     [qq login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
         NSLog(@"登录成功");
     }];
@@ -114,7 +118,7 @@
 - (void)qqShareImage
 {
     ZShareImage *imageInfo = [self shareImage];
-    ZSChannelQQ *qq = [self channelQQ];
+    ZSChannelBase *qq = [self channelQQ];
     
     [qq shareInfo:imageInfo success:^(ZSChannelBase *channel, id data) {
         NSLog(@"分享成功..........");
@@ -127,7 +131,7 @@
 
 - (void)qqShareText
 {
-    ZSChannelQQ *qq = [self channelQQ];
+    ZSChannelBase *qq = [self channelQQ];
     ZShareText *shareInfo = [self shareText];
     
     [qq shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
@@ -141,7 +145,7 @@
 
 - (void)qqShareWebPage
 {
-    ZSChannelQQ *qq = [self channelQQ];
+    ZSChannelBase *qq = [self channelQQ];
     ZShareWebPage *shareInfo = [self shareWebpage];
     
     [qq shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
@@ -155,7 +159,7 @@
 
 - (void)qqShareMusic
 {
-    ZSChannelQQ *qq = [self channelQQ];
+    ZSChannelBase *qq = [self channelQQ];
     ZShareMusic *shareInfo = [self shareMusic];
     
     [qq shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
@@ -169,7 +173,7 @@
 
 - (void)wxLogin
 {
-    ZSChannelWX *wx = [self channelWX];
+    ZSChannelBase *wx = [self channelWX];
     [wx login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
         NSLog(@"微信登录成功");
     }];
@@ -177,7 +181,7 @@
 
 - (void)wxShareText
 {
-    ZSChannelWX *wx = [self channelWX];
+    ZSChannelBase *wx = [self channelWX];
     ZShareText *shareInfo = [self shareText];
     
     [wx shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
@@ -191,7 +195,7 @@
 
 - (void)wxShareImage
 {
-    ZSChannelWX *wx = [self channelWX];
+    ZSChannelBase *wx = [self channelWX];
     ZShareImage *shareInfo = [self shareImage];
     
     [wx shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
@@ -205,7 +209,7 @@
 
 - (void)wxShareWebPage
 {
-    ZSChannelWX *wx = [self channelWX];
+    ZSChannelBase *wx = [self channelWX];
     ZShareWebPage *shareInfo = [self shareWebpage];
     
     [wx shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
@@ -219,7 +223,7 @@
 
 - (void)wxShareMusic
 {
-    ZSChannelWX *wx = [self channelWX];
+    ZSChannelBase *wx = [self channelWX];
     ZShareMusic *shareInfo = [self shareMusic];
     
     [wx shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
@@ -233,7 +237,7 @@
 
 - (void)wbLogin
 {
-    ZSChannelSinaWB *wb = [self channelWB];
+    ZSChannelBase *wb = [self channelWB];
     [wb login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
         NSLog(@"新浪微博登录成功......");
     }];
@@ -241,7 +245,7 @@
 
 - (void)wbShareText
 {
-    ZSChannelSinaWB *wb = [self channelWB];
+    ZSChannelBase *wb = [self channelWB];
     ZShareText *shareInfo = [self shareText];
     [wb shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
         NSLog(@"分享成功..........");
@@ -254,7 +258,7 @@
 
 - (void)wbShareImage
 {
-    ZSChannelSinaWB *wb = [self channelWB];
+    ZSChannelBase *wb = [self channelWB];
     ZShareImage *shareInfo = [self shareImage];
     
     [wb shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
@@ -268,7 +272,7 @@
 
 - (void)wbShareWebPage
 {
-    ZSChannelSinaWB *wb = [self channelWB];
+    ZSChannelBase *wb = [self channelWB];
     ZShareWebPage *shareInfo = [self shareWebpage];
     
     [wb shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
@@ -282,7 +286,7 @@
 
 - (void)wbShareMusic
 {
-    ZSChannelSinaWB *wb = [self channelWB];
+    ZSChannelBase *wb = [self channelWB];
     ZShareMusic *shareInfo = [self shareMusic];
     
     [wb shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
@@ -294,24 +298,21 @@
     }];
 }
 
-- (ZSChannelQQ *)channelQQ
+- (ZSChannelBase *)channelQQ
 {
-    ZSChannelQQ *qq = [ZSChannelQQ new];
-    [qq setupWithInfo:@{@"appKey":@"1105787459"}];
+    ZSChannelBase *qq = [[ZSThirdKitManager sharedManager] channelWithKey:ZSChannelQQKey];
     return qq;
 }
 
-- (ZSChannelWX *)channelWX
+- (ZSChannelBase *)channelWX
 {
-    ZSChannelWX *wx = [ZSChannelWX new];
-    [wx setupWithInfo:@{@"appKey":@"wxf6d4fc0792ef3783", @"appSecert":@"3a9523bcc8a35d664fac915796ce84ec"}];
+    ZSChannelBase *wx = [[ZSThirdKitManager sharedManager] channelWithKey:ZSChannelWXKey];
     return wx;
 }
 
-- (ZSChannelSinaWB *)channelWB
+- (ZSChannelBase *)channelWB
 {
-    ZSChannelSinaWB *wb = [ZSChannelSinaWB new];
-    [wb setupWithInfo:@{@"appKey":@"1843267010", @"appSecert":@"b2f5b2b661babaa3c01b57312decffd7", @"redirectURI":@"http://music.10086.cn"}];
+    ZSChannelBase *wb = [[ZSThirdKitManager sharedManager] channelWithKey:ZSChannelSinaWBKey];
     return wb;
 }
 

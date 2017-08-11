@@ -23,4 +23,10 @@
     return WXSceneTimeline;
 }
 
+- (BOOL)couldLogin
+{
+    //微信朋友圈不支持登录
+    return NO;
+}
+
 @end

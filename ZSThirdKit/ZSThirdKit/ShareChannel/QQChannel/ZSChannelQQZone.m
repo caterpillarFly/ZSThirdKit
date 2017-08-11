@@ -23,4 +23,10 @@
     return ZSChannelQQSceneQQZone;
 }
 
+//QQ空间不支持登录
+- (BOOL)couldLogin
+{
+    return NO;
+}
+
 @end
