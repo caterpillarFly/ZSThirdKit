@@ -39,3 +39,6 @@
 
 @end
 
+@implementation ZSUserInfo
+
+@end

@@ -40,8 +40,8 @@
        cancel:(ZSOpCancelBlock)cancel;
 
 
-//登录之后，获取用户的头像，昵称等信息
-- (void)getUserInfo:(ZSSimpleCallBack)finish;
+//登录之后，将登录返回的授权信息拿来获取用户头像，昵称等信息
+- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo finish:(ZSFinishBlock)finish;
 
 
 //发起分享请求

@@ -68,6 +68,11 @@
     }
 }
 
+- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo finish:(ZSFinishBlock)finish
+{
+    //子类实现
+}
+
 - (void)login
 {
     //子类实现

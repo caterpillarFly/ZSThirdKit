@@ -63,3 +63,13 @@
 @property (nonatomic) NSDictionary *userInfo;         //用户信息，比如用户昵称，头像等信息
 
 @end
+
+
+@interface ZSUserInfo : NSObject
+
+@property (nonatomic, copy) NSString *nickName;
+@property (nonatomic, copy) NSString *profile;
+@property (nonatomic, copy) NSString *sex;
+@property (nonatomic, copy) NSString *address;
+
+@end

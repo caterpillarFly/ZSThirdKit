@@ -10,54 +10,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZSThirdKit/ShareChannel/QQChannel/ZSChannelQQ.m"
-            timestampString = "523959824.769235"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-login"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ZSChannelQQ login]"
-                  moduleName = "ZSThirdKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhaosheng/Documents/Demo/ZSThirdKit/ZSThirdKit/ZSThirdKit/ShareChannel/QQChannel/ZSChannelQQ.m"
-                  timestampString = "524145617.577464"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "331">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ZSChannelQQ login]"
-                  moduleName = "ZSThirdKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhaosheng/Documents/Demo/ZSThirdKit/ZSThirdKit/ZSThirdKit/ShareChannel/QQChannel/ZSChannelQQ.m"
-                  timestampString = "524145617.579129"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "548">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ShareChannel/QQChannel/ZSChannelQQ.m"
             timestampString = "524143202.355032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

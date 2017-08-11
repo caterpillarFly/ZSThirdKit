@@ -43,6 +43,28 @@
     self.appKey = appKey;
 }
 
+//登录
+- (void)login
+{
+    //QQ空间SSO登录
+    NSArray *permissionArr = @[kOPEN_PERMISSION_GET_USER_INFO,
+                               kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
+                               kOPEN_PERMISSION_ADD_SHARE,
+                               kOPEN_PERMISSION_ADD_TOPIC,
+                               kOPEN_PERMISSION_GET_INFO,
+                               kOPEN_PERMISSION_GET_OTHER_INFO,
+                               kOPEN_PERMISSION_UPLOAD_PIC];
+    
+    if (![self.auth authorize:permissionArr inSafari:NO])
+    {
+        NSError *error = ZSThirdError(ZSThirdErrorCodeUnsupport, @"qq登录失败");
+        [self didFail: error];
+    }
+    else{
+        [ZSThirdKitManager sharedManager].currentChannel = self;
+    }
+}
+
 //分享
 - (void)shareInfo:(ZShareInfo *)shareInfo
 {
@@ -68,25 +90,14 @@
     }];
 }
 
-//登录
-- (void)login
+- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo finish:(ZSFinishBlock)finish
 {
-    //QQ空间SSO登录
-    NSArray *permissionArr = @[kOPEN_PERMISSION_GET_USER_INFO,
-                               kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
-                               kOPEN_PERMISSION_ADD_SHARE,
-                               kOPEN_PERMISSION_ADD_TOPIC,
-                               kOPEN_PERMISSION_GET_INFO,
-                               kOPEN_PERMISSION_GET_OTHER_INFO,
-                               kOPEN_PERMISSION_UPLOAD_PIC];
-    
-    if (![self.auth authorize:permissionArr inSafari:NO])
-    {
-        NSError *error = ZSThirdError(ZSThirdErrorCodeUnsupport, @"qq登录失败");
-        [self didFail: error];
-    }
-    else{
-        [ZSThirdKitManager sharedManager].currentChannel = self;
+    BOOL res = [self.auth getUserInfo];
+    if (!res) {
+        NSError *error = ZSThirdError(ZSThirdErrorCodeFail, @"获取用户信息失败");
+        if (finish) {
+            finish(nil, error);
+        }
     }
 }
 

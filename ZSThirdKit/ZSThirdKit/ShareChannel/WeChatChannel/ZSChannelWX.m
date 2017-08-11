@@ -82,6 +82,11 @@
     [WXApi sendReq:authReq];
 }
 
+- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo finish:(ZSFinishBlock)finish
+{
+    
+}
+
 - (void)shareInfo:(ZShareInfo *)info
 {
     [self registerApp];
