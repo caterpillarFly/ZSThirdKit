@@ -12,7 +12,7 @@
 
 #import "ZSThirdKitManager.h"
 
-@interface ZSChannelWX () <WXApiDelegate>
+@interface ZSChannelWX () <WXApiDelegate, ZSOpProcessProtocol>
 
 @property (nonatomic) BOOL hasRegistered;
 @property (nonatomic) NSString *appKey;

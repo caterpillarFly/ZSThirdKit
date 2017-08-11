@@ -9,7 +9,7 @@
 #import "ZSChannelSinaWB.h"
 #import <WeiboSDK.h>
 
-@interface ZSChannelSinaWB ()<WeiboSDKDelegate>
+@interface ZSChannelSinaWB ()<WeiboSDKDelegate, ZSOpProcessProtocol>
 
 @property (nonatomic, copy) NSString *appKey;
 @property (nonatomic, copy) NSString *appSecret;

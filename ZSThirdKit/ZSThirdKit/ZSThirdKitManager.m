@@ -25,4 +25,9 @@
     return [self.currentChannel handleOpenURL:url];
 }
 
+- (NSArray *)installedChannels
+{
+    return nil;
+}
+
 @end

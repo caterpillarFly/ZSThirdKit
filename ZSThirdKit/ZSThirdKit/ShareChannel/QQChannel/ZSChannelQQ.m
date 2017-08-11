@@ -12,7 +12,7 @@
 #import <TencentOpenAPI/QQApiInterfaceObject.h>
 
 
-@interface ZSChannelQQ ()<TencentSessionDelegate, QQApiInterfaceDelegate>
+@interface ZSChannelQQ ()<TencentSessionDelegate, QQApiInterfaceDelegate, ZSOpProcessProtocol>
 
 @property (nonatomic, copy) NSString *appKey;
 @property (nonatomic) TencentOAuth *auth;

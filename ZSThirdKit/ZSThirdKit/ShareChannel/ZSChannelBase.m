@@ -8,7 +8,7 @@
 
 #import "ZSChannelBase.h"
 
-@interface ZSChannelBase ()
+@interface ZSChannelBase ()<ZSOpProcessProtocol>
 
 //子类需要覆写的方法
 - (void)login;
@@ -31,10 +31,10 @@
     NSLog(@"channel dealloc:%@_%@", self, self.channelName);
 }
 
-- (BOOL)isSupportShareInfo:(ZShareInfo *)shareInfo
-{
-    return NO;
-}
+//- (BOOL)isSupportShareInfo:(ZShareInfo *)shareInfo
+//{
+//    return NO;
+//}
 
 - (BOOL)couldLogin
 {
