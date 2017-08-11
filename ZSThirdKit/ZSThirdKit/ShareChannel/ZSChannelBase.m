@@ -51,9 +51,12 @@
     return NO;
 }
 
-- (void)login:(ZSAuthBlock)authBlock
+- (void)login:(ZSAuthBlock)auth fail:(ZSOpFailBlock)fail cancel:(ZSOpCancelBlock)cancel
 {
-    self.authBlock = authBlock;
+    self.authBlock = auth;
+    self.failBlock = fail;
+    self.cancelBlock = cancel;
+    
     if ([self couldLogin]) {
         [self login];
     }

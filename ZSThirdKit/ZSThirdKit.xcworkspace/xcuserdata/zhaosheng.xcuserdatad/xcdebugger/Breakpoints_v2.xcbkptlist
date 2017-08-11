@@ -26,7 +26,7 @@
                   moduleName = "ZSThirdKit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhaosheng/Documents/Demo/ZSThirdKit/ZSThirdKit/ZSThirdKit/ShareChannel/QQChannel/ZSChannelQQ.m"
-                  timestampString = "524144899.553613"
+                  timestampString = "524145617.577464"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -41,7 +41,7 @@
                   moduleName = "ZSThirdKit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhaosheng/Documents/Demo/ZSThirdKit/ZSThirdKit/ZSThirdKit/ShareChannel/QQChannel/ZSChannelQQ.m"
-                  timestampString = "524144899.5557"
+                  timestampString = "524145617.579129"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -49,22 +49,6 @@
                   offsetFromSymbolStart = "548">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ShareChannel/ZSChannelBase.m"
-            timestampString = "524140854.764422"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-dealloc"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,22 +64,6 @@
             startingLineNumber = "152"
             endingLineNumber = "152"
             landmarkName = "-onReq:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ShareChannel/QQChannel/ZSChannelQQ.m"
-            timestampString = "524143202.355032"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-tencentDidLogin"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZSThirdKit/ViewController.m"
-            timestampString = "524144899.510496"
+            timestampString = "524145616.531594"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "-wbShareWebPage"
             landmarkType = "7">
             <Locations>
@@ -185,13 +153,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ShareChannel/QQChannel/ZSChannelQQ.m"
-            timestampString = "524143202.355032"
+            filePath = "ZSThirdKit/ViewController.m"
+            timestampString = "524145628.69298"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-tencentDidLogin"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-qqlogin"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -201,13 +169,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZSThirdKit/ShareChannel/ZSChannelBase.m"
-            timestampString = "524140876.395152"
+            filePath = "ZSThirdKit/ViewController.m"
+            timestampString = "524145629.316586"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-shareInfo:success:fail:cancel:"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-qqlogin"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZSThirdKit/ViewController.m"
+            timestampString = "524145630.012859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-qqlogin"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

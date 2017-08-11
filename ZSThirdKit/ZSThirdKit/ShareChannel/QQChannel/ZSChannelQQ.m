@@ -112,6 +112,7 @@
         authInfo.token = self.auth.accessToken;
         authInfo.expire = [self.auth.expirationDate timeIntervalSince1970];
         authInfo.openId = self.auth.openId;
+        authInfo.channelKey = self.channelKey;
         
         [self didLogin:authInfo];
     }
@@ -168,6 +169,11 @@
         NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, resp.errorDescription);
         [self didFail:error];
     }
+}
+
+- (void)getUserInfoResponse:(APIResponse *)response
+{
+    
 }
 
 /**

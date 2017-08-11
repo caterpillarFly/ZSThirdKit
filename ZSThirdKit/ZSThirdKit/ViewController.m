@@ -110,8 +110,13 @@
 - (void)qqlogin
 {
     ZSChannelBase *qq = [self channelQQ];
+    
     [qq login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
         NSLog(@"登录成功");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"登录失败");
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"取消登录");
     }];
 }
 
@@ -175,7 +180,11 @@
 {
     ZSChannelBase *wx = [self channelWX];
     [wx login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
-        NSLog(@"微信登录成功");
+        NSLog(@"登录成功");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"登录失败");
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"取消登录");
     }];
 }
 
@@ -239,7 +248,11 @@
 {
     ZSChannelBase *wb = [self channelWB];
     [wb login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
-        NSLog(@"新浪微博登录成功......");
+        NSLog(@"登录成功");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"登录失败");
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"取消登录");
     }];
 }
 

@@ -212,6 +212,7 @@
     NSURL *tokenUrl = [NSURL URLWithString:url];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:tokenUrl];
     
+    @weakify(self)
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         if (data) {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
@@ -227,10 +228,12 @@
                 });
             }
             else{
+                @strongify(self)
                 ZSAuthInfo *authInfo = [ZSAuthInfo new];
                 authInfo.openId = dict[@"openid"];
                 authInfo.token = dict[@"access_token"];
                 authInfo.expire = [dict[@"expires_in"] longLongValue];
+                authInfo.channelKey = self.channelKey;
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (success) {

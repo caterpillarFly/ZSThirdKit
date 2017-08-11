@@ -60,6 +60,6 @@
 @property (nonatomic, copy) NSString *openId;
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic) long long expire;
-@property (nonatomic) NSDictionary *otherInfo;
+@property (nonatomic) NSDictionary *userInfo;         //用户信息，比如用户昵称，头像等信息
 
 @end

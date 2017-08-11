@@ -116,6 +116,7 @@
                     authInfo.openId = authResponse.userID;
                     authInfo.token = authResponse.accessToken;
                     authInfo.expire = [authResponse.expirationDate timeIntervalSince1970];
+                    authInfo.channelKey = self.channelKey;
                     [self didLogin:authInfo];
                 }
                 else{

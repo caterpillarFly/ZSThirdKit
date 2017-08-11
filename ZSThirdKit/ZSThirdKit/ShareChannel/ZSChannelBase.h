@@ -35,7 +35,13 @@
 
 
 //登录
-- (void)login:(ZSAuthBlock)authBlock;
+- (void)login:(ZSAuthBlock)auth
+         fail:(ZSOpFailBlock)fail
+       cancel:(ZSOpCancelBlock)cancel;
+
+
+//登录之后，获取用户的头像，昵称等信息
+- (void)getUserInfo:(ZSSimpleCallBack)finish;
 
 
 //发起分享请求
