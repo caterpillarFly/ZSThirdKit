@@ -15,9 +15,6 @@
 
 @optional
 
-//登录成功之后调用
-- (void)didLogin:(ZSAuthInfo *)authInfo;
-
 
 //取消操作之后调用
 - (void)didCancel;
@@ -29,6 +26,8 @@
 
 //成功之后调用
 - (void)didSuccess:(id)data;
+
+
 
 @end
 

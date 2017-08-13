@@ -38,4 +38,8 @@
 - (NSArray<ZSChannelBase *> *)validChannels;
 
 
+//清除保留的渠道等信息
+- (void)clear;
+
+
 @end

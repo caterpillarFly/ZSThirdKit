@@ -57,11 +57,8 @@
     
     if (![self.auth authorize:permissionArr inSafari:NO])
     {
-        NSError *error = ZSThirdError(ZSThirdErrorCodeUnsupport, @"qq登录失败");
+        NSError *error = ZSThirdError(ZSThirdErrorCodeUnsupport, @"登录失败");
         [self didFail: error];
-    }
-    else{
-        [ZSThirdKitManager sharedManager].currentChannel = self;
     }
 }
 
@@ -90,14 +87,12 @@
     }];
 }
 
-- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo finish:(ZSFinishBlock)finish
+- (void)getUserInfo:(ZSAuthInfo *)authInfo
 {
     BOOL res = [self.auth getUserInfo];
     if (!res) {
         NSError *error = ZSThirdError(ZSThirdErrorCodeFail, @"获取用户信息失败");
-        if (finish) {
-            finish(nil, error);
-        }
+        [self didFail:error];
     }
 }
 
@@ -125,7 +120,7 @@
         authInfo.openId = self.auth.openId;
         authInfo.channelKey = self.channelKey;
         
-        [self didLogin:authInfo];
+        [self didSuccess:authInfo];
     }
     else{
         [self didCancel];
@@ -139,7 +134,7 @@
         [self didCancel];
     }
     else{
-        NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"qq登录失败");
+        NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"登录失败");
         [self didFail:error];
     }
     
@@ -150,7 +145,7 @@
 - (void)tencentDidNotNetWork
 {
     NSLog(@"qq登录网络有问题");
-    NSError *error = ZSThirdError(kOpenSDKErrorNetwork, @"qq登录失败");
+    NSError *error = ZSThirdError(kOpenSDKErrorNetwork, @"登录失败");
     [self didFail:error];
 }
 
@@ -184,7 +179,35 @@
 
 - (void)getUserInfoResponse:(APIResponse *)response
 {
-    
+    NSLog(@"QQ用户信息");
+    if (response.errorMsg.length) {
+        NSError *error = ZSThirdError(response.retCode, response.errorMsg);
+        [self didFail:error];
+    }
+    else{
+        ZSUserInfo *userinfo = [ZSUserInfo new];
+        userinfo.channelKey = self.channelKey;
+        userinfo.nickname = response.jsonResponse[@"nickname"];
+        userinfo.city = response.jsonResponse[@"city"];
+        userinfo.province = response.jsonResponse[@"province"];
+        
+        NSString *profileKey = @"figureurl_qq_2";
+        if (self.scene == ZSChannelQQSceneChat) {
+            profileKey = @"figureurl_2";
+        }
+        userinfo.profile = response.jsonResponse[profileKey];
+        
+        userinfo.sex = ZSUserSexUnknown;
+        NSString *gender = response.jsonResponse[@"gender"];
+        if ([gender isEqualToString:@"男"]){
+            userinfo.sex = ZSUserSexMale;
+        }
+        else if ([gender isEqualToString:@"女"]){
+            userinfo.sex = ZSUserSexFemale;
+        }
+        
+        [self didSuccess:userinfo];
+    }
 }
 
 /**

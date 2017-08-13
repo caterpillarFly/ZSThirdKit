@@ -23,6 +23,9 @@
 //每个子类的分享操作
 - (void)shareInfo:(ZShareInfo *)shareInfo;
 
+//获取特定渠道的用户信息
+- (void)getUserInfo:(ZSAuthInfo *)authInfo;
+
 
 @end
 
@@ -51,13 +54,14 @@
     return NO;
 }
 
-- (void)login:(ZSAuthBlock)auth fail:(ZSOpFailBlock)fail cancel:(ZSOpCancelBlock)cancel
+- (void)login:(ZSOpSuccessBlock)success fail:(ZSOpFailBlock)fail cancel:(ZSOpCancelBlock)cancel
 {
-    self.authBlock = auth;
+    self.successBlock = success;
     self.failBlock = fail;
     self.cancelBlock = cancel;
     
     if ([self couldLogin]) {
+        [ZSThirdKitManager sharedManager].currentChannel = self;
         [self login];
     }
     else{
@@ -68,9 +72,41 @@
     }
 }
 
-- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo finish:(ZSFinishBlock)finish
+- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo
+                    success:(ZSOpSuccessBlock)success
+                       fail:(ZSOpFailBlock)fail
 {
-    //子类实现
+    self.successBlock = success;
+    self.failBlock = fail;
+    
+    if ([self couldLogin]) {
+        [ZSThirdKitManager sharedManager].currentChannel = self;
+        [self getUserInfo:authInfo];
+    }
+    else{
+        if (self.notSupportBlock) {
+            self.notSupportBlock(self);
+        }
+        [self clear];
+    }
+}
+
+- (void)shareInfo:(ZShareInfo *)shareInfo success:(ZSOpSuccessBlock)success fail:(ZSOpFailBlock)fail cancel:(ZSOpCancelBlock)cancel
+{
+    self.successBlock = success;
+    self.failBlock = fail;
+    self.cancelBlock = cancel;
+    
+    if ([self couldLogin]) {
+        [ZSThirdKitManager sharedManager].currentChannel = self;
+        [self shareInfo:shareInfo];
+    }
+    else{
+        if (self.notSupportBlock) {
+            self.notSupportBlock(self);
+        }
+        [self clear];
+    }
 }
 
 - (void)login
@@ -88,22 +124,9 @@
     //子类实现
 }
 
-- (void)shareInfo:(ZShareInfo *)shareInfo success:(ZSOpSuccessBlock)success fail:(ZSOpFailBlock)fail cancel:(ZSOpCancelBlock)cancel
+- (void)getUserInfo:(ZSAuthInfo *)authInfo
 {
-    self.successBlock = success;
-    self.failBlock = fail;
-    self.cancelBlock = cancel;
-    
-    if ([self couldLogin]) {
-        [self shareInfo:shareInfo];
-        [ZSThirdKitManager sharedManager].currentChannel = self;
-    }
-    else{
-        if (self.notSupportBlock) {
-            self.notSupportBlock(self);
-        }
-        [self clear];
-    }
+    //子类实现
 }
 
 - (void)didFail:(NSError *)error
@@ -111,7 +134,7 @@
     if (self.failBlock) {
         self.failBlock(self, error);
     }
-    [self clear];
+    //[self clear];
 }
 
 - (void)didCancel
@@ -119,15 +142,7 @@
     if (self.cancelBlock) {
         self.cancelBlock(self);
     }
-    [self clear];
-}
-
-- (void)didLogin:(ZSAuthInfo *)authInfo
-{
-    if (self.authBlock) {
-        self.authBlock(self, authInfo);
-    }
-    [self clear];
+    //[self clear];
 }
 
 - (void)didSuccess:(id)data
@@ -135,7 +150,7 @@
     if (self.successBlock) {
         self.successBlock(self, data);
     }
-    [self clear];
+    //[self clear];
 }
 
 - (void)clear
@@ -143,10 +158,7 @@
     self.successBlock = nil;
     self.failBlock = nil;
     self.cancelBlock = nil;
-    self.authBlock = nil;
     self.notSupportBlock = nil;
-    
-    [ZSThirdKitManager sharedManager].currentChannel = nil;
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url

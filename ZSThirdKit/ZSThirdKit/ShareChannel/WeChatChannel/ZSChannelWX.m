@@ -73,18 +73,16 @@
 - (void)login
 {
     [self registerApp];
-    [ZSThirdKitManager sharedManager].currentChannel = self;
     
     SendAuthReq *authReq = [SendAuthReq new];
     authReq.scope = @"snsapi_userinfo";
     authReq.state = @"com.migu.mobilemusic";
     
-    [WXApi sendReq:authReq];
-}
-
-- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo finish:(ZSFinishBlock)finish
-{
-    
+    BOOL res = [WXApi sendReq:authReq];
+    if (!res) {
+        NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"登录失败");
+        [self didFail:error];
+    }
 }
 
 - (void)shareInfo:(ZShareInfo *)info
@@ -123,13 +121,14 @@
                 SendAuthResp *authResp = (SendAuthResp *)resp;
                 if (authResp.code.length){
                     @weakify(self)
-                    [self accessTokenWithCode:authResp.code success:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
-                        @strongify(self)
-                        [self didLogin:authInfo];
-                    } fail:^(ZSChannelBase *channel, NSError *error) {
-                        @strongify(self)
-                        [self didFail:error];
-                    }];
+                    [self accessTokenWithCode:authResp.code
+                                      success:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
+                                          @strongify(self)
+                                          [self didSuccess:authInfo];
+                                      }fail:^(ZSChannelBase *channel, NSError *error) {
+                                          @strongify(self)
+                                          [self didFail:error];
+                                      }];
                 }
                 else{
                     [self didCancel];
@@ -210,52 +209,87 @@
     return mediaMessage;
 }
 
-- (void)accessTokenWithCode:(NSString *)code success:(ZSAuthBlock)success fail:(ZSOpFailBlock)fail
+- (void)accessTokenWithCode:(NSString *)code success:(ZSOpSuccessBlock)success fail:(ZSOpFailBlock)fail
 {
     NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",self.appKey,self.appSecret,code];
-    //url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *tokenUrl = [NSURL URLWithString:url];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:tokenUrl];
     
     @weakify(self)
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        if (data) {
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
-                                                                 options:NSJSONReadingMutableLeaves
-                                                                   error:nil];
-            if (dict[@"errcode"]){
-                //错误
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (fail) {
-                        NSError *error = ZSThirdError(ZSThirdErrorCodeDataError, dict[@"errmsg"]);
-                        fail(nil, error);
-                    }
-                });
-            }
-            else{
-                @strongify(self)
-                ZSAuthInfo *authInfo = [ZSAuthInfo new];
-                authInfo.openId = dict[@"openid"];
-                authInfo.token = dict[@"access_token"];
-                authInfo.expire = [dict[@"expires_in"] longLongValue];
-                authInfo.channelKey = self.channelKey;
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (success) {
-                        success(nil, authInfo);
-                    }
-                });
-            }
-        }
-        else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (fail) {
-                    NSError *error = ZSThirdError(ZSThirdErrorCodeFail, @"获取token时，网络连接失败");
-                    fail(nil, error);
-                }
-            });
-        }
-    }];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+                               if (data) {
+                                   NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                                                        options:NSJSONReadingMutableLeaves
+                                                                                          error:nil];
+                                   if (dict[@"errcode"]){
+                                       //错误
+                                       if (fail) {
+                                           NSError *error = ZSThirdError(ZSThirdErrorCodeDataError, dict[@"errmsg"]);
+                                           fail(nil, error);
+                                       }
+                                   }
+                                   else{
+                                       @strongify(self)
+                                       ZSAuthInfo *authInfo = [ZSAuthInfo new];
+                                       authInfo.openId = dict[@"openid"];
+                                       authInfo.token = dict[@"access_token"];
+                                       authInfo.expire = [dict[@"expires_in"] longLongValue];
+                                       authInfo.channelKey = self.channelKey;
+                                       authInfo.unionId = dict[@"unionid"];
+                                       
+                                       if (success) {
+                                           success(nil, authInfo);
+                                       }
+                                   }
+                               }
+                               else{
+                                   if (fail) {
+                                       NSError *error = ZSThirdError(ZSThirdErrorCodeFail, @"网络连接失败");
+                                       fail(nil, error);
+                                   }
+                               }
+                           }];
+}
+
+- (void)getUserInfo:(ZSAuthInfo *)authInfo
+{
+    NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@", authInfo.token, authInfo.openId];
+    NSURL *tokenUrl = [NSURL URLWithString:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:tokenUrl];
+    
+    @weakify(self)
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+                               
+                               @strongify(self)
+                               if (data){
+                                   NSError *error;
+                                   NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                                                        options:NSJSONReadingMutableLeaves
+                                                                                          error:&error];
+                                   if (!error && [dict isKindOfClass:[NSDictionary class]]) {
+                                       ZSUserInfo *userInfo = [ZSUserInfo new];
+                                       userInfo.channelKey = self.channelKey;
+                                       userInfo.nickname = dict[@"nickname"];
+                                       userInfo.profile = dict[@"headimgurl"];
+                                       userInfo.province = dict[@"province"];
+                                       userInfo.city = dict[@"city"];
+                                       userInfo.sex = [dict[@"sex"] integerValue];
+                                       
+                                       [self didSuccess:userInfo];
+                                   }
+                                   else{
+                                       error = ZSThirdError(ZSThirdErrorCodeDataError, error.description);
+                                       [self didFail:error];
+                                   }
+                               }
+                               else{
+                                   [self didFail:connectionError];
+                               }
+                           }];
 }
 
 

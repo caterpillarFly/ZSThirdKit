@@ -16,7 +16,7 @@ typedef void (^ZSNotSupportBlock)(ZSChannelBase *channel);
 typedef void (^ZSOpSuccessBlock)(ZSChannelBase *channel, id data);
 typedef void (^ZSOpFailBlock)(ZSChannelBase *channel, NSError *error);
 typedef void (^ZSOpCancelBlock)(ZSChannelBase *channel);
-typedef void (^ZSAuthBlock)(ZSChannelBase *channel, ZSAuthInfo *authInfo);
+//typedef void (^ZSAuthBlock)(ZSChannelBase *channel, ZSAuthInfo *authInfo);
 typedef void (^ZSSimpleCallBack)(id sender);
 typedef void (^ZSFinishBlock)(id sender, NSError *error);
 

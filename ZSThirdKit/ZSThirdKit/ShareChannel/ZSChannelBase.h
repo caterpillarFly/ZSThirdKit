@@ -19,7 +19,7 @@
 @property (nonatomic) ZSOpCancelBlock cancelBlock;
 @property (nonatomic) ZSOpFailBlock failBlock;
 @property (nonatomic) ZSNotSupportBlock notSupportBlock;
-@property (nonatomic) ZSAuthBlock authBlock;
+
 //渠道名称
 @property (nonatomic, copy) NSString *channelName;
 //渠道对应的key，用来标示渠道
@@ -34,14 +34,16 @@
 - (BOOL)couldShare;
 
 
-//登录
-- (void)login:(ZSAuthBlock)auth
+//登录，拿回授权信息，success回调里的参数是ZSAuthInfo
+- (void)login:(ZSOpSuccessBlock)success
          fail:(ZSOpFailBlock)fail
        cancel:(ZSOpCancelBlock)cancel;
 
 
 //登录之后，将登录返回的授权信息拿来获取用户头像，昵称等信息
-- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo finish:(ZSFinishBlock)finish;
+- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo
+                    success:(ZSOpSuccessBlock)success
+                       fail:(ZSOpFailBlock)fail;
 
 
 //发起分享请求

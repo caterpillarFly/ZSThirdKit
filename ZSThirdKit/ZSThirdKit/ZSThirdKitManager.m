@@ -57,4 +57,9 @@
     return channels;
 }
 
+- (void)clear
+{
+    self.currentChannel = nil;
+}
+
 @end

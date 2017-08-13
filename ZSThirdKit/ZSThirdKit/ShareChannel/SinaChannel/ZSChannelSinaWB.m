@@ -8,6 +8,7 @@
 
 #import "ZSChannelSinaWB.h"
 #import <WeiboSDK.h>
+#import <WeiboUser.h>
 
 @interface ZSChannelSinaWB ()<WeiboSDKDelegate, ZSOpProcessProtocol>
 
@@ -58,18 +59,43 @@
 - (void)login
 {
     [self registerApp];
-    [ZSThirdKitManager sharedManager].currentChannel = self;
     
     WBAuthorizeRequest *authReq = [WBAuthorizeRequest request];
     authReq.redirectURI = self.redirectURI;
     authReq.scope = @"all";
     
-    [WeiboSDK sendRequest:authReq];
+    BOOL res = [WeiboSDK sendRequest:authReq];
+    
+    if (!res) {
+        NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"登录失败");
+        [self didFail:error];
+    }
 }
 
-- (void)getUserInfoWithAuth:(ZSAuthInfo *)authInfo finish:(ZSFinishBlock)finish
+- (void)getUserInfo:(ZSAuthInfo *)authInfo
 {
-    
+    @weakify(self)
+    [WBHttpRequest requestForUserProfile:authInfo.openId
+                         withAccessToken:authInfo.token
+                      andOtherProperties:nil
+                                   queue:[NSOperationQueue mainQueue]
+                   withCompletionHandler:^(WBHttpRequest *httpRequest, WeiboUser *wbUser, NSError *error) {
+                       @strongify(self)
+                       if (error) {
+                           [self didFail:error];
+                       }
+                       else{
+                           ZSUserInfo *userInfo = [ZSUserInfo new];
+                           userInfo.channelKey = self.channelKey;
+                           userInfo.nickname = wbUser.name;
+                           userInfo.profile = wbUser.profileImageUrl;
+                           userInfo.province = wbUser.province;
+                           userInfo.city = wbUser.city;
+                           //TODO:性别有可能没对应上
+                           userInfo.sex = [wbUser.gender integerValue];
+                           [self didSuccess:userInfo];
+                       }
+                   }];
 }
 
 - (void)shareInfo:(ZShareInfo *)shareInfo
@@ -122,7 +148,7 @@
                     authInfo.token = authResponse.accessToken;
                     authInfo.expire = [authResponse.expirationDate timeIntervalSince1970];
                     authInfo.channelKey = self.channelKey;
-                    [self didLogin:authInfo];
+                    [self didSuccess:authInfo];
                 }
                 else{
                     [self didCancel];

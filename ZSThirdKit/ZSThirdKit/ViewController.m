@@ -27,6 +27,10 @@
     self.config = [ZSThirdConfigSample new];
     [ZSThirdKitManager sharedManager].delegate = self.config;
     
+    [self addMenu:@"清理channel" callback:^(id sender, id data) {
+        [[ZSThirdKitManager sharedManager] clear];
+    }];
+    
     @weakify(self)
     [self addMenu:@"qq登录" callback:^(id sender, id data) {
         @strongify(self)
@@ -111,8 +115,15 @@
 {
     ZSChannelBase *qq = [self channelQQ];
     
+    @weakify(qq)
     [qq login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
         NSLog(@"登录成功");
+        @strongify(qq)
+        [qq getUserInfoWithAuth:authInfo success:^(ZSChannelBase *channel, id data) {
+            NSLog(@"成功获取qq用户信息---------------");
+        } fail:^(ZSChannelBase *channel, NSError *error) {
+            NSLog(@"获取qq用户信息失败***************");
+        }];
     } fail:^(ZSChannelBase *channel, NSError *error) {
         NSLog(@"登录失败");
     } cancel:^(ZSChannelBase *channel) {
@@ -179,8 +190,15 @@
 - (void)wxLogin
 {
     ZSChannelBase *wx = [self channelWX];
+    @weakify(wx)
     [wx login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
         NSLog(@"登录成功");
+        @strongify(wx)
+        [wx getUserInfoWithAuth:authInfo success:^(ZSChannelBase *channel, id data) {
+            NSLog(@"成功获取微信用户信息---------------");
+        } fail:^(ZSChannelBase *channel, NSError *error) {
+            NSLog(@"获取微信用户信息失败***************");
+        }];
     } fail:^(ZSChannelBase *channel, NSError *error) {
         NSLog(@"登录失败");
     } cancel:^(ZSChannelBase *channel) {
@@ -247,8 +265,15 @@
 - (void)wbLogin
 {
     ZSChannelBase *wb = [self channelWB];
+    @weakify(wb)
     [wb login:^(ZSChannelBase *channel, ZSAuthInfo *authInfo) {
         NSLog(@"登录成功");
+        @strongify(wb)
+        [wb getUserInfoWithAuth:authInfo success:^(ZSChannelBase *channel, id data) {
+            NSLog(@"成功获取微博用户信息---------------");
+        } fail:^(ZSChannelBase *channel, NSError *error) {
+            NSLog(@"获取微博用户信息失败***************");
+        }];
     } fail:^(ZSChannelBase *channel, NSError *error) {
         NSLog(@"登录失败");
     } cancel:^(ZSChannelBase *channel) {
