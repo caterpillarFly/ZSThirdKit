@@ -34,6 +34,7 @@
         if ([self.delegate respondsToSelector:@selector(channelInfoWithKey:)]) {
             [channel setupWithInfo:[self.delegate channelInfoWithKey:key]];
         }
+        channel.channelKey = key;
     }
     return channel;
 }

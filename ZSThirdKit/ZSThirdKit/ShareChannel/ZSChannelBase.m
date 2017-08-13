@@ -68,7 +68,6 @@
         if (self.notSupportBlock) {
             self.notSupportBlock(self);
         }
-        [self clear];
     }
 }
 
@@ -87,7 +86,6 @@
         if (self.notSupportBlock) {
             self.notSupportBlock(self);
         }
-        [self clear];
     }
 }
 
@@ -105,7 +103,6 @@
         if (self.notSupportBlock) {
             self.notSupportBlock(self);
         }
-        [self clear];
     }
 }
 
@@ -134,7 +131,6 @@
     if (self.failBlock) {
         self.failBlock(self, error);
     }
-    //[self clear];
 }
 
 - (void)didCancel
@@ -142,7 +138,6 @@
     if (self.cancelBlock) {
         self.cancelBlock(self);
     }
-    //[self clear];
 }
 
 - (void)didSuccess:(id)data
@@ -150,15 +145,6 @@
     if (self.successBlock) {
         self.successBlock(self, data);
     }
-    //[self clear];
-}
-
-- (void)clear
-{
-    self.successBlock = nil;
-    self.failBlock = nil;
-    self.cancelBlock = nil;
-    self.notSupportBlock = nil;
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url
