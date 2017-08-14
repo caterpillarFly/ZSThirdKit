@@ -10,25 +10,19 @@
 #import "ZSChannelQQ.h"
 #import "ZSChannelWX.h"
 #import "ZSChannelSinaWB.h"
-#import "ZSThirdHeaderFile.h"
-#import "ZSThirdConfigSample.h"
-
-@interface ViewController ()
-
-@property (nonatomic) ZSThirdConfigSample *config;
-
-@end
+#import "ZSChannelHeaderFile.h"
+#import "ZSChannelConfigSample.h"
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.config = [ZSThirdConfigSample new];
-    [ZSThirdKitManager sharedManager].delegate = self.config;
+    ZSChannelConfigSample *config = [ZSChannelConfigSample new];
+    [ZSChannelManager sharedManager].delegate = config;
     
     [self addMenu:@"清理channel" callback:^(id sender, id data) {
-        [[ZSThirdKitManager sharedManager] clear];
+        [[ZSChannelManager sharedManager] clear];
     }];
     
     @weakify(self)
@@ -338,19 +332,19 @@
 
 - (ZSChannelBase *)channelQQ
 {
-    ZSChannelBase *qq = [[ZSThirdKitManager sharedManager] channelWithKey:ZSChannelQQKey];
+    ZSChannelBase *qq = [[ZSChannelManager sharedManager] channelWithType:ZSChannelTypeQQ];
     return qq;
 }
 
 - (ZSChannelBase *)channelWX
 {
-    ZSChannelBase *wx = [[ZSThirdKitManager sharedManager] channelWithKey:ZSChannelWXKey];
+    ZSChannelBase *wx = [[ZSChannelManager sharedManager] channelWithType:ZSChannelTypeWX];
     return wx;
 }
 
 - (ZSChannelBase *)channelWB
 {
-    ZSChannelBase *wb = [[ZSThirdKitManager sharedManager] channelWithKey:ZSChannelSinaWBKey];
+    ZSChannelBase *wb = [[ZSChannelManager sharedManager] channelWithType:ZSChannelTypeSinaWB];
     return wb;
 }
 

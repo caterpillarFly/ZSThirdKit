@@ -7,7 +7,6 @@
 //
 
 #import "ZSChannelBase.h"
-#import "ZSThirdKitManager.h"
 
 typedef NS_ENUM(NSInteger, ZSChannelQQScene){
     ZSChannelQQSceneChat = 0,       //qq聊天界面

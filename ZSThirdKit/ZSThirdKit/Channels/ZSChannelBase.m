@@ -7,8 +7,13 @@
 //
 
 #import "ZSChannelBase.h"
+#import "ZSChannelQQZone.h"
+#import "ZSChannelPYQ.h"
+#import "ZSChannelSinaWB.h"
 
 @interface ZSChannelBase ()<ZSOpProcessProtocol>
+
+@property (nonatomic) ZSChannelType channelType;
 
 /*
  * 以下是子类需要覆写的方法
@@ -31,13 +36,37 @@
 
 @implementation ZSChannelBase
 
-- (instancetype)init
++ (instancetype)channelWithType:(ZSChannelType)channelType
 {
-    if (self = [super init]) {
-        
+    ZSChannelBase *base;
+    switch (channelType) {
+        case ZSChannelTypeQQ:
+            base = [ZSChannelQQ new];
+            break;
+        case ZSChannelTypeQQZone:
+            base = [ZSChannelQQZone new];
+            break;
+        case ZSChannelTypeWX:
+            base = [ZSChannelWX new];
+            break;
+        case ZSChannelTypePYQ:
+            base = [ZSChannelPYQ new];
+            break;
+        case ZSChannelTypeSinaWB:
+            base = [ZSChannelSinaWB new];
+            break;
+        default:
+            break;
     }
-    return self;
+    if (!base) {
+#ifdef DEBUG
+        NSAssert(NO, @"不支持的渠道类型");
+#endif
+    }
+    base.channelType = channelType;
+    return base;
 }
+
 
 - (void)dealloc
 {
@@ -61,7 +90,7 @@
     self.cancelBlock = cancel;
     
     if ([self couldLogin]) {
-        [ZSThirdKitManager sharedManager].currentChannel = self;
+        [ZSChannelManager sharedManager].currentChannel = self;
         [self login];
     }
     else{
@@ -79,7 +108,7 @@
     self.failBlock = fail;
     
     if ([self couldLogin]) {
-        [ZSThirdKitManager sharedManager].currentChannel = self;
+        [ZSChannelManager sharedManager].currentChannel = self;
         [self getUserInfo:authInfo];
     }
     else{
@@ -96,7 +125,7 @@
     self.cancelBlock = cancel;
     
     if ([self couldLogin]) {
-        [ZSThirdKitManager sharedManager].currentChannel = self;
+        [ZSChannelManager sharedManager].currentChannel = self;
         [self shareInfo:shareInfo];
     }
     else{

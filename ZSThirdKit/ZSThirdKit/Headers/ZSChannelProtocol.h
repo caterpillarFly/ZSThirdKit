@@ -6,8 +6,10 @@
 //  Copyright © 2017年 zs. All rights reserved.
 //
 
-#ifndef ZSThirdProtocol_h
-#define ZSThirdProtocol_h
+#ifndef ZSChannelProtocol_h
+#define ZSChannelProtocol_h
+#import "ZSChannelHeaderFile.h"
+
 
 @class ZSAuthInfo;
 
@@ -36,15 +38,8 @@
 @protocol ZSConfigProtocol <NSObject>
 
 
-//渠道对应的标示
-- (NSArray<NSString *> *)channelKeys;
-
-//
-- (NSString *)channelClassNameWithKey:(NSString *)channelKey;
-
-
 //渠道对应的信息，主要是appKey，appSecret等信息
-- (NSDictionary *)channelInfoWithKey:(NSString *)channelKey;
+- (NSDictionary *)channelInfoWithType:(ZSChannelType)channelType;
 
 @end
 

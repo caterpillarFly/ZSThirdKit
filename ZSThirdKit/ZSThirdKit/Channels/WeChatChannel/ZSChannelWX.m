@@ -10,8 +10,6 @@
 #import <WXApi.h>
 #import <WXApiObject.h>
 
-#import "ZSThirdKitManager.h"
-
 @interface ZSChannelWX () <WXApiDelegate, ZSOpProcessProtocol>
 
 @property (nonatomic) BOOL hasRegistered;
@@ -80,7 +78,7 @@
     
     BOOL res = [WXApi sendReq:authReq];
     if (!res) {
-        NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"登录失败");
+        NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"登录失败");
         [self didFail:error];
     }
 }
@@ -91,13 +89,13 @@
     
     [self reqWithInfo:info finish:^(SendMessageToWXReq *req) {
         if (!req) {
-            NSError *error = ZSThirdError(ZSThirdErrorCodeUnsupport, @"不支持分享该类型数据");
+            NSError *error = ZSChannelError(ZSChannelErrorCodeUnsupport, @"不支持分享该类型数据");
             [self didFail:error];
         }
         else{
             BOOL sendRes = [WXApi sendReq:req];
             if (!sendRes) {
-                NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"分享请求失败");
+                NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"分享请求失败");
                 [self didFail:error];
             }
         }
@@ -143,7 +141,7 @@
             [self didCancel];
             break;
         default:{
-            NSError *error = ZSThirdError(resp.errCode, resp.errStr);
+            NSError *error = ZSChannelError(resp.errCode, resp.errStr);
             [self didFail:error];
             break;
         }
@@ -226,7 +224,7 @@
                                    if (dict[@"errcode"]){
                                        //错误
                                        if (fail) {
-                                           NSError *error = ZSThirdError(ZSThirdErrorCodeDataError, dict[@"errmsg"]);
+                                           NSError *error = ZSChannelError(ZSChannelErrorCodeDataError, dict[@"errmsg"]);
                                            fail(nil, error);
                                        }
                                    }
@@ -236,7 +234,7 @@
                                        authInfo.openId = dict[@"openid"];
                                        authInfo.token = dict[@"access_token"];
                                        authInfo.expire = [dict[@"expires_in"] longLongValue];
-                                       authInfo.channelKey = self.channelKey;
+                                       authInfo.channelType = self.channelType;
                                        authInfo.unionId = dict[@"unionid"];
                                        
                                        if (success) {
@@ -246,7 +244,7 @@
                                }
                                else{
                                    if (fail) {
-                                       NSError *error = ZSThirdError(ZSThirdErrorCodeFail, @"网络连接失败");
+                                       NSError *error = ZSChannelError(ZSChannelErrorCodeFail, @"网络连接失败");
                                        fail(nil, error);
                                    }
                                }
@@ -272,7 +270,7 @@
                                                                                           error:&error];
                                    if (!error && [dict isKindOfClass:[NSDictionary class]]) {
                                        ZSUserInfo *userInfo = [ZSUserInfo new];
-                                       userInfo.channelKey = self.channelKey;
+                                       userInfo.channelType = self.channelType;
                                        userInfo.nickname = dict[@"nickname"];
                                        userInfo.profile = dict[@"headimgurl"];
                                        userInfo.province = dict[@"province"];
@@ -282,7 +280,7 @@
                                        [self didSuccess:userInfo];
                                    }
                                    else{
-                                       error = ZSThirdError(ZSThirdErrorCodeDataError, error.description);
+                                       error = ZSChannelError(ZSChannelErrorCodeDataError, error.description);
                                        [self didFail:error];
                                    }
                                }

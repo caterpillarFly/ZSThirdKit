@@ -67,7 +67,7 @@
     BOOL res = [WeiboSDK sendRequest:authReq];
     
     if (!res) {
-        NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"登录失败");
+        NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"登录失败");
         [self didFail:error];
     }
 }
@@ -86,13 +86,19 @@
                        }
                        else{
                            ZSUserInfo *userInfo = [ZSUserInfo new];
-                           userInfo.channelKey = self.channelKey;
+                           userInfo.channelType = self.channelType;
                            userInfo.nickname = wbUser.name;
                            userInfo.profile = wbUser.profileImageUrl;
                            userInfo.province = wbUser.province;
                            userInfo.city = wbUser.city;
                            //TODO:性别有可能没对应上
-                           userInfo.sex = [wbUser.gender integerValue];
+                           userInfo.sex = ZSUserSexUnknown;
+                           if ([wbUser.gender isEqualToString:@"m"]) {
+                               userInfo.sex = ZSUserSexMale;
+                           }
+                           else if ([wbUser.gender isEqualToString:@"fm"]){
+                               userInfo.sex = ZSUserSexFemale;
+                           }
                            [self didSuccess:userInfo];
                        }
                    }];
@@ -105,12 +111,12 @@
         if (sender) {
             BOOL shareRes = [WeiboSDK sendRequest:sender];
             if (!shareRes) {
-                NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"分享失败");
+                NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"分享失败");
                 [self didFail:error];
             }
         }
         else{
-            NSError *error = ZSThirdError(ZSThirdErrorCodeDataError, @"分享的数据类型不支持");
+            NSError *error = ZSChannelError(ZSChannelErrorCodeDataError, @"分享的数据类型不支持");
             [self didFail:error];
         }
     }];
@@ -147,7 +153,7 @@
                     authInfo.openId = authResponse.userID;
                     authInfo.token = authResponse.accessToken;
                     authInfo.expire = [authResponse.expirationDate timeIntervalSince1970];
-                    authInfo.channelKey = self.channelKey;
+                    authInfo.channelType = self.channelType;
                     [self didSuccess:authInfo];
                 }
                 else{
@@ -168,7 +174,7 @@
             [self didCancel];
             break;
         default:{
-            NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"未知错误");
+            NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"未知错误");
             [self didFail:error];
             NSLog(@"新浪微博操作失败.......");
             break;

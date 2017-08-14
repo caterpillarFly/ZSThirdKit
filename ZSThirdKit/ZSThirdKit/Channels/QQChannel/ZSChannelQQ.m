@@ -7,6 +7,7 @@
 //
 
 #import "ZSChannelQQ.h"
+
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/QQApiInterfaceObject.h>
@@ -57,7 +58,7 @@
     
     if (![self.auth authorize:permissionArr inSafari:NO])
     {
-        NSError *error = ZSThirdError(ZSThirdErrorCodeUnsupport, @"登录失败");
+        NSError *error = ZSChannelError(ZSChannelErrorCodeUnsupport, @"登录失败");
         [self didFail: error];
     }
 }
@@ -68,7 +69,7 @@
     __unused TencentOAuth *auth = self.auth;
     [self reqWithInfo:shareInfo finish:^(SendMessageToQQReq *req) {
         if (!req) {
-            NSError *error = ZSThirdError(ZSThirdErrorCodeUnsupport, @"不支持分享该类型数据");
+            NSError *error = ZSChannelError(ZSChannelErrorCodeUnsupport, @"不支持分享该类型数据");
             [self didFail:error];
         }
         else{
@@ -80,7 +81,7 @@
                 shareRes = [QQApiInterface SendReqToQZone:req];
             }
             if (shareRes != EQQAPISENDSUCESS) {
-                NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"分享失败");
+                NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"分享失败");
                 [self didFail:error];
             }
         }
@@ -91,7 +92,7 @@
 {
     BOOL res = [self.auth getUserInfo];
     if (!res) {
-        NSError *error = ZSThirdError(ZSThirdErrorCodeFail, @"获取用户信息失败");
+        NSError *error = ZSChannelError(ZSChannelErrorCodeFail, @"获取用户信息失败");
         [self didFail:error];
     }
 }
@@ -118,7 +119,7 @@
         authInfo.token = self.auth.accessToken;
         authInfo.expire = [self.auth.expirationDate timeIntervalSince1970];
         authInfo.openId = self.auth.openId;
-        authInfo.channelKey = self.channelKey;
+        authInfo.channelType = self.channelType;
         
         [self didSuccess:authInfo];
     }
@@ -134,7 +135,7 @@
         [self didCancel];
     }
     else{
-        NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, @"登录失败");
+        NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"登录失败");
         [self didFail:error];
     }
     
@@ -145,7 +146,7 @@
 - (void)tencentDidNotNetWork
 {
     NSLog(@"qq登录网络有问题");
-    NSError *error = ZSThirdError(kOpenSDKErrorNetwork, @"登录失败");
+    NSError *error = ZSChannelError(kOpenSDKErrorNetwork, @"登录失败");
     [self didFail:error];
 }
 
@@ -172,7 +173,7 @@
         [self didCancel];
     }
     else{
-        NSError *error = ZSThirdError(ZSThirdErrorCodeUnknown, resp.errorDescription);
+        NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, resp.errorDescription);
         [self didFail:error];
     }
 }
@@ -181,12 +182,12 @@
 {
     NSLog(@"QQ用户信息");
     if (response.errorMsg.length) {
-        NSError *error = ZSThirdError(response.retCode, response.errorMsg);
+        NSError *error = ZSChannelError(response.retCode, response.errorMsg);
         [self didFail:error];
     }
     else{
         ZSUserInfo *userinfo = [ZSUserInfo new];
-        userinfo.channelKey = self.channelKey;
+        userinfo.channelType = self.channelType;
         userinfo.nickname = response.jsonResponse[@"nickname"];
         userinfo.city = response.jsonResponse[@"city"];
         userinfo.province = response.jsonResponse[@"province"];

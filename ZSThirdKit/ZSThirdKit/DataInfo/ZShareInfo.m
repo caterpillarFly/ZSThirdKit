@@ -33,12 +33,3 @@
 @implementation ZShareMusic
 
 @end
-
-
-@implementation ZSAuthInfo
-
-@end
-
-@implementation ZSUserInfo
-
-@end

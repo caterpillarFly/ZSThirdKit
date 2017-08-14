@@ -8,24 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		0A532629CED2112066E4FDFE /* libPods-ZSThirdKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB068902BE2E101D15EE88D /* libPods-ZSThirdKit.a */; };
+		BE0FFC921F41B83F005F6448 /* ZSChannelQQ.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0FFC851F41B83F005F6448 /* ZSChannelQQ.m */; };
+		BE0FFC931F41B83F005F6448 /* ZSChannelQQZone.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0FFC871F41B83F005F6448 /* ZSChannelQQZone.m */; };
+		BE0FFC941F41B83F005F6448 /* ZSChannelSinaWB.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0FFC8A1F41B83F005F6448 /* ZSChannelSinaWB.m */; };
+		BE0FFC951F41B83F005F6448 /* ZSChannelPYQ.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0FFC8D1F41B83F005F6448 /* ZSChannelPYQ.m */; };
+		BE0FFC961F41B83F005F6448 /* ZSChannelWX.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0FFC8F1F41B83F005F6448 /* ZSChannelWX.m */; };
+		BE0FFC971F41B83F005F6448 /* ZSChannelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0FFC911F41B83F005F6448 /* ZSChannelBase.m */; };
+		BE0FFC9B1F41B95C005F6448 /* ZShareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0FFC9A1F41B95C005F6448 /* ZShareInfo.m */; };
+		BE0FFC9E1F41B9D4005F6448 /* ZSDataInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0FFC9D1F41B9D4005F6448 /* ZSDataInfo.m */; };
+		BE0FFCA11F41C285005F6448 /* ZSChannelConfigSample.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0FFCA01F41C285005F6448 /* ZSChannelConfigSample.m */; };
+		BE0FFCA81F41C6FB005F6448 /* ZSChannelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0FFCA71F41C6FB005F6448 /* ZSChannelManager.m */; };
 		BE44E64B1F39F1CE00AC094A /* thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE44E64A1F39F1CE00AC094A /* thumbnail.jpg */; };
-		BE592CF91F3DCAE000FAAD5B /* ZSThirdConfigSample.m in Sources */ = {isa = PBXBuildFile; fileRef = BE592CF81F3DCAE000FAAD5B /* ZSThirdConfigSample.m */; };
-		BE743C531F3BF1D4001E0202 /* ZSChannelSinaWB.m in Sources */ = {isa = PBXBuildFile; fileRef = BE743C521F3BF1D4001E0202 /* ZSChannelSinaWB.m */; };
 		BE743C5F1F3C5E64001E0202 /* xxx.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE743C5E1F3C5E64001E0202 /* xxx.jpeg */; };
-		BE743C641F3C618E001E0202 /* ZSChannelPYQ.m in Sources */ = {isa = PBXBuildFile; fileRef = BE743C631F3C618E001E0202 /* ZSChannelPYQ.m */; };
-		BE743C671F3C64B8001E0202 /* ZSChannelQQZone.m in Sources */ = {isa = PBXBuildFile; fileRef = BE743C661F3C64B8001E0202 /* ZSChannelQQZone.m */; };
 		BE7B58421F38492A00BFF4AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58411F38492A00BFF4AA /* main.m */; };
 		BE7B58451F38492A00BFF4AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58441F38492A00BFF4AA /* AppDelegate.m */; };
 		BE7B58481F38492A00BFF4AA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58471F38492A00BFF4AA /* ViewController.m */; };
 		BE7B584D1F38492A00BFF4AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7B584C1F38492A00BFF4AA /* Assets.xcassets */; };
 		BE7B585B1F38492A00BFF4AA /* ZSThirdKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B585A1F38492A00BFF4AA /* ZSThirdKitTests.m */; };
 		BE7B58661F38492A00BFF4AA /* ZSThirdKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58651F38492A00BFF4AA /* ZSThirdKitUITests.m */; };
-		BE7B587C1F384B6300BFF4AA /* ZSChannelQQ.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58761F384B6300BFF4AA /* ZSChannelQQ.m */; };
-		BE7B587D1F384B6300BFF4AA /* ZSChannelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58781F384B6300BFF4AA /* ZSChannelBase.m */; };
-		BE7B587E1F384B6300BFF4AA /* ZShareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B587B1F384B6300BFF4AA /* ZShareInfo.m */; };
-		BE7B58851F38540300BFF4AA /* ZSThirdKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B58841F38540300BFF4AA /* ZSThirdKitManager.m */; };
 		BEA6D5801F39BCFF003017CB /* img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEA6D57F1F39BCFF003017CB /* img.jpg */; };
-		BEC551CA1F39F901000406C5 /* ZSChannelWX.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC551C91F39F901000406C5 /* ZSChannelWX.m */; };
 		CD54CAAFD49F02669726266E /* libPods-ZSThirdKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6298BDE90435CD783F8912F7 /* libPods-ZSThirdKitTests.a */; };
 		D84A25DCBC57D7C114CE20BB /* libPods-ZSThirdKitUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C881AEF6D33327C029CBE6 /* libPods-ZSThirdKitUITests.a */; };
 /* End PBXBuildFile section */
@@ -56,18 +57,30 @@
 		7A41E9D90C3A0C2A44FC12CA /* Pods-ZSThirdKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKitTests/Pods-ZSThirdKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B45E596665E3D25A47FA588D /* Pods-ZSThirdKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKit/Pods-ZSThirdKit.debug.xcconfig"; sourceTree = "<group>"; };
 		BB84EE2113738DB7B0390107 /* Pods-ZSThirdKitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKitUITests/Pods-ZSThirdKitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE0FFC841F41B83F005F6448 /* ZSChannelQQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelQQ.h; sourceTree = "<group>"; };
+		BE0FFC851F41B83F005F6448 /* ZSChannelQQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelQQ.m; sourceTree = "<group>"; };
+		BE0FFC861F41B83F005F6448 /* ZSChannelQQZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelQQZone.h; sourceTree = "<group>"; };
+		BE0FFC871F41B83F005F6448 /* ZSChannelQQZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelQQZone.m; sourceTree = "<group>"; };
+		BE0FFC891F41B83F005F6448 /* ZSChannelSinaWB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelSinaWB.h; sourceTree = "<group>"; };
+		BE0FFC8A1F41B83F005F6448 /* ZSChannelSinaWB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelSinaWB.m; sourceTree = "<group>"; };
+		BE0FFC8C1F41B83F005F6448 /* ZSChannelPYQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelPYQ.h; sourceTree = "<group>"; };
+		BE0FFC8D1F41B83F005F6448 /* ZSChannelPYQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelPYQ.m; sourceTree = "<group>"; };
+		BE0FFC8E1F41B83F005F6448 /* ZSChannelWX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelWX.h; sourceTree = "<group>"; };
+		BE0FFC8F1F41B83F005F6448 /* ZSChannelWX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelWX.m; sourceTree = "<group>"; };
+		BE0FFC901F41B83F005F6448 /* ZSChannelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelBase.h; sourceTree = "<group>"; };
+		BE0FFC911F41B83F005F6448 /* ZSChannelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelBase.m; sourceTree = "<group>"; };
+		BE0FFC991F41B95C005F6448 /* ZShareInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShareInfo.h; sourceTree = "<group>"; };
+		BE0FFC9A1F41B95C005F6448 /* ZShareInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShareInfo.m; sourceTree = "<group>"; };
+		BE0FFC9C1F41B9D4005F6448 /* ZSDataInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSDataInfo.h; sourceTree = "<group>"; };
+		BE0FFC9D1F41B9D4005F6448 /* ZSDataInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSDataInfo.m; sourceTree = "<group>"; };
+		BE0FFC9F1F41C285005F6448 /* ZSChannelConfigSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelConfigSample.h; sourceTree = "<group>"; };
+		BE0FFCA01F41C285005F6448 /* ZSChannelConfigSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelConfigSample.m; sourceTree = "<group>"; };
+		BE0FFCA61F41C6FB005F6448 /* ZSChannelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelManager.h; sourceTree = "<group>"; };
+		BE0FFCA71F41C6FB005F6448 /* ZSChannelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelManager.m; sourceTree = "<group>"; };
 		BE44E64A1F39F1CE00AC094A /* thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail.jpg; sourceTree = "<group>"; };
-		BE592CF51F3DC51600FAAD5B /* ZSThirdHeaderFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSThirdHeaderFile.h; sourceTree = "<group>"; };
-		BE592CF61F3DC53600FAAD5B /* ZSThirdProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZSThirdProtocol.h; sourceTree = "<group>"; };
-		BE592CF71F3DCAE000FAAD5B /* ZSThirdConfigSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSThirdConfigSample.h; sourceTree = "<group>"; };
-		BE592CF81F3DCAE000FAAD5B /* ZSThirdConfigSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSThirdConfigSample.m; sourceTree = "<group>"; };
-		BE743C511F3BF1D4001E0202 /* ZSChannelSinaWB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelSinaWB.h; sourceTree = "<group>"; };
-		BE743C521F3BF1D4001E0202 /* ZSChannelSinaWB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelSinaWB.m; sourceTree = "<group>"; };
+		BE592CF51F3DC51600FAAD5B /* ZSChannelHeaderFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelHeaderFile.h; sourceTree = "<group>"; };
+		BE592CF61F3DC53600FAAD5B /* ZSChannelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZSChannelProtocol.h; sourceTree = "<group>"; };
 		BE743C5E1F3C5E64001E0202 /* xxx.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xxx.jpeg; sourceTree = "<group>"; };
-		BE743C621F3C618E001E0202 /* ZSChannelPYQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelPYQ.h; sourceTree = "<group>"; };
-		BE743C631F3C618E001E0202 /* ZSChannelPYQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelPYQ.m; sourceTree = "<group>"; };
-		BE743C651F3C64B8001E0202 /* ZSChannelQQZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelQQZone.h; sourceTree = "<group>"; };
-		BE743C661F3C64B8001E0202 /* ZSChannelQQZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelQQZone.m; sourceTree = "<group>"; };
 		BE7B583D1F38492A00BFF4AA /* ZSThirdKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZSThirdKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7B58411F38492A00BFF4AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE7B58431F38492A00BFF4AA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,17 +95,7 @@
 		BE7B58611F38492A00BFF4AA /* ZSThirdKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZSThirdKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7B58651F38492A00BFF4AA /* ZSThirdKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSThirdKitUITests.m; sourceTree = "<group>"; };
 		BE7B58671F38492A00BFF4AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE7B58751F384B6300BFF4AA /* ZSChannelQQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelQQ.h; sourceTree = "<group>"; };
-		BE7B58761F384B6300BFF4AA /* ZSChannelQQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelQQ.m; sourceTree = "<group>"; };
-		BE7B58771F384B6300BFF4AA /* ZSChannelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelBase.h; sourceTree = "<group>"; };
-		BE7B58781F384B6300BFF4AA /* ZSChannelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelBase.m; sourceTree = "<group>"; };
-		BE7B587A1F384B6300BFF4AA /* ZShareInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShareInfo.h; sourceTree = "<group>"; };
-		BE7B587B1F384B6300BFF4AA /* ZShareInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShareInfo.m; sourceTree = "<group>"; };
-		BE7B58831F38540300BFF4AA /* ZSThirdKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSThirdKitManager.h; sourceTree = "<group>"; };
-		BE7B58841F38540300BFF4AA /* ZSThirdKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSThirdKitManager.m; sourceTree = "<group>"; };
 		BEA6D57F1F39BCFF003017CB /* img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpg; sourceTree = "<group>"; };
-		BEC551C81F39F901000406C5 /* ZSChannelWX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelWX.h; sourceTree = "<group>"; };
-		BEC551C91F39F901000406C5 /* ZSChannelWX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelWX.m; sourceTree = "<group>"; };
 		DFDE120174E6ACFBCF827D03 /* Pods-ZSThirdKitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKitUITests/Pods-ZSThirdKitUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,22 +140,76 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BE0FFC821F41B83F005F6448 /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				BE0FFC831F41B83F005F6448 /* QQChannel */,
+				BE0FFC881F41B83F005F6448 /* SinaChannel */,
+				BE0FFC8B1F41B83F005F6448 /* WeChatChannel */,
+				BE0FFC901F41B83F005F6448 /* ZSChannelBase.h */,
+				BE0FFC911F41B83F005F6448 /* ZSChannelBase.m */,
+			);
+			path = Channels;
+			sourceTree = "<group>";
+		};
+		BE0FFC831F41B83F005F6448 /* QQChannel */ = {
+			isa = PBXGroup;
+			children = (
+				BE0FFC841F41B83F005F6448 /* ZSChannelQQ.h */,
+				BE0FFC851F41B83F005F6448 /* ZSChannelQQ.m */,
+				BE0FFC861F41B83F005F6448 /* ZSChannelQQZone.h */,
+				BE0FFC871F41B83F005F6448 /* ZSChannelQQZone.m */,
+			);
+			path = QQChannel;
+			sourceTree = "<group>";
+		};
+		BE0FFC881F41B83F005F6448 /* SinaChannel */ = {
+			isa = PBXGroup;
+			children = (
+				BE0FFC891F41B83F005F6448 /* ZSChannelSinaWB.h */,
+				BE0FFC8A1F41B83F005F6448 /* ZSChannelSinaWB.m */,
+			);
+			path = SinaChannel;
+			sourceTree = "<group>";
+		};
+		BE0FFC8B1F41B83F005F6448 /* WeChatChannel */ = {
+			isa = PBXGroup;
+			children = (
+				BE0FFC8C1F41B83F005F6448 /* ZSChannelPYQ.h */,
+				BE0FFC8D1F41B83F005F6448 /* ZSChannelPYQ.m */,
+				BE0FFC8E1F41B83F005F6448 /* ZSChannelWX.h */,
+				BE0FFC8F1F41B83F005F6448 /* ZSChannelWX.m */,
+			);
+			path = WeChatChannel;
+			sourceTree = "<group>";
+		};
+		BE0FFC981F41B95C005F6448 /* DataInfo */ = {
+			isa = PBXGroup;
+			children = (
+				BE0FFC991F41B95C005F6448 /* ZShareInfo.h */,
+				BE0FFC9A1F41B95C005F6448 /* ZShareInfo.m */,
+				BE0FFC9C1F41B9D4005F6448 /* ZSDataInfo.h */,
+				BE0FFC9D1F41B9D4005F6448 /* ZSDataInfo.m */,
+			);
+			path = DataInfo;
+			sourceTree = "<group>";
+		};
+		BE0FFCA51F41C6D8005F6448 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BE0FFCA61F41C6FB005F6448 /* ZSChannelManager.h */,
+				BE0FFCA71F41C6FB005F6448 /* ZSChannelManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		BE592CF41F3DC4F300FAAD5B /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				BE592CF51F3DC51600FAAD5B /* ZSThirdHeaderFile.h */,
-				BE592CF61F3DC53600FAAD5B /* ZSThirdProtocol.h */,
+				BE592CF51F3DC51600FAAD5B /* ZSChannelHeaderFile.h */,
+				BE592CF61F3DC53600FAAD5B /* ZSChannelProtocol.h */,
 			);
 			path = Headers;
-			sourceTree = "<group>";
-		};
-		BE743C501F3BF1B2001E0202 /* SinaChannel */ = {
-			isa = PBXGroup;
-			children = (
-				BE743C511F3BF1D4001E0202 /* ZSChannelSinaWB.h */,
-				BE743C521F3BF1D4001E0202 /* ZSChannelSinaWB.m */,
-			);
-			path = SinaChannel;
 			sourceTree = "<group>";
 		};
 		BE7B58341F38492A00BFF4AA = {
@@ -187,16 +244,15 @@
 				BE7B58441F38492A00BFF4AA /* AppDelegate.m */,
 				BE7B58461F38492A00BFF4AA /* ViewController.h */,
 				BE7B58471F38492A00BFF4AA /* ViewController.m */,
-				BE592CF71F3DCAE000FAAD5B /* ZSThirdConfigSample.h */,
-				BE592CF81F3DCAE000FAAD5B /* ZSThirdConfigSample.m */,
+				BE0FFC9F1F41C285005F6448 /* ZSChannelConfigSample.h */,
+				BE0FFCA01F41C285005F6448 /* ZSChannelConfigSample.m */,
 				BE7B584C1F38492A00BFF4AA /* Assets.xcassets */,
 				BE7B58511F38492A00BFF4AA /* Info.plist */,
 				BE592CF41F3DC4F300FAAD5B /* Headers */,
-				BE7B58731F384B6300BFF4AA /* ShareChannel */,
-				BE7B58791F384B6300BFF4AA /* ShareInfo */,
+				BE0FFC821F41B83F005F6448 /* Channels */,
+				BE0FFC981F41B95C005F6448 /* DataInfo */,
+				BE0FFCA51F41C6D8005F6448 /* Manager */,
 				BE7B58401F38492A00BFF4AA /* Supporting Files */,
-				BE7B58831F38540300BFF4AA /* ZSThirdKitManager.h */,
-				BE7B58841F38540300BFF4AA /* ZSThirdKitManager.m */,
 			);
 			path = ZSThirdKit;
 			sourceTree = "<group>";
@@ -225,49 +281,6 @@
 				BE7B58671F38492A00BFF4AA /* Info.plist */,
 			);
 			path = ZSThirdKitUITests;
-			sourceTree = "<group>";
-		};
-		BE7B58731F384B6300BFF4AA /* ShareChannel */ = {
-			isa = PBXGroup;
-			children = (
-				BE743C501F3BF1B2001E0202 /* SinaChannel */,
-				BEC551C71F39F8D6000406C5 /* WeChatChannel */,
-				BE7B58741F384B6300BFF4AA /* QQChannel */,
-				BE7B58771F384B6300BFF4AA /* ZSChannelBase.h */,
-				BE7B58781F384B6300BFF4AA /* ZSChannelBase.m */,
-			);
-			path = ShareChannel;
-			sourceTree = "<group>";
-		};
-		BE7B58741F384B6300BFF4AA /* QQChannel */ = {
-			isa = PBXGroup;
-			children = (
-				BE7B58751F384B6300BFF4AA /* ZSChannelQQ.h */,
-				BE7B58761F384B6300BFF4AA /* ZSChannelQQ.m */,
-				BE743C651F3C64B8001E0202 /* ZSChannelQQZone.h */,
-				BE743C661F3C64B8001E0202 /* ZSChannelQQZone.m */,
-			);
-			path = QQChannel;
-			sourceTree = "<group>";
-		};
-		BE7B58791F384B6300BFF4AA /* ShareInfo */ = {
-			isa = PBXGroup;
-			children = (
-				BE7B587A1F384B6300BFF4AA /* ZShareInfo.h */,
-				BE7B587B1F384B6300BFF4AA /* ZShareInfo.m */,
-			);
-			path = ShareInfo;
-			sourceTree = "<group>";
-		};
-		BEC551C71F39F8D6000406C5 /* WeChatChannel */ = {
-			isa = PBXGroup;
-			children = (
-				BEC551C81F39F901000406C5 /* ZSChannelWX.h */,
-				BEC551C91F39F901000406C5 /* ZSChannelWX.m */,
-				BE743C621F3C618E001E0202 /* ZSChannelPYQ.h */,
-				BE743C631F3C618E001E0202 /* ZSChannelPYQ.m */,
-			);
-			path = WeChatChannel;
 			sourceTree = "<group>";
 		};
 		FEC47639E895D5BC3914CB50 /* Frameworks */ = {
@@ -562,17 +575,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE592CF91F3DCAE000FAAD5B /* ZSThirdConfigSample.m in Sources */,
-				BE7B587E1F384B6300BFF4AA /* ZShareInfo.m in Sources */,
-				BE7B587C1F384B6300BFF4AA /* ZSChannelQQ.m in Sources */,
+				BE0FFC9B1F41B95C005F6448 /* ZShareInfo.m in Sources */,
+				BE0FFC931F41B83F005F6448 /* ZSChannelQQZone.m in Sources */,
+				BE0FFC971F41B83F005F6448 /* ZSChannelBase.m in Sources */,
+				BE0FFC941F41B83F005F6448 /* ZSChannelSinaWB.m in Sources */,
 				BE7B58481F38492A00BFF4AA /* ViewController.m in Sources */,
-				BE743C531F3BF1D4001E0202 /* ZSChannelSinaWB.m in Sources */,
+				BE0FFC921F41B83F005F6448 /* ZSChannelQQ.m in Sources */,
 				BE7B58451F38492A00BFF4AA /* AppDelegate.m in Sources */,
-				BE743C671F3C64B8001E0202 /* ZSChannelQQZone.m in Sources */,
-				BE7B587D1F384B6300BFF4AA /* ZSChannelBase.m in Sources */,
-				BEC551CA1F39F901000406C5 /* ZSChannelWX.m in Sources */,
-				BE743C641F3C618E001E0202 /* ZSChannelPYQ.m in Sources */,
-				BE7B58851F38540300BFF4AA /* ZSThirdKitManager.m in Sources */,
+				BE0FFCA11F41C285005F6448 /* ZSChannelConfigSample.m in Sources */,
+				BE0FFC951F41B83F005F6448 /* ZSChannelPYQ.m in Sources */,
+				BE0FFC9E1F41B9D4005F6448 /* ZSDataInfo.m in Sources */,
+				BE0FFC961F41B83F005F6448 /* ZSChannelWX.m in Sources */,
+				BE0FFCA81F41C6FB005F6448 /* ZSChannelManager.m in Sources */,
 				BE7B58421F38492A00BFF4AA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
