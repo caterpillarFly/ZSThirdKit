@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/caterpillarFly/ZSThirdKit.git"
-  s.license      = "MIT"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "caterpillarFly" => "zhaoshengxhu@163.com" }
   s.platform     = :ios, "7.0"
   
@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
   s.source_files = "Classes/**/*"
 
   s.dependency 'WechatOpenSDK','~> 1.7.9'
-  s.dependency 'WeiboSDK','~3.1.3'
-  s.dependency 'ZSQQSDK', '~0.0.1'
+  s.dependency 'WeiboSDK','~>3.1.3'
+  s.dependency 'ZSQQSDK', '~>0.0.0'
 
   #s.framework = "CoreTelephony", "CoreGraphics", "SystemConfiguration", "Security"
   #s.libraries = "iconv", "sqlite3", "stdc++", "z"
