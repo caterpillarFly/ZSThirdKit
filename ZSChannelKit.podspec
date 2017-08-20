@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "ZSChannelKit"
+  s.name         = "ZSThirdKit"
   s.version      = "0.0.1"
   s.summary      = "CocoaPods for third channels."
 
@@ -18,9 +18,9 @@ Pod::Spec.new do |s|
 
   s.source_files = "Classes/**/*"
 
-  s.dependency   = 'WechatOpenSDK','~> 1.7.9'
-  s.dependency   = 'WeiboSDK','~3.1.3'
-  s.dependency   = 'ZSQQSDK', '~0.0.1'
+  s.dependency 'WechatOpenSDK','~> 1.7.9'
+  s.dependency 'WeiboSDK','~3.1.3'
+  s.dependency 'ZSQQSDK', '~0.0.1'
 
   #s.framework = "CoreTelephony", "CoreGraphics", "SystemConfiguration", "Security"
   #s.libraries = "iconv", "sqlite3", "stdc++", "z"
