@@ -7,10 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ZSChannelQQ.h"
-#import "ZSChannelWX.h"
-#import "ZSChannelSinaWB.h"
-#import "ZSChannelHeaderFile.h"
+#import "ZSChannelManager.h"
 #import "ZSChannelConfigSample.h"
 
 @implementation ViewController

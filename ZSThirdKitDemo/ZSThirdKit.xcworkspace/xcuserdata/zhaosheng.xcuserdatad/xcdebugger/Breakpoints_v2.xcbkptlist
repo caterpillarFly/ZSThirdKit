@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZSThirdKit/ViewController.m"
-            timestampString = "524403701.495483"
+            timestampString = "524913716.339809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "-wbShareText"
             landmarkType = "7">
             <Locations>

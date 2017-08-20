@@ -13,6 +13,13 @@
 
 @interface ZSChannelBase ()<ZSOpProcessProtocol>
 
+//操作成功回调
+@property (nonatomic) ZSOpSuccessBlock successBlock;
+//取消操作回调
+@property (nonatomic) ZSOpCancelBlock cancelBlock;
+//操作失败回调
+@property (nonatomic) ZSOpFailBlock failBlock;
+//渠道类型
 @property (nonatomic) ZSChannelType channelType;
 
 /*

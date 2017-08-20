@@ -13,22 +13,20 @@
 #import "ZSChannelProtocol.h"
 #import "ZSChannelManager.h"
 
+/*
+ * 所有渠道的基类，在分类里面实现了ZSOpProcessProtocol协议，这个协议的方法，是每个步骤（比如分享，登录等）操作完成之后的处理；
+ * 之所以放在分类里实现，是为了让外部不能调用；外部也不应该直接调用协议的方法
+ * 需要继承自ZSChannelBase的子类，也该在分类里面实现ZSOpProcessProtocol协议
+ */
 
 @interface ZSChannelBase : NSObject
 
-//操作成功回调
-@property (nonatomic) ZSOpSuccessBlock successBlock;
-//取消操作回调
-@property (nonatomic) ZSOpCancelBlock cancelBlock;
-//操作失败回调
-@property (nonatomic) ZSOpFailBlock failBlock;
 //渠道未安装回调，这个block需要自己显示设置
 @property (nonatomic) ZSNotSupportBlock notSupportBlock;
 //渠道名称
 @property (nonatomic, copy) NSString *channelName;
 //渠道类型
 @property (nonatomic, readonly) ZSChannelType channelType;
-
 
 
 
