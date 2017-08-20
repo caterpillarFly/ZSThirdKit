@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "ZSChannelKit"
+  s.name         = "ZSThirdKit"
   s.version      = "0.0.1"
   s.summary      = "CocoaPods for third channels."
 
