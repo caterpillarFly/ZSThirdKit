@@ -27,7 +27,13 @@
 
 - (ZSChannelBase *)channelWithType:(ZSChannelType)channelType
 {
+    return [self channelWithType:channelType notInstallBlock:nil];
+}
+
+- (ZSChannelBase *)channelWithType:(ZSChannelType)channelType notInstallBlock:(ZSNotSupportBlock)block
+{
     ZSChannelBase *channel = [ZSChannelBase channelWithType:channelType];
+    channel.notSupportBlock = block;
     if ([self.delegate respondsToSelector:@selector(channelInfoWithType:)]) {
         [channel setupWithInfo:[self.delegate channelInfoWithType:channelType]];
     }
