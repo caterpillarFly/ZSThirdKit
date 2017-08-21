@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   
   s.source       = { :git => "https://github.com/caterpillarFly/ZSThirdKit.git", :tag => "#{s.version}" }
 
-  s.source_files = "Classes/**/*"
+  s.source_files = "Classes/**/**/*"
 
   s.dependency 'WechatOpenSDK','~> 1.7.9'
   s.dependency 'WeiboSDK','~>3.1.3'
