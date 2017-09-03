@@ -58,7 +58,7 @@
         }
     }
     
-    if (channels.count) {
+    if (!channels.count) {
         channels = nil;
     }
     
