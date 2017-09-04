@@ -66,7 +66,6 @@
 //分享
 - (void)shareInfo:(ZShareInfo *)shareInfo
 {
-    __unused TencentOAuth *auth = self.auth;
     [self reqWithInfo:shareInfo finish:^(SendMessageToQQReq *req) {
         if (!req) {
             NSError *error = ZSChannelError(ZSChannelErrorCodeUnsupport, @"不支持分享该类型数据");
@@ -105,6 +104,7 @@
 
 - (BOOL)couldShare
 {
+    __unused TencentOAuth *auth = self.auth;
     return ([QQApiInterface isQQInstalled] && [QQApiInterface isQQSupportApi]);
 }
 

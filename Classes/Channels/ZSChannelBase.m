@@ -131,7 +131,7 @@
     self.failBlock = fail;
     self.cancelBlock = cancel;
     
-    if ([self couldLogin]) {
+    if ([self couldShare]) {
         [ZSChannelManager sharedManager].currentChannel = self;
         [self shareInfo:shareInfo];
     }

@@ -48,6 +48,11 @@
         [self qqShareMusic];
     }];
     
+    [self addMenu:@"QQ空间分享网页" callback:^(id sender, id data) {
+        @strongify(self);
+        [self qqzoneShareWebPage];
+    }];
+    
     [self addMenu:@"微信登录" callback:^(id sender, id data) {
         @strongify(self)
         [self wxLogin];
@@ -71,6 +76,11 @@
     [self addMenu:@"微信分享音乐" callback:^(id sender, id data) {
         @strongify(self)
         [self wxShareMusic];
+    }];
+    
+    [self addMenu:@"朋友圈分享网页" callback:^(id sender, id data) {
+        @strongify(self)
+        [self pyqShareWebPage];
     }];
     
     [self addMenu:@"新浪微博登录" callback:^(id sender, id data) {
@@ -178,6 +188,20 @@
     }];
 }
 
+- (void)qqzoneShareWebPage
+{
+    ZSChannelBase *qqzone = [self channelQQZone];
+    ZShareWebPage *shareInfo = [self shareWebpage];
+    
+    [qqzone shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
 - (void)wxLogin
 {
     ZSChannelBase *wx = [self channelWX];
@@ -245,6 +269,20 @@
     ZShareMusic *shareInfo = [self shareMusic];
     
     [wx shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
+- (void)pyqShareWebPage
+{
+    ZSChannelBase *pyq = [self channelPYQ];
+    ZShareWebPage *shareInfo = [self shareWebpage];
+    
+    [pyq shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
         NSLog(@"分享成功..........");
     } fail:^(ZSChannelBase *channel, NSError *error) {
         NSLog(@"分享失败：%@..........", [error description]);
@@ -333,10 +371,22 @@
     return qq;
 }
 
+- (ZSChannelBase *)channelQQZone
+{
+    ZSChannelBase *qqzone = [[ZSChannelManager sharedManager] channelWithType:ZSChannelTypeQQZone];
+    return qqzone;
+}
+
 - (ZSChannelBase *)channelWX
 {
     ZSChannelBase *wx = [[ZSChannelManager sharedManager] channelWithType:ZSChannelTypeWX];
     return wx;
+}
+
+- (ZSChannelBase *)channelPYQ
+{
+    ZSChannelBase *pyq = [[ZSChannelManager sharedManager] channelWithType:ZSChannelTypePYQ];
+    return pyq;
 }
 
 - (ZSChannelBase *)channelWB
