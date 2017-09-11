@@ -101,9 +101,7 @@
         [self login];
     }
     else{
-        if (self.notSupportBlock) {
-            self.notSupportBlock(self);
-        }
+        [self didNotSupport];
     }
 }
 
@@ -119,9 +117,7 @@
         [self getUserInfo:authInfo];
     }
     else{
-        if (self.notSupportBlock) {
-            self.notSupportBlock(self);
-        }
+        [self didNotSupport];
     }
 }
 
@@ -136,9 +132,7 @@
         [self shareInfo:shareInfo];
     }
     else{
-        if (self.notSupportBlock) {
-            self.notSupportBlock(self);
-        }
+        [self didNotSupport];
     }
 }
 
@@ -164,6 +158,10 @@
 
 - (void)didFail:(NSError *)error
 {
+    //故意声明一个临时变量持有self，避免clear的时候self被释放
+    __unused ZSChannelBase *holder = self;
+    [self clear];
+    //一定要先clear，后执行block，因为block里面还可能执行channel的其它方法，导致clear错误清除
     if (self.failBlock) {
         self.failBlock(self, error);
     }
@@ -171,6 +169,8 @@
 
 - (void)didCancel
 {
+    __unused ZSChannelBase *holder = self;
+    [self clear];
     if (self.cancelBlock) {
         self.cancelBlock(self);
     }
@@ -178,9 +178,25 @@
 
 - (void)didSuccess:(id)data
 {
+    __unused ZSChannelBase *holder = self;
+    [self clear];
     if (self.successBlock) {
         self.successBlock(self, data);
     }
+}
+
+- (void)didNotSupport
+{
+    __unused ZSChannelBase *holder = self;
+    [self clear];
+    if (self.notSupportBlock) {
+        self.notSupportBlock(self);
+    }
+}
+
+- (void)clear
+{
+    [[ZSChannelManager sharedManager] clear];
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url
