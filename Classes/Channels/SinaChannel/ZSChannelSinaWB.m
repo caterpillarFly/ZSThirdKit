@@ -203,8 +203,8 @@
         
         WBWebpageObject *webPageObj = [WBWebpageObject object];
         webPageObj.webpageUrl = webPageInfo.url;
-        webPageObj.title = webPageInfo.desc;
-        webPageObj.description = webPageInfo.desc;
+        webPageObj.title = [NSString stringWithFormat:@"%@ %@", webPageInfo.desc, webPageInfo.url];;
+        webPageObj.description = @"";
         webPageObj.thumbnailData = webPageInfo.thumbnailData;
         webPageObj.objectID = @"ZSThirdKit";        //一定得设置这个字段，不然无法调起微博客户端
         messageObj.mediaObject = webPageObj;

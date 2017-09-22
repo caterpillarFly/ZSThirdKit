@@ -12,6 +12,7 @@
 		BE65DED61F4AD2710043E973 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE65DED51F4AD2710043E973 /* AppDelegate.m */; };
 		BE65DED91F4AD2710043E973 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE65DED81F4AD2710043E973 /* ViewController.m */; };
 		BE65DEDE1F4AD2710043E973 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE65DEDD1F4AD2710043E973 /* Assets.xcassets */; };
+		BEAC8B3F1F74DC9A00ADE584 /* xxx.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BEAC8B3E1F74DC9A00ADE584 /* xxx.jpeg */; };
 		BEE26D361F4AD46300B97C03 /* ZSChannelConfigSample.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE26D351F4AD46300B97C03 /* ZSChannelConfigSample.m */; };
 		BEE26D531F4AD47D00B97C03 /* ZSChannelQQ.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE26D3B1F4AD47D00B97C03 /* ZSChannelQQ.m */; };
 		BEE26D541F4AD47D00B97C03 /* ZSChannelQQZone.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE26D3D1F4AD47D00B97C03 /* ZSChannelQQZone.m */; };
@@ -36,6 +37,7 @@
 		BE65DED81F4AD2710043E973 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE65DEDD1F4AD2710043E973 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE65DEE21F4AD2710043E973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEAC8B3E1F74DC9A00ADE584 /* xxx.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xxx.jpeg; sourceTree = "<group>"; };
 		BEE26D341F4AD46300B97C03 /* ZSChannelConfigSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelConfigSample.h; sourceTree = "<group>"; };
 		BEE26D351F4AD46300B97C03 /* ZSChannelConfigSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelConfigSample.m; sourceTree = "<group>"; };
 		BEE26D3A1F4AD47D00B97C03 /* ZSChannelQQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelQQ.h; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				BE65DED51F4AD2710043E973 /* AppDelegate.m */,
 				BE65DED71F4AD2710043E973 /* ViewController.h */,
 				BE65DED81F4AD2710043E973 /* ViewController.m */,
+				BEAC8B3E1F74DC9A00ADE584 /* xxx.jpeg */,
 				BE65DEDD1F4AD2710043E973 /* Assets.xcassets */,
 				BE65DEE21F4AD2710043E973 /* Info.plist */,
 				BE65DED11F4AD2710043E973 /* Supporting Files */,
@@ -277,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEAC8B3F1F74DC9A00ADE584 /* xxx.jpeg in Resources */,
 				BE65DEDE1F4AD2710043E973 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
