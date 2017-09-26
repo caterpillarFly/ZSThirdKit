@@ -203,11 +203,16 @@
         
         WBWebpageObject *webPageObj = [WBWebpageObject object];
         webPageObj.webpageUrl = webPageInfo.url;
-        webPageObj.title = [NSString stringWithFormat:@"%@ %@", webPageInfo.desc, webPageInfo.url];;
-        webPageObj.description = @"";
+        webPageObj.title = @"";
+        webPageObj.description = webPageInfo.desc;
         webPageObj.thumbnailData = webPageInfo.thumbnailData;
         webPageObj.objectID = @"ZSThirdKit";        //一定得设置这个字段，不然无法调起微博客户端
         messageObj.mediaObject = webPageObj;
+        NSString *text = webPageInfo.desc;
+        if (text.length > 140) {
+            text = [text substringToIndex:139];
+        }
+        messageObj.text = text;
     }
     else if ([info isKindOfClass:[ZShareMusic class]]){
         ZShareMusic *musicInfo = (ZShareMusic *)info;

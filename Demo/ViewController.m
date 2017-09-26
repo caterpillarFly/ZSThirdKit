@@ -408,8 +408,12 @@
     shareInfo.desc = @"分享一首好听的音乐，真的很好听，试一试你就知道了";
     shareInfo.title = @"网页分享测试";
     shareInfo.url = @"http://i.y.qq.com/v8/playsong.html?hostuin=0&songid=&songmid=002x5Jje3eUkXT&_wv=1&source=qq&appshare=iphone&media_mid=002x5Jje3eUkXT";
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thumbnail.jpg"];
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"xxx.jpeg"];
     shareInfo.thumbnailData = [NSData dataWithContentsOfFile:path];
+    NSInteger limitSize = 32 * 1024;
+    if (shareInfo.thumbnailData.length > limitSize) {
+        shareInfo.thumbnailData = [self compressThumbImageData:shareInfo.thumbnailData belowSize:limitSize];
+    }
     
     return shareInfo;
 }
@@ -434,7 +438,108 @@
     shareInfo.musicDataUrl = @"http://c.musicapp.migu.cn/MIGUM2.0/v1.0/content/sub/listenSong.do?contentId=600908000003312837&ua=Ios_migu&version=5.0.7&netType=01&toneFlag=PQ&copyrightId=6990539Z039&resourceType=0&t=1502356007554&channel=0140070&k=b5c5969d9234228e";
     NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thumbnail.jpg"];
     shareInfo.thumbnailData = [NSData dataWithContentsOfFile:path];
+    NSInteger limitSize = 32 * 1024;
+    if (shareInfo.thumbnailData.length > limitSize) {
+        shareInfo.thumbnailData = [self compressThumbImageData:shareInfo.thumbnailData belowSize:limitSize];
+    }
+
     return shareInfo;
+}
+
+
+//图片压缩
+//压缩图片
+
+- (NSData *)compressThumbImageData:(NSData *)aImageData belowSize:(NSUInteger)aSize
+{
+    if (aImageData.length <= aSize)
+    {
+        return aImageData;
+    }
+    
+    float defaultSacle = 0.7;
+    
+    NSData *compressedData = nil;
+    
+    do
+    {
+        UIImage *orgPreviewImage = [[UIImage alloc] initWithData:aImageData];
+        compressedData = UIImageJPEGRepresentation(orgPreviewImage, defaultSacle);
+        
+        //压缩之后仍然大于阀值，缩小图片质量
+        if (compressedData.length > aSize)
+        {
+            orgPreviewImage = [[UIImage alloc] initWithData:compressedData];
+            orgPreviewImage = [self getScaleImage:orgPreviewImage
+                                            width:orgPreviewImage.size.width * defaultSacle
+                                       imageScale:1];
+            aImageData = UIImageJPEGRepresentation(orgPreviewImage, 1.0);
+        }
+        
+    } while (compressedData.length > aSize);
+    
+    return compressedData;
+}
+
+- (UIImage *)getScaleImage:(UIImage *)org width:(CGFloat)scaleWidth imageScale:(CGFloat)scale
+{
+    UIImage *originalImage = org;
+    
+    CGFloat width, height;
+    CGFloat tWidth = originalImage.size.width;
+    CGFloat tHeight = originalImage.size.height;
+    CGFloat rate = tWidth / tHeight;
+    
+    if (originalImage.size.width < originalImage.size.height)
+    {
+        width = rate * scaleWidth;
+        height = scaleWidth;
+    }
+    else
+    {
+        width = scaleWidth;
+        height = scaleWidth / rate;
+    }
+    
+    BOOL drawTransposed;
+    
+    switch (originalImage.imageOrientation)
+    {
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            drawTransposed = YES;
+            break;
+            
+        default:
+            drawTransposed = NO;
+    }
+    
+    CGSize newSize = CGSizeMake(width, height);
+    
+    CGRect transposedRect;
+    if (drawTransposed)
+    {
+        transposedRect = CGRectMake(0, 0, newSize.height, newSize.width);
+    }
+    else
+    {
+        transposedRect = CGRectMake(0, 0, newSize.width, newSize.height);
+    }
+    
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextConcatCTM(context, CGAffineTransformIdentity);
+    CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+    CGContextSetShouldAntialias(context, NO);
+    
+    [originalImage drawInRect:transposedRect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 @end
