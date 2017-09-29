@@ -189,6 +189,15 @@
         mediaMessage.mediaObject = obj;
         req.message = mediaMessage;
     }
+    else if ([info isKindOfClass:[ZShareVideo class]]){
+        ZShareVideo *videoInfo = (ZShareVideo *)info;
+        WXMediaMessage *mediaMessage = [self messageWithInfo:videoInfo];
+        WXVideoObject *obj = [WXVideoObject object];
+        obj.videoUrl = videoInfo.videoUrl;
+        obj.videoLowBandUrl = videoInfo.videoLowBandUrl;
+        mediaMessage.mediaObject = obj;
+        req.message = mediaMessage;
+    }
     else{
         req = nil;
     }

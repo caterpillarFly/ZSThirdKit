@@ -274,10 +274,20 @@
         NSURL *url = [NSURL URLWithString:musicInfo.musicUrl];
         QQApiAudioObject *audioObj = [QQApiAudioObject objectWithURL:url
                                                                title:musicInfo.title
-                                                         description:musicInfo.description
+                                                         description:musicInfo.desc
                                                     previewImageData:musicInfo.thumbnailData];
         audioObj.flashURL = [NSURL URLWithString:musicInfo.musicDataUrl];
         obj = audioObj;
+    }
+    else if ([info isKindOfClass:[ZShareVideo class]]){
+        ZShareVideo *videoInfo = (ZShareVideo *)info;
+        NSURL *url = [NSURL URLWithString:videoInfo.videoUrl];
+        QQApiVideoObject *vidoeObj = [QQApiVideoObject objectWithURL:url
+                                                               title:videoInfo.title
+                                                         description:videoInfo.desc
+                                                    previewImageData:videoInfo.thumbnailData];
+        vidoeObj.flashURL = [NSURL URLWithString:videoInfo.videoStreamUrl];
+        obj = vidoeObj;
     }
     SendMessageToQQReq *req;
     if (obj) {

@@ -45,9 +45,27 @@
 
 @interface ZShareMusic : ZShareMedia
 
+//音乐网页url地址
 @property (nonatomic, copy) NSString *musicUrl;
-@property (nonatomic, copy) NSString *musicLowBandUrl;
+//音乐数据流url
 @property (nonatomic, copy) NSString *musicDataUrl;
+//音乐lowband网页url地址
+@property (nonatomic, copy) NSString *musicLowBandUrl;
+//音乐lowband数据流url
 @property (nonatomic, copy) NSString *musicLowBandDataUrl;
+
+@end
+
+
+@interface ZShareVideo : ZShareMedia
+
+//视频网页的url，不能为空且长度不能超过255
+@property (nonatomic, strong) NSString *videoUrl;
+// 视频数据流url，长度有限制，不能超过255，否则直接分享失败
+@property (nonatomic, strong) NSString *videoStreamUrl;
+//视频lowband网页的url
+@property (nonatomic, strong) NSString *videoLowBandUrl;
+//视频lowband数据流url
+@property (nonatomic, strong) NSString *videoLowBandStreamUrl;
 
 @end

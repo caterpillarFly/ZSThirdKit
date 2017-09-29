@@ -227,6 +227,19 @@
         musicObj.objectID = @"ZSThirdKit";
         messageObj.mediaObject = musicObj;
     }
+    else if ([info isKindOfClass:[ZShareVideo class]]){
+        ZShareVideo *videoInfo = (ZShareVideo *)info;
+        WBVideoObject *videoObj = [WBVideoObject object];
+        videoObj.videoUrl = videoInfo.videoUrl;
+        videoObj.videoStreamUrl = videoInfo.videoStreamUrl;
+        videoObj.videoLowBandUrl = videoInfo.videoLowBandUrl;
+        videoObj.videoLowBandStreamUrl = videoInfo.videoLowBandStreamUrl;
+        videoObj.title = videoInfo.desc;
+        videoObj.description = videoInfo.desc;
+        videoObj.thumbnailData = videoInfo.thumbnailData;
+        videoObj.objectID = @"ZSThirdKit";
+        messageObj.mediaObject = videoObj;
+    }
     else{
         messageObj = nil;
     }

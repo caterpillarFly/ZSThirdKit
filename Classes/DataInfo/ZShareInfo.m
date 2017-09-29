@@ -33,3 +33,7 @@
 @implementation ZShareMusic
 
 @end
+
+@implementation ZShareVideo
+
+@end

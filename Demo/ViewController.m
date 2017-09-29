@@ -48,6 +48,11 @@
         [self qqShareMusic];
     }];
     
+    [self addMenu:@"QQ分享视频" callback:^(id sender, id data) {
+        @strongify(self)
+        [self qqShareVideo];
+    }];
+    
     [self addMenu:@"QQ空间分享网页" callback:^(id sender, id data) {
         @strongify(self);
         [self qqzoneShareWebPage];
@@ -78,9 +83,19 @@
         [self wxShareMusic];
     }];
     
+    [self addMenu:@"微信分享视频" callback:^(id sender, id data) {
+        @strongify(self)
+        [self wxShareVideo];
+    }];
+    
     [self addMenu:@"朋友圈分享网页" callback:^(id sender, id data) {
         @strongify(self)
         [self pyqShareWebPage];
+    }];
+    
+    [self addMenu:@"朋友圈分享视频" callback:^(id sender, id data) {
+        @strongify(self)
+        [self pyqShareVideo];
     }];
     
     [self addMenu:@"新浪微博登录" callback:^(id sender, id data) {
@@ -102,6 +117,10 @@
     [self addMenu:@"新浪微博分享音乐" callback:^(id sender, id data) {
         @strongify(self)
         [self wbShareMusic];
+    }];
+    [self addMenu:@"新浪微博分享视频" callback:^(id sender, id data) {
+        @strongify(self)
+        [self wbShareVideo];
     }];
     
 }
@@ -178,6 +197,20 @@
 {
     ZSChannelBase *qq = [self channelQQ];
     ZShareMusic *shareInfo = [self shareMusic];
+    
+    [qq shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
+- (void)qqShareVideo
+{
+    ZSChannelBase *qq = [self channelQQ];
+    ZShareVideo *shareInfo = [self shareVideo];
     
     [qq shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
         NSLog(@"分享成功..........");
@@ -277,10 +310,38 @@
     }];
 }
 
+- (void)wxShareVideo
+{
+    ZSChannelBase *wx = [self channelWX];
+    ZShareVideo *shareInfo = [self shareVideo];
+    
+    [wx shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
 - (void)pyqShareWebPage
 {
     ZSChannelBase *pyq = [self channelPYQ];
     ZShareWebPage *shareInfo = [self shareWebpage];
+    
+    [pyq shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
+- (void)pyqShareVideo
+{
+    ZSChannelBase *pyq = [self channelPYQ];
+    ZShareVideo *shareInfo = [self shareVideo];
     
     [pyq shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
         NSLog(@"分享成功..........");
@@ -365,6 +426,20 @@
     }];
 }
 
+- (void)wbShareVideo
+{
+    ZSChannelBase *wb = [self channelWB];
+    ZShareVideo *shareInfo = [self shareVideo];
+    
+    [wb shareInfo:shareInfo success:^(ZSChannelBase *channel, id data) {
+        NSLog(@"分享成功..........");
+    } fail:^(ZSChannelBase *channel, NSError *error) {
+        NSLog(@"分享失败：%@..........", [error description]);
+    } cancel:^(ZSChannelBase *channel) {
+        NSLog(@"分享取消..........");
+    }];
+}
+
 - (ZSChannelBase *)channelQQ
 {
     ZSChannelBase *qq = [[ZSChannelManager sharedManager] channelWithType:ZSChannelTypeQQ];
@@ -436,13 +511,30 @@
     shareInfo.title = @"音乐分享测试";
     shareInfo.musicUrl = @"http://218.200.227.207:8080/app/v2/controller/share/ringtone.shtml?id=600908000003312837";
     shareInfo.musicDataUrl = @"http://c.musicapp.migu.cn/MIGUM2.0/v1.0/content/sub/listenSong.do?contentId=600908000003312837&ua=Ios_migu&version=5.0.7&netType=01&toneFlag=PQ&copyrightId=6990539Z039&resourceType=0&t=1502356007554&channel=0140070&k=b5c5969d9234228e";
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"thumbnail.jpg"];
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"xxx.jpeg"];
     shareInfo.thumbnailData = [NSData dataWithContentsOfFile:path];
     NSInteger limitSize = 32 * 1024;
     if (shareInfo.thumbnailData.length > limitSize) {
         shareInfo.thumbnailData = [self compressThumbImageData:shareInfo.thumbnailData belowSize:limitSize];
     }
 
+    return shareInfo;
+}
+
+- (ZShareVideo *)shareVideo
+{
+    ZShareVideo *shareInfo = [ZShareVideo new];
+    shareInfo.desc = @"分享一个小黄片给你，你懂的！！";
+    shareInfo.title = @"分享视频测试";
+    shareInfo.videoUrl = @"http://music.163.com/#/video?from=singlemessage&id=8426C841B242421344894351484E8814&userid=496477158&isappinstalled=1";
+    shareInfo.videoStreamUrl = @"http://vodkgeyttp8.vod.126.net/vodkgeyttp8/RII32aFx_20501837_hd.mp4?wsSecret=9850d168d925a3027fb8e70b53b69478&wsTime=1506587392";
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"xxx.jpeg"];
+    shareInfo.thumbnailData = [NSData dataWithContentsOfFile:path];
+    NSInteger limitSize = 32 * 1024;
+    if (shareInfo.thumbnailData.length > limitSize) {
+        shareInfo.thumbnailData = [self compressThumbImageData:shareInfo.thumbnailData belowSize:limitSize];
+    }
+    
     return shareInfo;
 }
 
