@@ -12,7 +12,7 @@
 		BE65DED61F4AD2710043E973 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE65DED51F4AD2710043E973 /* AppDelegate.m */; };
 		BE65DED91F4AD2710043E973 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE65DED81F4AD2710043E973 /* ViewController.m */; };
 		BE65DEDE1F4AD2710043E973 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE65DEDD1F4AD2710043E973 /* Assets.xcassets */; };
-		BEAC8B3F1F74DC9A00ADE584 /* xxx.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BEAC8B3E1F74DC9A00ADE584 /* xxx.jpeg */; };
+		BEC4676B1F97338600649FAA /* xxx.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BEC4676A1F97338600649FAA /* xxx.jpeg */; };
 		BEE26D361F4AD46300B97C03 /* ZSChannelConfigSample.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE26D351F4AD46300B97C03 /* ZSChannelConfigSample.m */; };
 		BEE26D531F4AD47D00B97C03 /* ZSChannelQQ.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE26D3B1F4AD47D00B97C03 /* ZSChannelQQ.m */; };
 		BEE26D541F4AD47D00B97C03 /* ZSChannelQQZone.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE26D3D1F4AD47D00B97C03 /* ZSChannelQQZone.m */; };
@@ -37,7 +37,7 @@
 		BE65DED81F4AD2710043E973 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE65DEDD1F4AD2710043E973 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE65DEE21F4AD2710043E973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEAC8B3E1F74DC9A00ADE584 /* xxx.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xxx.jpeg; sourceTree = "<group>"; };
+		BEC4676A1F97338600649FAA /* xxx.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xxx.jpeg; sourceTree = "<group>"; };
 		BEE26D341F4AD46300B97C03 /* ZSChannelConfigSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelConfigSample.h; sourceTree = "<group>"; };
 		BEE26D351F4AD46300B97C03 /* ZSChannelConfigSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelConfigSample.m; sourceTree = "<group>"; };
 		BEE26D3A1F4AD47D00B97C03 /* ZSChannelQQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelQQ.h; sourceTree = "<group>"; };
@@ -113,13 +113,13 @@
 		BE65DED01F4AD2710043E973 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				BEC4676A1F97338600649FAA /* xxx.jpeg */,
 				BEE26D341F4AD46300B97C03 /* ZSChannelConfigSample.h */,
 				BEE26D351F4AD46300B97C03 /* ZSChannelConfigSample.m */,
 				BE65DED41F4AD2710043E973 /* AppDelegate.h */,
 				BE65DED51F4AD2710043E973 /* AppDelegate.m */,
 				BE65DED71F4AD2710043E973 /* ViewController.h */,
 				BE65DED81F4AD2710043E973 /* ViewController.m */,
-				BEAC8B3E1F74DC9A00ADE584 /* xxx.jpeg */,
 				BE65DEDD1F4AD2710043E973 /* Assets.xcassets */,
 				BE65DEE21F4AD2710043E973 /* Info.plist */,
 				BE65DED11F4AD2710043E973 /* Supporting Files */,
@@ -252,7 +252,7 @@
 				TargetAttributes = {
 					BE65DECD1F4AD2710043E973 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 328H572F92;
+						DevelopmentTeam = 5YMFML8DB2;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -280,7 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEAC8B3F1F74DC9A00ADE584 /* xxx.jpeg in Resources */,
+				BEC4676B1F97338600649FAA /* xxx.jpeg in Resources */,
 				BE65DEDE1F4AD2710043E973 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,15 +454,16 @@
 			baseConfigurationReference = 0747B8A32F91D1A2C09BE6CC /* Pods-ZSThirdKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 咪咕 音乐 (ST4TVP6W5L)";
-				DEVELOPMENT_TEAM = 328H572F92;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Fangjun Peng (4K62UW9X4N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Fangjun Peng (4K62UW9X4N)";
+				DEVELOPMENT_TEAM = 5YMFML8DB2;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.migu.mobilemusic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.migu.dev.mobilemusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a83b2eb8-3c0d-4e39-87db-a8fbde2d554f";
-				PROVISIONING_PROFILE_SPECIFIER = migu_mobile_music_development;
+				PROVISIONING_PROFILE = "d0e051b1-6884-4d91-8ed2-15ef34f2c9be";
+				PROVISIONING_PROFILE_SPECIFIER = migu_mobile_music_pfjDev_development;
 			};
 			name = Debug;
 		};
@@ -471,14 +472,16 @@
 			baseConfigurationReference = 1D3AEFFAB872656538035E50 /* Pods-ZSThirdKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 328H572F92;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Fangjun Peng (4K62UW9X4N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Fangjun Peng (4K62UW9X4N)";
+				DEVELOPMENT_TEAM = 5YMFML8DB2;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.migu.mobilemusic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.migu.dev.mobilemusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a83b2eb8-3c0d-4e39-87db-a8fbde2d554f";
-				PROVISIONING_PROFILE_SPECIFIER = migu_mobile_music_development;
+				PROVISIONING_PROFILE = "d0e051b1-6884-4d91-8ed2-15ef34f2c9be";
+				PROVISIONING_PROFILE_SPECIFIER = migu_mobile_music_pfjDev_development;
 			};
 			name = Release;
 		};
