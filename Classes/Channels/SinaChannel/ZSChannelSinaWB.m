@@ -48,6 +48,7 @@
 
 - (void)setupWithInfo:(NSDictionary *)info
 {
+    [super setupWithInfo:info];
     self.appKey = info[@"appKey"];
     self.appSecret = info[@"appSecret"];
     self.redirectURI = info[@"redirectURI"];

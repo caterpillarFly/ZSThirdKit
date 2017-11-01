@@ -22,6 +22,7 @@
 //渠道类型
 @property (nonatomic) ZSChannelType channelType;
 
+
 /*
  * 以下是子类需要覆写的方法
  */
@@ -73,7 +74,6 @@
     base.channelType = channelType;
     return base;
 }
-
 
 - (void)dealloc
 {
@@ -148,7 +148,9 @@
 
 - (void)setupWithInfo:(NSDictionary *)info
 {
-    //子类实现
+    if (info[@"channelName"]) {
+        self.channelName = info[@"channelName"];
+    }
 }
 
 - (void)getUserInfo:(ZSAuthInfo *)authInfo

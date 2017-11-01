@@ -40,6 +40,7 @@
 
 - (void)setupWithInfo:(NSDictionary *)info
 {
+    [super setupWithInfo:info];
     NSString *appKey = info[@"appKey"];
     self.appKey = appKey;
 }

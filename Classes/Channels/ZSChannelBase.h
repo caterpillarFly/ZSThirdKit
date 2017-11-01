@@ -23,10 +23,12 @@
 
 //渠道未安装回调，这个block需要自己显示设置
 @property (nonatomic) ZSNotSupportBlock notSupportBlock;
-//渠道名称
+//渠道名称，可以在配置文件中配置，若未配置，渠道初始化会给个默认名称
 @property (nonatomic, copy) NSString *channelName;
-//渠道类型
+//渠道类型，各个渠道初始化的时候会自己赋值
 @property (nonatomic, readonly) ZSChannelType channelType;
+//保存用户自己和渠道相关的信息
+@property (nonatomic) id userInfo;
 
 
 
@@ -37,7 +39,9 @@
 
 
 //设置渠道相关的信息，比如appKey（必须），appSecret（微信必须）等信息；
-- (void)setupWithInfo:(NSDictionary *)info;
+//子类覆写，必须先调用基类的方法
+- (void)setupWithInfo:(NSDictionary *)info NS_REQUIRES_SUPER;
+
 
 
 
