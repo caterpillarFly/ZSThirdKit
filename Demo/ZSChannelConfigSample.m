@@ -16,27 +16,42 @@
     //channelName可选，其它三个请按照demo传递
     //qq渠道配置信息
     NSDictionary *qqinfo = @{@"appKey"      :   @"xxxxxxxxx",
-                             @"channelName" :   @"QQ好友"
+                             @"channelName" :   @"QQ好友",
+                             @"normalIcon"  :   @"图片名称",
+                             @"selectedIcon":   @"",
+                             @"highlightedIcon" : @""
                              };
     //qq空间
     NSDictionary *qqzone = @{@"appKey"      :   @"xxxxxxxxx",
-                             @"channelName" :   @"QQ空间"
+                             @"channelName" :   @"QQ空间",
+                             @"normalIcon"  :   @"",
+                             @"selectedIcon":   @"",
+                             @"highlightedIcon" : @""
                              };
     //微信
     NSDictionary *wxinfo = @{@"appKey"      :   @"xxxxxxxxx",
                              @"appSecert"   :   @"xxxxxxxxx",
-                             @"channelName" :   @"微信好友"
+                             @"channelName" :   @"微信好友",
+                             @"normalIcon"  :   @"",
+                             @"selectedIcon":   @"",
+                             @"highlightedIcon" : @""
                              };
     //朋友圈
     NSDictionary *wxpyq = @{@"appKey"      :   @"xxxxxxxxx",
                              @"appSecert"   :   @"xxxxxxxxx",
-                             @"channelName" :   @"朋友圈"
+                             @"channelName" :   @"朋友圈",
+                             @"normalIcon"  :   @"",
+                             @"selectedIcon":   @"",
+                             @"highlightedIcon" : @""
                              };
     //新浪微博
     NSDictionary *wbinfo = @{@"appKey"      :   @"xxxxxxxxx",
                              @"appSecert"   :   @"xxxxxxxxx",
                              @"redirectURI" :   @"xxxxxxxxx",
-                             @"channelName" :   @"微博"
+                             @"channelName" :   @"微博",
+                             @"normalIcon"  :   @"",
+                             @"selectedIcon":   @"",
+                             @"highlightedIcon" : @""
                              };
     
     NSDictionary *channelInfoMap = @{@(ZSChannelTypeWX)      :   wxinfo,

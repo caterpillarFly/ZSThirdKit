@@ -27,6 +27,13 @@
 @property (nonatomic, copy) NSString *channelName;
 //渠道类型，各个渠道初始化的时候会自己赋值
 @property (nonatomic, readonly) ZSChannelType channelType;
+//以下三个icon，可以配置(只支持imageNamed:方式配置)，也可以自己设置
+//正常的icon
+@property (nonatomic) UIImage *normalIcon;
+//选中的icon
+@property (nonatomic) UIImage *selectedIcon;
+//高亮的icon
+@property (nonatomic) UIImage *highlightedIcon;
 //保存用户自己和渠道相关的信息
 @property (nonatomic) id userInfo;
 

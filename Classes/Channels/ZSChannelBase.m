@@ -151,6 +151,15 @@
     if (info[@"channelName"]) {
         self.channelName = info[@"channelName"];
     }
+    if (info[@"normalIcon"] && [info[@"normalIcon"] isKindOfClass:[NSString class]]) {
+        self.normalIcon = [UIImage imageNamed:info[@"normalIcon"]];
+    }
+    if (info[@"selectedIcon"] && [info[@"selectedIcon"] isKindOfClass:[NSString class]]) {
+        self.selectedIcon = [UIImage imageNamed:info[@"selectedIcon"]];
+    }
+    if (info[@"highlightedIcon"] && [info[@"highlightedIcon"] isKindOfClass:[NSString class]]) {
+        self.highlightedIcon = [UIImage imageNamed:info[@"highlightedIcon"]];
+    }
 }
 
 - (void)getUserInfo:(ZSAuthInfo *)authInfo
