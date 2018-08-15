@@ -7,9 +7,6 @@
 //
 
 #import "ZSChannelBase.h"
-#import "ZSChannelQQZone.h"
-#import "ZSChannelPYQ.h"
-#import "ZSChannelSinaWB.h"
 
 @interface ZSChannelBase ()<ZSOpProcessProtocol>
 
@@ -44,36 +41,6 @@
 
 @implementation ZSChannelBase
 
-+ (instancetype)channelWithType:(ZSChannelType)channelType
-{
-    ZSChannelBase *base;
-    switch (channelType) {
-        case ZSChannelTypeQQ:
-            base = [ZSChannelQQ new];
-            break;
-        case ZSChannelTypeQQZone:
-            base = [ZSChannelQQZone new];
-            break;
-        case ZSChannelTypeWX:
-            base = [ZSChannelWX new];
-            break;
-        case ZSChannelTypePYQ:
-            base = [ZSChannelPYQ new];
-            break;
-        case ZSChannelTypeSinaWB:
-            base = [ZSChannelSinaWB new];
-            break;
-        default:
-            break;
-    }
-    if (!base) {
-#ifdef DEBUG
-        NSAssert(NO, @"不支持的渠道类型");
-#endif
-    }
-    base.channelType = channelType;
-    return base;
-}
 
 - (void)dealloc
 {

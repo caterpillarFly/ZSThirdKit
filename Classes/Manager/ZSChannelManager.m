@@ -7,6 +7,11 @@
 //
 
 #import "ZSChannelManager.h"
+#import "ZSChannelQQZone.h"
+#import "ZSChannelQQ.h"
+#import "ZSChannelWX.h"
+#import "ZSChannelPYQ.h"
+#import "ZSChannelSinaWB.h"
 
 @implementation ZSChannelManager
 
@@ -25,19 +30,44 @@
     return [self.currentChannel handleOpenURL:url];
 }
 
-- (ZSChannelBase *)channelWithType:(ZSChannelType)channelType
-{
-    return [self channelWithType:channelType notInstallBlock:nil];
-}
-
 - (ZSChannelBase *)channelWithType:(ZSChannelType)channelType notInstallBlock:(ZSNotSupportBlock)block
 {
-    ZSChannelBase *channel = [ZSChannelBase channelWithType:channelType];
+    ZSChannelBase *channel = [self channelWithType:channelType];
     channel.notSupportBlock = block;
-    if ([self.delegate respondsToSelector:@selector(channelInfoWithType:)]) {
-        [channel setupWithInfo:[self.delegate channelInfoWithType:channelType]];
-    }
     return channel;
+}
+
+- (ZSChannelBase *)channelWithType:(ZSChannelType)channelType
+{
+    ZSChannelBase *base;
+    switch (channelType) {
+        case ZSChannelTypeQQ:
+            base = [ZSChannelQQ new];
+            break;
+        case ZSChannelTypeQQZone:
+            base = [ZSChannelQQZone new];
+            break;
+        case ZSChannelTypeWX:
+            base = [ZSChannelWX new];
+            break;
+        case ZSChannelTypePYQ:
+            base = [ZSChannelPYQ new];
+            break;
+        case ZSChannelTypeSinaWB:
+            base = [ZSChannelSinaWB new];
+            break;
+        default:
+            break;
+    }
+    if (!base) {
+#ifdef DEBUG
+        NSAssert(NO, @"不支持的渠道类型");
+#endif
+    }
+    if (base && [self.delegate respondsToSelector:@selector(channelInfoWithType:)]) {
+        [base setupWithInfo:[self.delegate channelInfoWithType:channelType]];
+    }
+    return base;
 }
 
 - (NSArray<ZSChannelBase *> *)validChannels

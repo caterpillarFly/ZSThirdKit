@@ -69,6 +69,11 @@
     self.appSecret = info[@"appSecret"];
 }
 
+- (ZSChannelType)channelType
+{
+    return ZSChannelTypeWX;
+}
+
 - (void)login
 {
     [self registerApp];

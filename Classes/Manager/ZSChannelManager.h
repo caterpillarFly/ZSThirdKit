@@ -35,7 +35,7 @@
 
 
 
-//客户端支持分享的渠道，没安装的不会返回
+//客户端支持分享的渠道，没安装的不会返回（QQ，QQ空间，微信，朋友圈，新浪微博）
 - (NSArray<ZSChannelBase *> *)validChannels;
 
 

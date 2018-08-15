@@ -45,6 +45,11 @@
     self.appKey = appKey;
 }
 
+- (ZSChannelType)channelType
+{
+    return ZSChannelTypeQQ;
+}
+
 //登录
 - (void)login
 {

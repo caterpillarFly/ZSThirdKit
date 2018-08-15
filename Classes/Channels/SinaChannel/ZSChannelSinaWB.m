@@ -57,6 +57,11 @@
     }
 }
 
+- (ZSChannelType)channelType
+{
+    return ZSChannelTypeSinaWB;
+}
+
 - (void)login
 {
     [self registerApp];

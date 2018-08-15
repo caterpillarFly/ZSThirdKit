@@ -39,11 +39,6 @@
 
 
 
-//统一创建实例的方法，所有渠道都通过这个方法创建
-+ (instancetype)channelWithType:(ZSChannelType)channelType;
-
-
-
 
 //设置渠道相关的信息，比如appKey（必须），appSecret（微信必须）等信息；
 //子类覆写，必须先调用基类的方法

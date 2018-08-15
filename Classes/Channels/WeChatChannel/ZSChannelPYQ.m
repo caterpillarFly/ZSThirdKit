@@ -29,4 +29,9 @@
     return NO;
 }
 
+- (ZSChannelType)channelType
+{
+    return ZSChannelTypePYQ;
+}
+
 @end

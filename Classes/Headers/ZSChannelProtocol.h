@@ -41,6 +41,8 @@
 //渠道对应的信息，主要是appKey，appSecret等信息
 - (NSDictionary *)channelInfoWithType:(ZSChannelType)channelType;
 
+
+
 @end
 
 #endif /* ZSThirdProtocol_h */
