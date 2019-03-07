@@ -1,10 +1,10 @@
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/ZSQQSDK/sdk/QQ"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/HTestVC" "${PODS_ROOT}/Headers/Public/WechatOpenSDK" "${PODS_ROOT}/Headers/Public/WeiboSDK" "${PODS_ROOT}/Headers/Public/ZSCategories" "${PODS_ROOT}/Headers/Public/ZSQQSDK"
-LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/HTestVC" "$PODS_CONFIGURATION_BUILD_DIR/ZSCategories" $(inherited) "${PODS_ROOT}/WechatOpenSDK/OpenSDK1.7.9" $(inherited) "${PODS_ROOT}/WeiboSDK/libWeiboSDK"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/HTestVC" "${PODS_CONFIGURATION_BUILD_DIR}/ZSCategories" "${PODS_ROOT}/WechatOpenSDK/OpenSDK1.7.9" "${PODS_ROOT}/WeiboSDK/libWeiboSDK"
 OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/HTestVC" -isystem "${PODS_ROOT}/Headers/Public/WechatOpenSDK" -isystem "${PODS_ROOT}/Headers/Public/WeiboSDK" -isystem "${PODS_ROOT}/Headers/Public/ZSCategories" -isystem "${PODS_ROOT}/Headers/Public/ZSQQSDK"
 OTHER_LDFLAGS = $(inherited) -ObjC -l"HTestVC" -l"WeChatSDK" -l"WeiboSDK" -l"ZSCategories" -l"c++" -l"iconv" -l"sqlite3" -l"sqlite3.0" -l"stdc++" -l"z" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreTelephony" -framework "CoreText" -framework "Foundation" -framework "ImageIO" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration" -framework "TencentOpenAPI" -framework "UIKit"
-PODS_BUILD_DIR = $BUILD_DIR
-PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods

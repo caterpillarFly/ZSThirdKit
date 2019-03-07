@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "ZSChannelManager.h"
 #import "ZSChannelConfigSample.h"
-#import "NSData+MGExt.h"
+#import "NSData+ZSExt.h"
 
 @implementation ViewController
 

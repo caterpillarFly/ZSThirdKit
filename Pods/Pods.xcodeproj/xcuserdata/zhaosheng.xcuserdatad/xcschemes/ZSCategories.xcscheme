@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0A7DB08C3F93CEB8CCB1736D5B7C96AC'
-               BlueprintName = 'ZSCategories'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libZSCategories.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3208D1FC602801966A779A2721830893"
+               BlueprintName = "ZSCategories"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libZSCategories.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -8,6 +8,6 @@ target 'ZSThirdKit' do
   pod 'ZSQQSDK', '~> 0.0.1'
   pod 'WechatOpenSDK'
   pod 'WeiboSDK'
-  pod 'ZSCategories', '~>0.0.1'
+  pod 'ZSCategories', '~>0.0.2'
 
 end
