@@ -203,6 +203,17 @@
         obj.videoLowBandUrl = videoInfo.videoLowBandUrl;
         mediaMessage.mediaObject = obj;
         req.message = mediaMessage;
+    } else if ([info isKindOfClass:[ZShareMiniProgram class]]){
+        ZShareMiniProgram *miniProgram = (ZShareMiniProgram *)info;
+        WXMediaMessage *mediaMessage = [self messageWithInfo:miniProgram];
+        WXMiniProgramObject *ext = [WXMiniProgramObject object];
+        ext.webpageUrl = miniProgram.shareUrl;
+        ext.hdImageData = miniProgram.originalImageData;
+        ext.path = miniProgram.path;
+        ext.userName = miniProgram.userName;
+        mediaMessage.mediaObject = ext;
+        req.message = mediaMessage;
+        
     }
     else{
         req = nil;

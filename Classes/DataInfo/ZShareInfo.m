@@ -37,3 +37,7 @@
 @implementation ZShareVideo
 
 @end
+
+@implementation ZShareMiniProgram
+
+@end

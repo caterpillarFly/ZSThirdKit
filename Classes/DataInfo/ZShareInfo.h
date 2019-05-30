@@ -69,3 +69,14 @@
 @property (nonatomic, strong) NSString *videoLowBandStreamUrl;
 
 @end
+
+@interface ZShareMiniProgram : ZShareMedia
+
+//分享链接
+@property (nonatomic, strong) NSString *shareUrl;
+//迷你小程序固定id
+@property (nonatomic, strong) NSString *userName;
+//路径，需要根据分享内容拼接（目前支持歌单，歌曲）
+@property (nonatomic, strong) NSString *path;
+
+@end
