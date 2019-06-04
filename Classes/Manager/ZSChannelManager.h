@@ -22,7 +22,9 @@
 
 
 //接住外部openurl回调
-- (BOOL)handleOpenURL:(NSURL *)url;
+- (BOOL)handleOpenURL:(NSURL *)url
+    sourceApplication:(NSString *)sourceApplication
+         requestBlock:(ZSOpSuccessBlock)requestBlock;
 
 
 

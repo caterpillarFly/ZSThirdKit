@@ -30,6 +30,10 @@
 - (void)didSuccess:(id)data;
 
 
+//分享渠道邀请我们App处理的对象
+- (void)didRequest:(id)data;
+
+
 
 @end
 
