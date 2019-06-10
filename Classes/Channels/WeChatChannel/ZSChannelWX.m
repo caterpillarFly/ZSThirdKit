@@ -113,6 +113,11 @@
 - (void)onReq:(BaseReq *)req
 {
     //收到一个来自微信的请求
+    if ([req isKindOfClass:[LaunchFromWXReq class]]) {
+        LaunchFromWXReq *launchReq = (LaunchFromWXReq *)req;
+        WXMediaMessage *msg = launchReq.message;
+        [self didRequest:msg];
+    }
 }
 
 - (void)onResp:(BaseResp *)resp
