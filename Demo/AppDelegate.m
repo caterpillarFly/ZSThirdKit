@@ -57,22 +57,30 @@
 
 - (BOOL)handleApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return [[ZSChannelManager sharedManager] handleOpenURL:url];
+    return [[ZSChannelManager sharedManager] handleOpenURL:url
+                                         sourceApplication:sourceApplication
+                                              requestBlock:nil];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    return [[ZSChannelManager sharedManager] handleOpenURL:url];
+    return [[ZSChannelManager sharedManager] handleOpenURL:url
+                                         sourceApplication:nil
+                                              requestBlock:nil];
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-    return [[ZSChannelManager sharedManager] handleOpenURL:url];
+    return [[ZSChannelManager sharedManager] handleOpenURL:url
+                                         sourceApplication:nil
+                                              requestBlock:nil];
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation
 {
-    return [[ZSChannelManager sharedManager] handleOpenURL:url];
+    return [[ZSChannelManager sharedManager] handleOpenURL:url
+                                         sourceApplication:sourceApplication
+                                              requestBlock:nil];
 }
 
 @end

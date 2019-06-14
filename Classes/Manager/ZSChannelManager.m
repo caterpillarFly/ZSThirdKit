@@ -33,14 +33,14 @@
         //来自微信的分享，需要特殊处理小程序的问题
         if (!self.currentChannel || self.currentChannel.channelType != ZSChannelTypeWX) {
             ZSChannelBase *channel = [self channelWithType:ZSChannelTypeWX];
-            [channel setRequestBlock:^(ZSChannelBase *channel, id data) {
-                if (requestBlock) {
-                    WXMediaMessage *msg = (WXMediaMessage *)data;
-                    requestBlock(channel, msg.messageExt);
-                }
-            }];
             self.currentChannel = channel;
         }
+        [self.currentChannel setRequestBlock:^(ZSChannelBase *channel, id data) {
+            if (requestBlock) {
+                WXMediaMessage *msg = (WXMediaMessage *)data;
+                requestBlock(channel, msg.messageExt);
+            }
+        }];
     }
     return [self.currentChannel handleOpenURL:url];
 }
