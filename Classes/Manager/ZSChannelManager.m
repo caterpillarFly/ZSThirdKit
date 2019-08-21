@@ -31,12 +31,12 @@
 {
     if ([sourceApplication isEqualToString:@"com.tencent.xin"]) {
         //来自微信的分享，需要特殊处理小程序的问题
-        if (!self.currentChannel || self.currentChannel.channelType != ZSChannelTypeWX) {
+        if (!self.currentChannel) {
             ZSChannelBase *channel = [self channelWithType:ZSChannelTypeWX];
             self.currentChannel = channel;
         }
         [self.currentChannel setRequestBlock:^(ZSChannelBase *channel, id data) {
-            if (requestBlock) {
+            if (requestBlock && ([data isKindOfClass:[WXMediaMessage class]])) {
                 WXMediaMessage *msg = (WXMediaMessage *)data;
                 requestBlock(channel, msg.messageExt);
             }
