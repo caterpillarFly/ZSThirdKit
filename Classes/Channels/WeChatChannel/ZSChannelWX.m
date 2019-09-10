@@ -152,7 +152,8 @@
             [self didCancel];
             break;
         default:{
-            NSError *error = ZSChannelError(resp.errCode, resp.errStr);
+            NSString *errorInfo = resp.errStr ?: @"操作失败";
+            NSError *error = ZSChannelError(resp.errCode, errorInfo);
             [self didFail:error];
             break;
         }
