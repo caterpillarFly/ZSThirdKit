@@ -84,7 +84,7 @@
 
 
 //接住外部OpenUrl回调
-- (BOOL)handleOpenURL:(NSURL *)url;
+- (BOOL)handleOpenURL:(NSURL *)url userActivity:(NSUserActivity *)userActivity;
 
 
 

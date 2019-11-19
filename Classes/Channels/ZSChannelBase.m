@@ -193,7 +193,7 @@
     [[ZSChannelManager sharedManager] clear];
 }
 
-- (BOOL)handleOpenURL:(NSURL *)url
+- (BOOL)handleOpenURL:(NSURL *)url userActivity:(NSUserActivity *)userActivity
 {
     return NO;
 }

@@ -21,9 +21,11 @@
 + (instancetype)sharedManager;
 
 
+
 //接住外部openurl回调
 - (BOOL)handleOpenURL:(NSURL *)url
     sourceApplication:(NSString *)sourceApplication
+         userActivity:(NSUserActivity *)userActivity
          requestBlock:(ZSOpSuccessBlock)requestBlock;
 
 

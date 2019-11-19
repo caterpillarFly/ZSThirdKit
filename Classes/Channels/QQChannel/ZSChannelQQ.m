@@ -30,12 +30,19 @@
     return self;
 }
 
-- (BOOL)handleOpenURL:(NSURL *)url
+- (BOOL)handleOpenURL:(NSURL *)url userActivity:(NSUserActivity *)userActivity
 {
-    if ([TencentOAuth HandleOpenURL:url])
-        return YES;
-    else
-        return [QQApiInterface handleOpenURL:url delegate:self];
+    if (userActivity) {
+        return [TencentOAuth HandleUniversalLink:url];
+    }
+    else{
+        if ([TencentOAuth HandleOpenURL:url]){
+            return YES;
+        }
+        else{
+            return [QQApiInterface handleOpenURL:url delegate:self];
+        }
+    }
 }
 
 - (void)setupWithInfo:(NSDictionary *)info

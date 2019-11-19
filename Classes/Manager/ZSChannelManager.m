@@ -27,6 +27,7 @@
 
 - (BOOL)handleOpenURL:(NSURL *)url
     sourceApplication:(NSString *)sourceApplication
+         userActivity:(NSUserActivity *)userActivity
          requestBlock:(ZSOpSuccessBlock)requestBlock
 {
     if ([sourceApplication isEqualToString:@"com.tencent.xin"]) {
@@ -42,7 +43,7 @@
             }
         }];
     }
-    return [self.currentChannel handleOpenURL:url];
+    return [self.currentChannel handleOpenURL:url userActivity:userActivity];
 }
 
 - (ZSChannelBase *)channelWithType:(ZSChannelType)channelType notInstallBlock:(ZSNotSupportBlock)block

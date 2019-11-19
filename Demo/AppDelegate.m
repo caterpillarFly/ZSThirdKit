@@ -59,6 +59,7 @@
 {
     return [[ZSChannelManager sharedManager] handleOpenURL:url
                                          sourceApplication:sourceApplication
+                                              userActivity:nil
                                               requestBlock:nil];
 }
 
@@ -66,21 +67,29 @@
 {
     return [[ZSChannelManager sharedManager] handleOpenURL:url
                                          sourceApplication:nil
+                                              userActivity:nil
                                               requestBlock:nil];
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-    return [[ZSChannelManager sharedManager] handleOpenURL:url
-                                         sourceApplication:nil
-                                              requestBlock:nil];
+    return  [[ZSChannelManager sharedManager] handleOpenURL:url
+                                          sourceApplication:nil
+                                               userActivity:nil
+                                               requestBlock:nil];
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation
 {
     return [[ZSChannelManager sharedManager] handleOpenURL:url
                                          sourceApplication:sourceApplication
+                                              userActivity:nil
                                               requestBlock:nil];
+}
+
+- (BOOL)application:(UIApplication *)app continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
+{
+    return YES;
 }
 
 @end

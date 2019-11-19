@@ -34,8 +34,11 @@
     return WXSceneSession;
 }
 
-- (BOOL)handleOpenURL:(NSURL *)url
+- (BOOL)handleOpenURL:(NSURL *)url userActivity:(NSUserActivity *)userActivity
 {
+    if (userActivity) {
+        return [WXApi handleOpenUniversalLink:userActivity delegate:self];
+    }
     return [WXApi handleOpenURL:url delegate:self];
 }
 

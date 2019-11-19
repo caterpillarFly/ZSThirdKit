@@ -7,7 +7,7 @@ PODS:
   - ZSCategories/All (0.0.2):
     - ZSCategories/NS-Category
   - ZSCategories/NS-Category (0.0.2)
-  - ZSQQSDK (0.0.2)
+  - ZSQQSDK (0.0.3)
 
 DEPENDENCIES:
   - HTestVC
@@ -30,7 +30,7 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 368ae03b72ee3ea1328c4f11326fbb5d2721d118
   WeiboSDK: acb067053668102cf07d01aa7604350162c2e466
   ZSCategories: abebb02b98e72fd4195fa3d7e2a1a8bc59cfecac
-  ZSQQSDK: 79247896b8a7e1b1f6eca6e9804b948b58339f0d
+  ZSQQSDK: 90e214b1c565139add6c81bdbe9f536017522c39
 
 PODFILE CHECKSUM: 2bc5fa4cef13007711777ba0237eb1666d7a3960
 
