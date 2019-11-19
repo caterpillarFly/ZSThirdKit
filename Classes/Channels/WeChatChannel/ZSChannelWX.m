@@ -13,8 +13,9 @@
 @interface ZSChannelWX () <WXApiDelegate, ZSOpProcessProtocol>
 
 @property (nonatomic) BOOL hasRegistered;
-@property (nonatomic) NSString *appKey;
-@property (nonatomic) NSString *appSecret;
+@property (nonatomic, copy) NSString *appKey;
+@property (nonatomic, copy) NSString *appSecret;
+@property (nonatomic, copy) NSString *universalLink;
 
 @end
 
@@ -55,8 +56,8 @@
     if (!self.hasRegistered) {
         @synchronized (self) {
             if (!self.hasRegistered) {
-                [WXApi registerApp:self.appKey];
-                self.hasRegistered = YES;
+                BOOL result = [WXApi registerApp:self.appKey universalLink:self.universalLink];
+                self.hasRegistered = result;
             }
         }
     }
@@ -67,6 +68,7 @@
     [super setupWithInfo:info];
     self.appKey = info[@"appKey"];
     self.appSecret = info[@"appSecret"];
+    self.universalLink = info[@"universalLink"];
 }
 
 - (ZSChannelType)channelType
@@ -82,28 +84,35 @@
     authReq.scope = @"snsapi_userinfo";
     authReq.state = @"com.migu.mobilemusic";
     
-    BOOL res = [WXApi sendReq:authReq];
-    if (!res) {
-        NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"登录失败");
-        [self didFail:error];
-    }
+    @weakify(self)
+    [WXApi sendReq:authReq completion:^(BOOL success) {
+        @strongify(self)
+        if (!success) {
+            NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"登录失败");
+            [self didFail:error];
+        }
+    }];
 }
 
 - (void)shareInfo:(ZShareInfo *)info
 {
     [self registerApp];
     
+    @weakify(self)
     [self reqWithInfo:info finish:^(SendMessageToWXReq *req) {
+        @strongify(self)
         if (!req) {
             NSError *error = ZSChannelError(ZSChannelErrorCodeUnsupport, @"不支持分享该类型数据");
             [self didFail:error];
         }
         else{
-            BOOL sendRes = [WXApi sendReq:req];
-            if (!sendRes) {
-                NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"分享请求失败");
-                [self didFail:error];
-            }
+            [WXApi sendReq:req completion:^(BOOL success) {
+                @strongify(self)
+                if (!success) {
+                    NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"分享请求失败");
+                    [self didFail:error];
+                }
+            }];
         }
     }];
     

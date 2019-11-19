@@ -28,7 +28,7 @@ SOFTWARE.
 
 ## WechatOpenSDK
 
-Copyright 2017 tencent.com. All rights reserved.
+Copyright 2019 tencent.com. All rights reserved.
 
 
 ## WeiboSDK

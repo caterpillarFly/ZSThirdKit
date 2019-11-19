@@ -293,7 +293,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ZSThirdKit/Pods-ZSThirdKit-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ZSThirdKit/Pods-ZSThirdKit-resources.sh",
 				"${PODS_ROOT}/WeiboSDK/libWeiboSDK/WeiboSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -302,7 +302,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZSThirdKit/Pods-ZSThirdKit-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZSThirdKit/Pods-ZSThirdKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4DA1D5C986FDD70E3123A7 /* [CP] Check Pods Manifest.lock */ = {

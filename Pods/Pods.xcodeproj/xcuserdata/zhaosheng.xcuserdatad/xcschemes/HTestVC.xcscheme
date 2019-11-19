@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B1457CF3F3929A435AC1373925649985"
+               BlueprintIdentifier = "0077570AB2AABBC501CA08C573BF05B9"
+               BuildableName = "libHTestVC.a"
                BlueprintName = "HTestVC"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libHTestVC.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

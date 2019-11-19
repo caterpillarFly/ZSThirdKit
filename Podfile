@@ -5,7 +5,7 @@ target 'ZSThirdKit' do
 
   pod 'HTestVC'
   
-  pod 'ZSQQSDK', '~> 0.0.1'
+  pod 'ZSQQSDK'
   pod 'WechatOpenSDK'
   pod 'WeiboSDK'
   pod 'ZSCategories', '~>0.0.2'

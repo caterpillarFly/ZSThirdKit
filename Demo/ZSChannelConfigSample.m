@@ -24,7 +24,8 @@
                      @"channelName" :   @"微信好友",
                      @"normalIcon"  :   @"",
                      @"selectedIcon":   @"",
-                     @"highlightedIcon" : @""
+                     @"highlightedIcon" : @"",
+                     @"universalLink" : @""
                      };
             break;
         }
@@ -34,7 +35,8 @@
                      @"channelName" :   @"朋友圈",
                      @"normalIcon"  :   @"",
                      @"selectedIcon":   @"",
-                     @"highlightedIcon" : @""
+                     @"highlightedIcon" : @"",
+                     @"universalLink" : @""
                      };
             break;
         }

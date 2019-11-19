@@ -16,15 +16,10 @@
 
 @implementation HTestVC
 
-
-- (instancetype)init
+- (NSMutableArray *)menuData
 {
-    self = [super init];
-    if (self) {
-        self.title = @"MENU";
-        _menuData = [NSMutableArray new];
-    }
-    return self;
+    if (!_menuData) _menuData = [NSMutableArray new];
+    return _menuData;
 }
 
 - (void)addMenu:(NSString *)title callback:(HTestCallback)callback
@@ -38,12 +33,13 @@
     item.title = title;
     item.subTitle = subTitle;
     item.callback = callback;
-    [_menuData addObject:item];
+    [self.menuData addObject:item];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"MENU";
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -56,7 +52,7 @@
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _menuData.count;
+    return self.menuData.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -70,7 +66,7 @@
         cell.detailTextLabel.textColor = [UIColor darkGrayColor];
         cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
     }
-    BDebugMenuItem *item = [_menuData objectAtIndex:indexPath.row];
+    BDebugMenuItem *item = [self.menuData objectAtIndex:indexPath.row];
     cell.textLabel.text = item.title;
     cell.detailTextLabel.text= item.subTitle;
     return cell;
@@ -78,7 +74,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    BDebugMenuItem *item = [_menuData objectAtIndex:indexPath.row];
+    BDebugMenuItem *item = [self.menuData objectAtIndex:indexPath.row];
     if (item.callback) item.callback(item, indexPath);
 }
 @end
