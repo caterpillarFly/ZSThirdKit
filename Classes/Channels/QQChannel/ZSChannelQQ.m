@@ -17,6 +17,7 @@
 
 @property (nonatomic, copy) NSString *appKey;
 @property (nonatomic) TencentOAuth *auth;
+@property (nonatomic, copy) NSString *universalLink;
 
 @end
 
@@ -48,8 +49,8 @@
 - (void)setupWithInfo:(NSDictionary *)info
 {
     [super setupWithInfo:info];
-    NSString *appKey = info[@"appKey"];
-    self.appKey = appKey;
+    self.appKey = info[@"appKey"];
+    self.universalLink = info[@"universalLink"];
 }
 
 - (ZSChannelType)channelType
@@ -238,7 +239,12 @@
     if (!_auth) {
         @synchronized (self) {
             if (!_auth) {
-                _auth = [[TencentOAuth alloc] initWithAppId:self.appKey andDelegate:self];
+                if (self.universalLink.length) {
+                    _auth = [[TencentOAuth alloc] initWithAppId:self.appKey andUniversalLink:self.universalLink andDelegate:self];
+                }
+                else{
+                    _auth = [[TencentOAuth alloc] initWithAppId:self.appKey andDelegate:self];
+                }
             }
         }
     }
