@@ -36,6 +36,7 @@
 
 - (BOOL)handleOpenURL:(NSURL *)url userActivity:(NSUserActivity *)userActivity
 {
+    [self registerApp];
     if (userActivity) {
         return [WXApi handleOpenUniversalLink:userActivity delegate:self];
     }
