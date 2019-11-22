@@ -1,6 +1,6 @@
 PODS:
   - HTestVC (1.2.4)
-  - WechatOpenSDK (1.8.6)
+  - WechatOpenSDK (1.8.4)
   - WeiboSDK (3.1.3)
   - ZSCategories (0.0.2):
     - ZSCategories/All (= 0.0.2)
@@ -11,7 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - HTestVC
-  - WechatOpenSDK
+  - WechatOpenSDK (= 1.8.4)
   - WeiboSDK
   - ZSCategories (~> 0.0.2)
   - ZSQQSDK
@@ -27,11 +27,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   HTestVC: de5dda504435f0d6a448945f3e5ef3b944f0237c
-  WechatOpenSDK: 368ae03b72ee3ea1328c4f11326fbb5d2721d118
+  WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
   WeiboSDK: acb067053668102cf07d01aa7604350162c2e466
   ZSCategories: abebb02b98e72fd4195fa3d7e2a1a8bc59cfecac
   ZSQQSDK: 90e214b1c565139add6c81bdbe9f536017522c39
 
-PODFILE CHECKSUM: 2bc5fa4cef13007711777ba0237eb1666d7a3960
+PODFILE CHECKSUM: 01950eec1100ba7e986f767b64ba17831f598044
 
 COCOAPODS: 1.8.4

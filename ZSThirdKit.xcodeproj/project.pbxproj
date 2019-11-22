@@ -12,6 +12,7 @@
 		BE65DED61F4AD2710043E973 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE65DED51F4AD2710043E973 /* AppDelegate.m */; };
 		BE65DED91F4AD2710043E973 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE65DED81F4AD2710043E973 /* ViewController.m */; };
 		BE65DEDE1F4AD2710043E973 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE65DEDD1F4AD2710043E973 /* Assets.xcassets */; };
+		BE7FAC962387E64F007676A7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7FAC952387E64F007676A7 /* WebKit.framework */; };
 		BEC4676B1F97338600649FAA /* xxx.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BEC4676A1F97338600649FAA /* xxx.jpeg */; };
 		BEE26D361F4AD46300B97C03 /* ZSChannelConfigSample.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE26D351F4AD46300B97C03 /* ZSChannelConfigSample.m */; };
 		BEE26D531F4AD47D00B97C03 /* ZSChannelQQ.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE26D3B1F4AD47D00B97C03 /* ZSChannelQQ.m */; };
@@ -37,6 +38,7 @@
 		BE65DED81F4AD2710043E973 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE65DEDD1F4AD2710043E973 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE65DEE21F4AD2710043E973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE7FAC952387E64F007676A7 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BEC4676A1F97338600649FAA /* xxx.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xxx.jpeg; sourceTree = "<group>"; };
 		BEE26D341F4AD46300B97C03 /* ZSChannelConfigSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChannelConfigSample.h; sourceTree = "<group>"; };
 		BEE26D351F4AD46300B97C03 /* ZSChannelConfigSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSChannelConfigSample.m; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7FAC962387E64F007676A7 /* WebKit.framework in Frameworks */,
 				3D58857ED251E14B240B3343 /* libPods-ZSThirdKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +89,7 @@
 		6DA25F4D15367B344F48F9B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE7FAC952387E64F007676A7 /* WebKit.framework */,
 				9B79D39DF094784667A75ED0 /* libPods-ZSThirdKit.a */,
 			);
 			name = Frameworks;
@@ -261,6 +265,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
