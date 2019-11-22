@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZSThirdKit"
-  s.version      = "0.2.4"
+  s.version      = "0.2.5"
   s.summary      = "CocoaPods for third channels."
 
   s.description  = <<-DESC
