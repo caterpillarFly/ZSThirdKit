@@ -30,7 +30,8 @@
          userActivity:(NSUserActivity *)userActivity
          requestBlock:(ZSOpSuccessBlock)requestBlock
 {
-    if ([sourceApplication isEqualToString:@"com.tencent.xin"]) {
+    if ([sourceApplication isEqualToString:@"com.tencent.xin"] ||
+        [url.absoluteString containsString:@"platformId=wechat"]) {
         //来自微信的分享，需要特殊处理小程序的问题
         if (!self.currentChannel) {
             ZSChannelBase *channel = [self channelWithType:ZSChannelTypeWX];

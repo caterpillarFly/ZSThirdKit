@@ -36,6 +36,9 @@
 
 - (BOOL)handleOpenURL:(NSURL *)url userActivity:(NSUserActivity *)userActivity
 {
+    if (userActivity) {
+        return [WXApi handleOpenUniversalLink:userActivity delegate:self];
+    }
     return [WXApi handleOpenURL:url delegate:self];
 }
 
@@ -56,7 +59,7 @@
     if (!self.hasRegistered) {
         @synchronized (self) {
             if (!self.hasRegistered) {
-                BOOL result = [WXApi registerApp:self.appKey];
+                BOOL result = [WXApi registerApp:self.appKey universalLink:self.universalLink];
                 self.hasRegistered = result;
             }
         }
@@ -84,11 +87,14 @@
     authReq.scope = @"snsapi_userinfo";
     authReq.state = @"com.migu.mobilemusic";
     
-    BOOL res = [WXApi sendReq:authReq];
-    if (!res) {
-        NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"登录失败");
-        [self didFail:error];
-    }
+    @weakify(self)
+    [WXApi sendReq:authReq completion:^(BOOL success) {
+        @strongify(self)
+        if (!success) {
+            NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"登录失败");
+            [self didFail:error];
+        }
+    }];
 }
 
 - (void)shareInfo:(ZShareInfo *)info
@@ -103,11 +109,13 @@
             [self didFail:error];
         }
         else{
-            BOOL sendRes = [WXApi sendReq:req];
-            if (!sendRes) {
-                NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"分享请求失败");
-                [self didFail:error];
-            }
+            [WXApi sendReq:req completion:^(BOOL success) {
+                @strongify(self)
+                if (!success) {
+                    NSError *error = ZSChannelError(ZSChannelErrorCodeUnknown, @"分享请求失败");
+                    [self didFail:error];
+                }
+            }];
         }
     }];
     
