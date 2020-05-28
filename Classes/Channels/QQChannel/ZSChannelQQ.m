@@ -34,19 +34,19 @@
 - (BOOL)handleOpenURL:(NSURL *)url userActivity:(NSUserActivity *)userActivity
 {
     if (userActivity) {
-        if ([TencentOAuth HandleUniversalLink:url]) {
+        if ([QQApiInterface handleOpenUniversallink:url delegate:self]) {
             return YES;
         }
         else{
-            return [QQApiInterface handleOpenUniversallink:url delegate:self];
+            return [TencentOAuth HandleUniversalLink:url];
         }
     }
     else{
-        if ([TencentOAuth HandleOpenURL:url]){
+        if ([QQApiInterface handleOpenURL:url delegate:self]){
             return YES;
         }
         else{
-            return [QQApiInterface handleOpenURL:url delegate:self];
+            return [TencentOAuth HandleOpenURL:url];
         }
     }
 }
