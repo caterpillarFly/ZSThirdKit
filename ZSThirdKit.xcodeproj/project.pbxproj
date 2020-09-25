@@ -6,7 +6,7 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
+/* Begin PBXBuildFile section */\
 		3D58857ED251E14B240B3343 /* libPods-ZSThirdKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B79D39DF094784667A75ED0 /* libPods-ZSThirdKit.a */; };
 		BE65DED31F4AD2710043E973 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE65DED21F4AD2710043E973 /* main.m */; };
 		BE65DED61F4AD2710043E973 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE65DED51F4AD2710043E973 /* AppDelegate.m */; };
@@ -455,10 +455,10 @@
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.migu.dev.mobilemusic;
+				PRODUCT_BUNDLE_IDENTIFIER = xx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d0e051b1-6884-4d91-8ed2-15ef34f2c9be";
-				PROVISIONING_PROFILE_SPECIFIER = migu_mobile_music_pfjDev_development;
+				PROVISIONING_PROFILE_SPECIFIER = xx;
 			};
 			name = Debug;
 		};
@@ -473,10 +473,10 @@
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.migu.dev.mobilemusic;
+				PRODUCT_BUNDLE_IDENTIFIER = xx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d0e051b1-6884-4d91-8ed2-15ef34f2c9be";
-				PROVISIONING_PROFILE_SPECIFIER = migu_mobile_music_pfjDev_development;
+				PROVISIONING_PROFILE_SPECIFIER = xx;
 			};
 			name = Release;
 		};
