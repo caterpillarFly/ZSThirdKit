@@ -30,7 +30,7 @@
 		0747B8A32F91D1A2C09BE6CC /* Pods-ZSThirdKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKit/Pods-ZSThirdKit.debug.xcconfig"; sourceTree = "<group>"; };
 		1D3AEFFAB872656538035E50 /* Pods-ZSThirdKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSThirdKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZSThirdKit/Pods-ZSThirdKit.release.xcconfig"; sourceTree = "<group>"; };
 		9B79D39DF094784667A75ED0 /* libPods-ZSThirdKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZSThirdKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE65DECE1F4AD2710043E973 /* ZSThirdKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZSThirdKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE65DECE1F4AD2710043E973 /* 分享Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "分享Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE65DED21F4AD2710043E973 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE65DED41F4AD2710043E973 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE65DED51F4AD2710043E973 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		BE65DECF1F4AD2710043E973 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE65DECE1F4AD2710043E973 /* ZSThirdKit.app */,
+				BE65DECE1F4AD2710043E973 /* 分享Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 			);
 			name = ZSThirdKit;
 			productName = ZSThirdKit;
-			productReference = BE65DECE1F4AD2710043E973 /* ZSThirdKit.app */;
+			productReference = BE65DECE1F4AD2710043E973 /* 分享Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -457,7 +457,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.share.666;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "分享Demo";
 				PROVISIONING_PROFILE = "d0e051b1-6884-4d91-8ed2-15ef34f2c9be";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -476,7 +476,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.share.666;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "分享Demo";
 				PROVISIONING_PROFILE = "d0e051b1-6884-4d91-8ed2-15ef34f2c9be";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
