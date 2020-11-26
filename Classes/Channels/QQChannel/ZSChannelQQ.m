@@ -74,7 +74,7 @@
                                kOPEN_PERMISSION_GET_OTHER_INFO,
                                kOPEN_PERMISSION_UPLOAD_PIC];
     
-    if (![self.auth authorize:permissionArr inSafari:NO])
+    if (![self.auth authorize:permissionArr])
     {
         NSError *error = ZSChannelError(ZSChannelErrorCodeUnsupport, @"登录失败");
         [self didFail: error];

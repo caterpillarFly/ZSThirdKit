@@ -255,8 +255,8 @@
 				TargetAttributes = {
 					BE65DECD1F4AD2710043E973 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 5YMFML8DB2;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = N6PARVM328;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -449,16 +449,17 @@
 			baseConfigurationReference = 0747B8A32F91D1A2C09BE6CC /* Pods-ZSThirdKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Fangjun Peng (4K62UW9X4N)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Fangjun Peng (4K62UW9X4N)";
-				DEVELOPMENT_TEAM = 5YMFML8DB2;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: zhaoshengxhu@163.com (2SNKH45JE3)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N6PARVM328;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.migu.dev.mobilemusic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.share.666;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d0e051b1-6884-4d91-8ed2-15ef34f2c9be";
-				PROVISIONING_PROFILE_SPECIFIER = migu_mobile_music_pfjDev_development;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -467,16 +468,17 @@
 			baseConfigurationReference = 1D3AEFFAB872656538035E50 /* Pods-ZSThirdKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Fangjun Peng (4K62UW9X4N)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Fangjun Peng (4K62UW9X4N)";
-				DEVELOPMENT_TEAM = 5YMFML8DB2;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: zhaoshengxhu@163.com (2SNKH45JE3)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N6PARVM328;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.migu.dev.mobilemusic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.share.666;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d0e051b1-6884-4d91-8ed2-15ef34f2c9be";
-				PROVISIONING_PROFILE_SPECIFIER = migu_mobile_music_pfjDev_development;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

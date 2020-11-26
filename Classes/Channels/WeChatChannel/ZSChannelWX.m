@@ -86,7 +86,7 @@
     
     SendAuthReq *authReq = [SendAuthReq new];
     authReq.scope = @"snsapi_userinfo";
-    authReq.state = @"com.migu.mobilemusic";
+    authReq.state = @"com.test.share";
     
     @weakify(self)
     [WXApi sendReq:authReq completion:^(BOOL success) {

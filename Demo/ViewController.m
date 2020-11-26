@@ -510,8 +510,8 @@
     ZShareMusic *shareInfo = [ZShareMusic new];
     shareInfo.desc = @"分享一首好听的音乐，真的很好听，试一试你就知道了";
     shareInfo.title = @"音乐分享测试";
-    shareInfo.musicUrl = @"http://218.200.227.207:8080/app/v2/controller/share/ringtone.shtml?id=600908000003312837";
-    shareInfo.musicDataUrl = @"http://c.musicapp.migu.cn/MIGUM2.0/v1.0/content/sub/listenSong.do?contentId=600908000003312837&ua=Ios_migu&version=5.0.7&netType=01&toneFlag=PQ&copyrightId=6990539Z039&resourceType=0&t=1502356007554&channel=0140070&k=b5c5969d9234228e";
+    shareInfo.musicUrl = @"";
+    shareInfo.musicDataUrl = @"";
     NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"xxx.jpeg"];
     shareInfo.thumbnailData = [NSData dataWithContentsOfFile:path];
     NSInteger limitSize = 32 * 1024;
